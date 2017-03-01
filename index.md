@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: landing
 ---
 
 ## AmanithSVG <a class="jumptarget" name="amanithsvg_section"></a>
