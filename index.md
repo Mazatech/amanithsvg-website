@@ -2,9 +2,9 @@
 layout: landing
 ---
 
+---
 
-
-## AmanithSVG <a class="jumptarget" name="amanithsvg_section"></a>
+# AmanithSVG <a class="jumptarget" name="amanithsvg_section"></a>
 
 [AmanithSVG](http://www.amanithsvg.com) is a middleware for reading and rendering [SVG](https://it.wikipedia.org/wiki/Scalable_Vector_Graphics) files, available as a standalone native library and as [Unity plugin](https://www.assetstore.unity3d.com/en/#!/content/19822); AmanithSVG is based on static features of [SVG Tiny 1.2](https://www.w3.org/TR/SVGTiny12/), plus some static features of [SVG Full 1.1](https://www.w3.org/TR/SVG/).  
 The library is written in ANSI C++ and depends on [AmanithVG SRE](http://www.amanithvg.com) for the rendering and [PugiXML](http://pugixml.org) or [TinyXML-2](http://www.grinninglizard.com/tinyxml2/) for XML parsing.
