@@ -2,29 +2,32 @@
 layout: landing
 ---
 
+<div id="logo"></div>
+
+# <span class="w500">A</span>manith<span class="w500">SVG</span> | Standalone <span class="w300">SVG</span> rendering library
+
+## based on the fast & light AmanithVG SRE technology
+
 ---
 
-# AmanithSVG <a class="jumptarget" name="amanithsvg_section"></a>
+### AmanithSVG is a high performance native library for the rendering of static SVG files
 
-[AmanithSVG](http://www.amanithsvg.com) is a middleware for reading and rendering [SVG](https://it.wikipedia.org/wiki/Scalable_Vector_Graphics) files, available as a standalone native library and as [Unity plugin](https://www.assetstore.unity3d.com/en/#!/content/19822); AmanithSVG is based on static features of [SVG Tiny 1.2](https://www.w3.org/TR/SVGTiny12/), plus some static features of [SVG Full 1.1](https://www.w3.org/TR/SVG/).  
-The library is written in ANSI C++ and depends on [AmanithVG SRE](http://www.amanithvg.com) for the rendering and [PugiXML](http://pugixml.org) or [TinyXML-2](http://www.grinninglizard.com/tinyxml2/) for XML parsing.
+<a id="redbutton" href="/docs/tut/000-get-amanithsvg-sdk.html">Getting Started</a>
 
-The AmanithSVG SDK includes:
+<div id="leftsection">
+<span class="titlesection">Cross Platform</span>
+<p>AmanithSVG is written in ANSI C++, it doesn't depend on third party libraries with the exception of the C/C++
+standard library and a modified version of [PugiXML library](http://www.pugixml.org) (by Arseny Kapoulkine). The package comes with precompiled binaries for Desktop: Windows, OSX, Linux and Mobile: iOS, Android, Linux, QNX platforms and supports x86, x86_64, arm, armv7, aarch64, ppc and mips architectures out of the box.</p>
+</div>
 
- - Library (bin) for:
-	
-	- Desktop (Win, OS X, Linux) on: x86, x86\_64
-	
-	- Mobile/Embedded (iOS, Android, Linux, QNX) on: arm, armv7, aarch64, ppc, mips
- 
- - SVG Player example (bin+src) for:
-	
-	- Desktop (Win, OS X, Linux) on: x86, x86\_64
-	
-	- Mobile/Embedded (iOS, Android, Linux, QNX) on: arm, armv7, aarch64, ppc, mips
+<div id="middlesection">
+<span class="titlesection">Lite and Versatile</span>
+<p>AmanithSVG is designed with rendering speed and easy integration in mind. It's particulary suitable for games and multimedia applications. AmanithSVG bindings for game engines and scripting languages are opensource and free.</p>
+</div>
 
- - Documentation
+<div id="rightsection">
+<span class="titlesection">Source Code</span>
+<p>In order to satisfy all the needs to have total control over the software, the complete AmanithSVG (+AmanithVG) source code is always available as a licensing option.</p>
+</div>
 
-Download [AmanithSVG Evaluation SDK](https://github.com/Mazatech/amanithsvg/releases/download/v1.0.0.336/amanithsvg_v1_0_0_336_eval.zip) now!
-
-Interested in licensing? Send us an [eMail](mailto:info@mazatech.com?subject=AmanithSVG%20Licensing).
+<p><br><br><br></p>

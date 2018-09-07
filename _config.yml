@@ -1,8 +1,8 @@
 title: AmanithSVG
-description: Middleware for reading and rendering SVG files
+description: Standalone library for reading and rendering SVG files
 description2: 
 google_analytics: UA-92998226-1
-copyright: (C) 2005-2017 Mazatech, S.r.l.
+copyright: (C) 2005-2018 Mazatech, S.r.l.
 vatid: VAT ID IT03498460405
 rights: All rights reserved
 collections:

@@ -23,7 +23,7 @@ layout: compress
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <style amp-custom>
       {% capture criticalcss %}
-      {% include amanithvg.scss %}
+      {% include amanithsvg.scss %}
       {% endcapture %}
       {{ criticalcss | scssify }}
     </style>
@@ -34,18 +34,57 @@ layout: compress
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
     <![endif]-->
+
+    <script>
+    function showHideFeatures(e) {
+      var i;
+      var elements = document.getElementsByClassName("unsupported-features");
+      
+      e.preventDefault();
+      if (elements) {
+        for (i = 0; i < elements.length; i++) {
+          if (elements[i].style.display != "none") {
+            elements[i].style.display = "none";
+          }
+          else {
+            elements[i].style.display = "table";
+          }
+        }
+      }
+      return false;
+    }
+
+    function fireOnReady() {
+     /* ... */ 
+
+     var fsh = document.getElementById("features-show-hide");
+     if (fsh) {
+      fsh.addEventListener("click", showHideFeatures);
+     }
+    }
+    
+    if (document.readyState === 'complete') {
+        fireOnReady();
+    } else {
+        document.addEventListener("DOMContentLoaded", fireOnReady);
+    }
+    </script>
   </head>
 
   <body>
 
     <div id="header">
 
+      <a href="{{ site.url }}"><div id="nav-logo"></div></a>
+      <div id="nav-title"><a class="a_title" href="{{ site.url }}">{{ site.title }}</a></div>
+
       <input id="nav_checkbox" type="checkbox">
       <label for="nav_checkbox"></label>
       
       <nav id="nav_bar">
         <div id="nav_content">
-          <h2><a class="a_title" href="{{ site.url }}">{{ site.title }}</a></h2>  
+          <a href="{{ site.url }}"><div id="logo"></div></a>
+          <div id="title"><a class="a_title" href="{{ site.url }}">{{ site.title }}</a></div>
           {% include header.html %}
         </div>
       </nav>
@@ -66,11 +105,19 @@ layout: compress
       </div>
 -->
     <div class="wrapper">
-
       <section id="docs">
         {{ content }}
       </section>
+    </div>
 
+    <div id="footer">
+      <nav>
+        <ul>
+          <li>{{ site.copyright }}</li>
+          <li>{{ site.vatid }}</li>
+          <li>{{ site.rights }}</li>
+        </ul>
+      </nav>
     </div>
 
     {% if site.google_analytics %}
