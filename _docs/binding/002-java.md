@@ -54,7 +54,7 @@ The class exposes four (float) properties: x, y, width, height. The class is so 
 
 This class represents a couple of values, one taken from the `SVGTAlign` enum type and the other taken from the `SVGTMeetOrSlice` enum type.
 Alignment indicates whether to force uniform scaling and, if so, the alignment method to use in case the aspect ratio of the source viewport doesn't match the aspect ratio of the destination viewport.
-For detailed explanation of `SVGTAlign` and `SVGTMeetOrSlice` enum type, please refer to the [low level API documentation]({{site.url}}/docs/api/007-rendering-svg-document.html).
+For detailed explanation of `SVGTAlign` and `SVGTMeetOrSlice` enum type, please refer to the [low level API documentation]({{site.url}}/docs/api/007-rendering-svg-document.html#documents-alignment).
 
 | ![Alignments](http://www.w3.org/TR/SVG11/images/coords/PreserveAspectRatio.png) | 
 | :---: |
