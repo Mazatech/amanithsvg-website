@@ -8,7 +8,8 @@ categories: [api]
 
 # Initialization and finalization
 
-Before to use any functionality, AmanithSVG must be initialized calling svgtInit function:
+Before to use any functionality, AmanithSVG must be initialized calling `svgtInit` function:
+
 ```c
 // Initialize the library.
 // Return SVGT_NO_ERROR if the operation was completed successfully, else an error code.

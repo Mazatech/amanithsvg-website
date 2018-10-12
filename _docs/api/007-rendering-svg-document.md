@@ -291,6 +291,9 @@ SVGTErrorCode svgtDocViewportAlignmentSet(SVGTHandle svgDoc,
 
 The function takes an array of two values as input (along with an SVG document of course): the first value tells how the document viewport is aligned within the surface viewport, the second value tells how the aspect ratio is to be preserved (if at all).
 
+
+### Documents alignment
+
 Alignment is defined by the `SVGTAspectRatioAlign` enumeration type:
 
 ```c

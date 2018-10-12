@@ -16,7 +16,7 @@ Index:
  - [Elements (complete list)](#elements)
 	- [Document structure elements](#document-structure-elements)
 	- [Styling elements](#styling-elements)
-	- [Paths elements](#path-elements)
+	- [Paths elements](#paths-elements)
 	- [Basic shapes elements](#basic-shapes-elements)
 	- [Text elements](#text-elements)
 	- [Painting elements](#painting-elements)

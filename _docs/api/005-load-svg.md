@@ -83,7 +83,6 @@ SVGTHandle loadSvg(const char* fileName) {
             svgHandle = svgtDocCreate(buffer);
             /* free the allocated buffer */
             free(buffer);
-            return svgHandle;
         }
     }
 

@@ -1,0 +1,407 @@
+---
+layout: default
+title: "C#"
+date: 2018-01-01 08:00:00 +0100
+chapter: 1
+categories: [binding]
+---
+
+# C# binding
+
+The C# binding of AmanithSVG API consists in two different layers:
+
+ - a low level layer, that uses the [Platform Invoke mechanism](https://en.wikipedia.org/wiki/Platform_Invocation_Services): PInvoke allows .NET code to call functions that are implemented within the AmanithSVG C/C++ .dll (Windows), .dylib (MacOS X), .so (Linux). It is important to understand that the main benefit of this approach is in the ability to call the same C/C++ code on all .NET platforms. The [low level API]({{site.url}}/docs/api/001-data-types.html) is exposed through the [static class AmanithSVG](http://github.com/Mazatech/amanithsvg-bindings/blob/master/CSharp/SVGAssets.cs).
+
+ - a high level layer that abstracts some details of the low level API
+
+Here's a list of classes exposed by the high level C# layer:
+
+ - [SVGColor](#svgcolor)
+ - [SVGPoint](#svgpoint)
+ - [SVGViewport](#svgviewport)
+ - [SVGAspectRatio](#svgaspectratio)
+ - [SVGDocument](#svgdocument)
+ - [SVGSurface](#svgsurface)
+ - [SVGPacker](#svgpacker)
+ - [SVGAssets](#svgassets)
+
+
+---
+
+## SVGColor
+
+`SVGColor` is a simple class that exposes four (float) color components (Red, Green, Blue, Alpha), within the `[0.0f; 1.0f]` range. The class is so simple that it does not require further explanation.
+
+
+---
+
+## SVGPoint
+
+`SVGPoint` is a simple class representing a 2D point, the class exposes two (float) properties: abscissa (X) and ordinate (Y). The class is so simple that it does not require further explanation.
+
+
+---
+
+## SVGViewport
+
+A viewport represents a rectangular area, specified by its top/left corner, a width and an height. The positive x-axis points towards the right, the positive y-axis points down.
+The class exposes four (float) properties: X, Y, Width, Height. The class is so simple that it does not require further explanation.
+
+
+---
+
+## SVGAspectRatio
+
+This class represents a couple of values, one taken from the `SVGAlign` enum type and the other taken from the `SVGMeetOrSlice` enum type.
+Alignment indicates whether to force uniform scaling and, if so, the alignment method to use in case the aspect ratio of the source viewport doesn't match the aspect ratio of the destination viewport.
+For detailed explanation of `SVGAlign` and `SVGMeetOrSlice` enum type, please refer to the [low level API documentation]({{site.url}}/docs/api/007-rendering-svg-document.html#documents-alignment).
+
+| ![Alignments](http://www.w3.org/TR/SVG11/images/coords/PreserveAspectRatio.png) | 
+| :---: |
+| *A brief visual example of possible alignments* |
+
+
+---
+
+## SVGDocument
+
+In order to render SVG contents, AmanithSVG must create an optimized in-memory representation of SVG files: a such representation is called an SVG document.
+An SVG document can be created through `SVGAssets.CreateDocument` function, specifying the xml text. The document will be parsed immediately, and the internal drawing tree will be created.
+Once the document has been created, it can be drawn several times onto one (or more) drawing surface.
+In order to draw a document, we must:
+
+ 1. create a drawing surface using `SVGAssets.CreateSurface`
+ 1. call surface `Draw` method, specifying the document to draw
+
+Example:
+
+```c#
+string xml = File.ReadAllText("animals.svg");
+SVGDocument doc = SVGAssets.CreateDocument(xml);
+```
+
+`SVGDocument` class exposes four main properties: `Handle`, `Width`, `Height`, `Viewport`, `AspectRatio`.
+
+```c#
+/* 
+   AmanithSVG document handle (read only); it's the handle created by the low level
+   svgtDocCreate function.
+*/
+public uint Handle;
+
+/*
+    SVG content itself optionally can provide information about the appropriate 
+    viewport region for the content via the 'width' and 'height' XML attributes
+    on the outermost <svg> element.
+    Use this (readonly) property to get the suggested viewport width, in pixels.
+
+    It returns -1 (i.e. an invalid width) in the following cases:
+    - outermost element is not an <svg> element
+    - outermost <svg> element doesn't have a 'width' attribute specified
+    - outermost <svg> element has a 'width' attribute specified in relative measure
+      units (i.e. em, ex, % percentage).
+*/
+public float Width;
+
+/*
+    SVG content itself optionally can provide information about the appropriate
+    viewport region for the content via the 'width' and 'height' XML attributes on
+    the outermost <svg> element.
+    Use this (readonly) property to get the suggested viewport height, in pixels.
+
+    It returns -1 (i.e. an invalid height) in the following cases:
+    - outermost element is not an <svg> element
+    - outermost <svg> element doesn't have a 'height' attribute specified
+    - outermost <svg> element has a 'height' attribute specified in relative measure
+      units (i.e. em, ex, % percentage).
+*/
+public float Height;
+
+/*
+    The document (logical) viewport to map onto the destination (drawing surface)
+    viewport. When an SVG document has been created through the SVGAssets.CreateDocument
+    function, the initial value of its viewport is equal to the 'viewBox' attribute
+    present in the outermost <svg> element.
+*/
+public SVGViewport Viewport;
+
+/*
+    Viewport aspect ratio.
+    The alignment parameter indicates whether to force uniform scaling and, if so,
+    the alignment method to use in case the aspect ratio of the document viewport doesn't
+    match the aspect ratio of the surface viewport.
+*/
+public SVGAspectRatio AspectRatio;
+```
+
+
+---
+
+## SVGSurface
+
+`SVGSurface` class represents a drawing surface.
+
+A drawing surface is just a rectangular area made of pixels, where each pixel is represented internally by a 32bit unsigned integer.
+A pixel is made of four 8-bit components: red, green, blue, alpha. Coordinate system is the same of SVG specifications: top/left pixel has coordinate (0, 0), with the positive x-axis pointing towards the right and the positive y-axis pointing down.
+
+An `SVGSurface` can be created by using the `SVGAssets.CreateSurface` function, specifying its dimensions in pixels.
+
+`SVGSurface` class exposes four main properties: `Handle`, `Width`, `Height`, `Viewport`.
+
+```c#
+/* 
+   AmanithSVG surface handle (read only); it's the handle created by the low level
+   svgtSurfaceCreate function.
+*/
+public uint Handle;
+
+/* Get current surface width, in pixels. NB: the property is readonly. */
+public uint Width;
+
+/* Get current surface height, in pixels. NB: the property is readonly. */
+public uint Height;
+
+/*
+    The surface viewport (i.e. a drawing surface rectangular area), where to map the
+    source document viewport.
+    The combined use of surface and document viewport, induces a transformation matrix,
+    that will be used to draw the whole SVG document. The induced matrix grants that
+    the document viewport is mapped onto the surface viewport (respecting the specified
+    alignment): all SVG content will be drawn accordingly.
+*/
+public SVGViewport Viewport;
+```
+
+A drawing surface can be resized by calling the `Resize` method:
+
+```c#
+/*
+    Resize the surface, specifying new dimensions in pixels; it returns true if the
+    operation was completed successfully, else false.
+    After resizing, the surface viewport will be reset to the whole surface.
+*/
+public bool Resize(uint newWidth, uint newHeight);
+```
+
+Once that an `SVGDocument` has been created, it can be rendered over a drawing surface using the following `SVGSurface` method:
+
+```c#
+/*
+    Draw an SVG document, on this drawing surface.
+    First the drawing surface is cleared if a valid (i.e. not null) clear color is
+    provided. Then the specified document, if valid, is drawn.
+    It returns true if the operation was completed successfully, else false.
+*/
+public bool Draw(SVGDocument document,
+                 SVGColor clearColor,
+                 SVGRenderingQuality renderingQuality);
+```
+
+Here's a complete example:
+
+```c#
+/* load an SVG file */
+string xml = File.ReadAllText("animals.svg");
+SVGDocument doc = SVGAssets.CreateDocument(xml);
+
+/* create a 512x512 drawing surface */
+SVGSurface srf = SVGAssets.CreateSurface(512, 512);
+
+/* draw the SVG */
+srf.Draw(doc, SVGColor.White, SVGRenderingQuality.Better);
+< do something with surface pixels (e.g. upload pixels to a GPU texture) >
+
+/* destroy surface and document */
+doc.Dispose();
+srf.Dispose();
+```
+
+| ![Animals]({{site.url}}/assets/images/animals.png) | 
+| :---: |
+| *Rendering result* |
+
+
+By modifying the drawing surface viewport, it's possible to draw more than one SVG document on it. For example, suppose that we want to draw four different SVG documents within the same drawing surface (of course over 4 different non-overlapping sub-regions), the code would look as follow:
+
+```c#
+/* load SVG files */
+SVGDocument svg1 = SVGAssets.CreateDocument(File.ReadAllText("car_coolant.svg"));
+SVGDocument svg2 = SVGAssets.CreateDocument(File.ReadAllText("car_maintenance.svg"));
+SVGDocument svg3 = SVGAssets.CreateDocument(File.ReadAllText("car_brake.svg"));
+SVGDocument svg4 = SVGAssets.CreateDocument(File.ReadAllText("car_oil.svg"));
+
+/* create a drawing surface */
+SVGSurface srf = SVGAssets.CreateSurface(512, 512);
+
+/* select an upper-left sub-region and draw the first SVG document */
+srf.Viewport = new SVGViewport(0, 0, 256, 256);
+srf.Draw(svg1, SVGColor.White, SVGRenderingQuality.Better);
+
+/* select an upper-right sub-region and draw the second SVG document */
+srf.Viewport = new SVGViewport(256, 0, 256, 256);
+srf.Draw(svg2, null, SVGRenderingQuality.Better);
+
+/* select the whole lower-left sub-region and draw the third SVG document */
+srf.Viewport = new SVGViewport(0, 256, 256, 256);
+srf.Draw(svg3, null, SVGRenderingQuality.Better);
+
+/* select the whole lower-right sub-region and draw the fourth SVG document */
+srf.Viewport = new SVGViewport(256, 256, 256, 256);
+srf.Draw(svg4, null, SVGRenderingQuality.Better);
+
+< do something with surface pixels (e.g. upload pixels to a GPU texture) >
+
+/* destroy surface and documents */
+svg1.Dispose();
+svg2.Dispose();
+svg3.Dispose();
+svg4.Dispose();
+srf.Dispose();
+```
+
+| ![Surface Viewport ]({{site.url}}/assets/images/srf_viewport.png) | 
+| :---: |
+| *Usage of surface viewport* |
+
+
+---
+
+## SVGPacker
+
+Besides rendering single SVG documents over drawing surfaces, AmanithSVG can pack the rendering of one or more SVG documents within one or more drawing surfaces, automatically. For each given SVG, you can choose to pack the whole document or instead to pack each first-level element separately.
+
+The whole process consists of some steps that must be followed in this order:
+
+ - create an instance of `SVGPacker` class
+ - start the packing process using the `SVGPacker.Begin` method
+ - add one or more SVG document to the process, using the `SVGPacker.Add` method
+ - stop the packing process using the `SVGPacker.End` method
+ - for each atlas information (`SVGPackedBin`) returned by the `SVGPacker.End` method:
+    
+    - create a drawing surface with the same atlas dimensions, using the `SVGAssets.CreateSurface` function
+    - draw the SVG documents/elements packed in the current atlas (`SVGPackedBin`), using the `SVGSurface.Draw` method
+
+Here is a complete example code:
+
+```c#
+/* create an SVG document */
+SVGDocument doc = SVGAssets.CreateDocument(File.ReadAllText("orc.svg"));
+
+/* initialize the packing process: generate atlases with a maximum 512 pixels
+   dimension and no additional scale */
+SVGPacker packer = SVGAssets.CreatePacker(1.0f, 512, 1, false);
+
+if (packer.Begin()) {
+    
+    /* add the document to the packer, and get back the actual number of 
+       packed bounding boxes */
+    uint[] info = packer.Add(doc, true, 1.0f);
+
+    /* info[0] = number of collected bounding boxes
+       info[1] = the actual number of packed bounding boxes */
+    if ((info == null) || (info[1] != info[0])) {
+        Console.WriteLine("Some SVG elements cannot be packed!");
+        Console.WriteLine("Specified maximum texture dimensions do not allow to pack all SVG elements.");
+        /* close the packing process without doing anything */
+        packer.End(false);
+    }
+    else {
+        /* finalize the packing process and get back generated bins */
+        SVGPackedBin[] bins = packer.End(true);
+
+        for (int i = 0; i < bins.Length; ++i) {
+            /* extract the bin (i.e. get atlas width, height and the number of packed documents/elements) */
+            SVGPackedBin bin = bins[i];
+            /* create a drawing surface with the same atlas dimension */
+            SVGSurface srf = SVGAssets.CreateSurface(bin.Width, bin.Height);
+            /* draw all documents/elements over the drawing surface */
+            srf.Draw(bin, SVGColor.Clear, SVGRenderingQuality.Better);
+            /* if needed, process the drawing surface (e.g. upload its pixels on a GPU texture) and then destroy it */
+            < do something with surface pixels (e.g. upload pixels to a GPU texture) >
+            /* destroy the surface */
+            srf.Dispose();
+        }
+    }
+}
+
+/* destroy the document */
+doc.Dispose();
+```
+
+If we run the example code using this [orc.svg file](https://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/orc.svg.txt), it will produce a single 452 x 108 atlas, with the following packed rectangles:
+
+|          | elemName | originalX | originalY | x    | y    | width | height | zOrder |
+| :------- | :------- | --------: | --------: | ---: | ---: | ----: | -----: | -----: |
+| rects[0] | head | 5 | 9 | 0 | 0 | 133 | 105 | 9 |
+| rects[1] | body | 26 | 80 | 133 | 0 | 93 | 97 | 7 |
+| rects[2] | sx_leg_down | 75 | 191 | 226 | 0 | 48 | 61 | 2 |
+| rects[3] | dx_leg_down | 41 | 191 | 274 | 0 | 38 | 63 | 4 |
+| rects[4] | sx_arm_up | 95 | 102 | 312 | 0 | 38 | 54 | 5 |
+| rects[5] | dx_arm_up | 19 | 98 | 350 | 0 | 38 | 54 | 6 |
+| rects[6] | dx_arm_down | 19 | 141 | 388 | 0 | 32 | 68 | 8 |
+| rects[7] | sx_arm_down | 99 | 139 | 420 | 0 | 32 | 68 | 0 |
+| rects[8] | dx_leg_up | 43 | 147 | 312 | 54 | 38 | 54 | 3 |
+| rects[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
+{:.rwd-table2}
+
+| ![Orc svg]({{site.url}}/assets/images/orc.png) | 
+| :---: |
+| *orc.svg* |
+
+| ![Orc atlas]({{site.url}}/assets/images/orc_atlas.png) | 
+| :---: |
+| *orc atlas* |
+
+It is important to note that the whole packing process, as well as the `SVGSurface.Draw(SVGPackedBin, SVGColor, SVGRenderingQuality)` method, is not affected by SVG documents viewports nor by drawing surfaces viewports. In other words, the viewport values set through `SVGDocument.Viewport` and `SVGSurface.Viewport` properties do not affect the behavior of packing processes and atlas generation.
+
+For a more detailed explanation on the packing process, please refer to the relative [low level API]({{site.url}}/docs/api/008-packing-atlas-generation.html).
+
+
+---
+
+## SVGAssets
+
+`SVGAssets` is a static class through which you can create `SVGDocument`, `SVGSurface` and `SVGPacker` instances; here are the main methods:
+
+```c#
+/* Create a drawing surface, specifying its dimensions in pixels. */
+public static SVGSurface CreateSurface(uint width, uint height);
+
+/* Create and load an SVG document, specifying the whole xml string. */
+public static SVGDocument CreateDocument(string xmlText);
+
+/*
+    Create an SVG packer, specifying a scale factor.
+    Every collected SVG document/element will be packed into rectangular bins, whose
+    dimensions won't exceed the specified 'maxTexturesDimension' in pixels.
+    If true, 'pow2Textures' will force bins to have power-of-two dimensions.
+    Each rectangle will be separated from the others by the specified 'border' in pixels.
+    The specified 'scale' factor will be applied to all collected SVG documents/elements,
+    in order to realize resolution-independent atlases.
+*/
+public static SVGPacker CreatePacker(float scale,
+                                     uint maxTexturesDimension,
+                                     uint border,
+                                     bool pow2Textures);
+```
+
+There are also three main properties that **must** be implemented according to the target windowing/graphics system. The correct implementation of such three properties, allows AmanithSVG to resolve SVG lengths expressed in percentage.
+
+```c#
+/* Get screen/device horizontal resolution, in pixels. */
+public static uint ScreenResolutionWidth;
+
+/* Get screen/device vertical resolution, in pixels. */
+public static uint ScreenResolutionHeight;
+
+/* Get screen/device dpi (dots per inch). */
+public static float ScreenDpi;
+```
+
+Because there exists several .NET based windowing/graphics systems (e.g. .NET Framework, Xamarin.Android, Xamarin.iOS, Xamarin.Mac), the implementation of such three properties is left to the developer.
+The default implementation uses a legacy code for the sole purpose of being able to use the C# binding since the beginning; NB: such legacy code never ensures the correct rendering of all SVG files, so it is highly recommended that the developer implement immediately the `ScreenResolutionWidth`, `ScreenResolutionHeight` and `ScreenDpi` properties.
+
+For Xamarin, it is advisable to take a look at [Xamarin.Essentials DeviceDisplay class](https://docs.microsoft.com/it-it/xamarin/essentials/device-display) and at [Android.Util.DisplayMetrics](https://developer.xamarin.com/api/type/Android.Util.DisplayMetrics/#memberlist). For native methods on how to get screen resolution and dpi, please refer to [this section]({{site.url}}/docs/api/004-initialization-finalization.html).
+
+
+---

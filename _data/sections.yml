@@ -1,5 +1,6 @@
 items: [
   ['desc', 'Documentation'],
   ['tut', 'Getting started'],
-  ['api', 'AmanithSVG API']
+  ['api', 'AmanithSVG API'],
+  ['binding', 'Bindings']
 ]
