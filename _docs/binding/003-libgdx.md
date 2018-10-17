@@ -17,10 +17,10 @@ In particular, the libGDX binding of AmanithSVG API consists of the extension of
 Here's a list of classes exposed by the libGDX binding:
 
  - [SVGTexture](#svgtexture)
- - [SVGTextureAtlasGenerator](svgtextureatlasgenerator)
- - [SVGTextureAtlas](svgtextureatlas)
- - [SVGTextureAtlasPage](svgtextureatlaspage)
- - [SVGTextureAtlasRegion](svgtextureatlasregion)
+ - [SVGTextureAtlasGenerator](#svgtextureatlasgenerator)
+ - [SVGTextureAtlas](#svgtextureatlas)
+ - [SVGTextureAtlasPage](#svgtextureatlaspage)
+ - [SVGTextureAtlasRegion](#svgtextureatlasregion)
 
 
 ---
