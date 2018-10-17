@@ -379,7 +379,7 @@ height="264.76px" viewBox="0 0 145.925 264.76">
 | :---: |
 | *orc.svg* |
 
-The packing of first-level elements (`maxDimension = 512, border = 0, pow2Bins = SVGT_FALSE, scale = 1`) will produce a single `452 x 108` atlas, with the following packed rectangles:
+The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins = SVGT_FALSE, scale = 1`) will produce a single `452 x 108` atlas, with the following packed rectangles:
 
 |          | elemName | originalX | originalY | x    | y    | width | height | zOrder |
 | :------- | :------- | --------: | --------: | ---: | ---: | ----: | -----: | -----: |

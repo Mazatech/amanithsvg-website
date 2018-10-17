@@ -326,7 +326,7 @@ if (packer.begin()) {
 doc.dispose();
 ```
 
-If we run the example code using this [orc.svg file](https://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/orc.svg.txt), it will produce a single 452 x 108 atlas, with the following packed rectangles:
+If we run the example code using this [orc.svg file](https://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/orc.svg.txt), it will produce a single `452 x 108` bin, with the following packed rectangles:
 
 |          | elemName | originalX | originalY | x    | y    | width | height | zOrder |
 | :------- | :------- | --------: | --------: | ---: | ---: | ----: | -----: | -----: |
