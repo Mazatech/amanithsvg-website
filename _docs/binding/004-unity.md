@@ -1,0 +1,352 @@
+---
+layout: default
+title: "Unity"
+date: 2018-01-01 08:00:00 +0100
+chapter: 4
+categories: [binding]
+---
+
+# Unity binding
+
+[Unity](http://unity3d.com/) is a cross-platform game engine that can be used to create both three-dimensional and two-dimensional games as well as simulations for its many platforms. Unity engine offers a primary scripting API in C#, for both the Unity editor in the form of plugins, and games themselves, as well as drag and drop functionality.
+
+So the AmanithSVG binding for Unity consists in a set of C# classes and editor plugins in order to expose AmanithSVG functionalities in a simple way; the binding uses the higher layer C# binding already discussed [here]({{site.url}}/docs/binding/001-csharp.html).
+
+Here's a list of classes exposed by the Unity binding (you can find them [here](http://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity/Assets/SVGAssets/Scripts/SVGAssets)):
+
+ - [SVGTextureBehaviour](#svgtexturebehaviour)
+ - [SVGBackgroundBehaviour](#svgbackgroundbehaviour)
+ - [SVGCameraBehaviour](#svgcamerabehaviour)
+ - [SVGAtlas](#svgatlas)
+ - [SVGSpriteLoaderBehaviour](#svgspriteloaderbehaviour)
+ - [SVGUIAtlas](#svguiatlas)
+ - [SVGUISpriteLoaderBehaviour](#svguispriteloaderbehaviour)
+ - [SVGCanvasBehaviour](#svgcanvasbehaviour)
+
+
+---
+
+## SVGTextureBehaviour
+
+This [monobehaviour](http://docs.unity3d.com/ScriptReference/MonoBehaviour.html) script performs a single SVG file rendering on a [Texture2D](http://docs.unity3d.com/ScriptReference/Texture2D.html).
+It takes in input the SVG file (as a [TextAsset](http://docs.unity3d.com/ScriptReference/TextAsset.html)), the texture dimensions and a clear color. Such color will be used to clear the surface before to start the rendering. The rendering is performed in the [Start](http://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) function, that assigns the generated texture to the `renderer.material.mainTexture` field of the associated [GameObject](http://docs.unity3d.com/ScriptReference/GameObject.html). The `Fast upload` flag enables the native update of the texture instead to use the (slower) legacy [LoadRawTextureData](http://docs.unity3d.com/ScriptReference/Texture2D.LoadRawTextureData.html) + [Apply](http://docs.unity3d.com/ScriptReference/Texture2D.Apply.html) method.
+
+| ![TODO]({{site.url}}/assets/images/unity_texture_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGTextureBehaviour component* |
+
+If the `Fast upload` checkbox is selected, AmanithSVG native library will update the Unity texture using the following methods:
+
+ - [LockRect](http://docs.microsoft.com/en-us/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3dtexture9-lockrect) + `<mem copy>` + [UnlockRect](http://docs.microsoft.com/it-it/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3dtexture9-unlockrect) (Direct3D 9)
+
+ - [UpdateSubresource](http://docs.microsoft.com/en-us/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-updatesubresource) (Direct3D 11)
+
+ - [glTexSubImage2D](http://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glTexSubImage2D.xml) (OpenGL and OpenGL ES)
+
+ - [replaceRegion](http://developer.apple.com/documentation/metal/mtltexture/1515464-replaceregion?language=objc) (Metal)
+
+You can see the usage of `SVGTextureBehaviour` script by opening the [plane scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/plane.unity).
+
+| ![The "plane" scene]({{site.url}}/assets/images/unity_plane_scene.png) | 
+| :---: |
+| *The "plane" scene* |
+
+
+---
+
+## SVGBackgroundBehaviour
+
+This monobehaviour script performs the rendering of a single SVG file on a `Texture2D`, and creates a new sprite out of it (covering the whole texture). The sprite is then assigned to the [SpriteRenderer](http://docs.unity3d.com/ScriptReference/SpriteRenderer.html) component. As for the [SVGTextureBehaviour](anchor a questa pagina) script, it is possible to specify a clear color and the `Fast upload` flag too.
+
+The script has two operational modes: sliced or not sliced (according to the relative checkbox).
+
+When sliced, the script takes two additional parameters, `Width` and `Height`: at runtime, the generated texture/sprite will be sized at `Width` x `Height` exactly, in a way to preserve the SVG aspect ratio and at the same time to cover the largest dimension between `Width` and `Height` (SVG will be aligned to the center).
+
+| ![Editor mask for the SVGBackgroundBehaviour component]({{site.url}}/assets/images/unity_background_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGBackgroundBehaviour component* |
+
+Sliced mode is useful to generate static backgrounds that must cover exactly the whole device screen; you can have a look at the [game scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/game.unity) for a such usage case.
+
+| ![The "game" scene]({{site.url}}/assets/images/unity_game_scene.png) | 
+| :---: |
+| *The "game" scene* |
+
+In the non-sliced mode, the `SVGBackgroundBehaviour` script takes two different additional parameters, `Scale adaption` and `Size`. The first one could be `Horizontal` or `Vertical`, while the second one is expressed in pixels.
+The rendering is performed keeping the (horizontal or vertical) dimension equal to the specified `Size` value, and calculates the other texture dimension preserving the original SVG aspect ratio.
+So the final generated texture will have a size of:
+
+ - `Size` x (`Size` * `SVG aspect ratio`), if `Scale adaption == Horizontal`; or
+ 
+ - (`Size` * `SVG aspect ratio`) x `Size`, if `Scale adaption == Vertical`
+
+The non-sliced mode is useful to generate static "scrollable" backgrounds (i.e. camera viewport smaller than the generated texture); you can have a look at the [orc scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/orc.unity) for a such usage case.
+
+| ![The "game" scene]({{site.url}}/assets/images/unity_orc_scene.png) | 
+| :---: |
+| *The "orc" scene* |
+
+NB: in order to work properly, the `SVGBackgroundBehaviour` script must be assigned to a `GameObject` with a `SpriteRenderer` component already attached (e.g. you can create it by using the `GameObject` → `2D Object` → `Sprite menu`).
+
+
+---
+
+## SVGCameraBehaviour
+
+In order to work properly, `SVGCameraBehaviour` script must be attached to an orthographic [Camera](http://docs.unity3d.com/ScriptReference/Camera.html).
+The script ensures that both camera [aspect ratio](http://docs.unity3d.com/ScriptReference/Camera-aspect.html) and [orthographic size](http://docs.unity3d.com/ScriptReference/Camera-orthographicSize.html) match the current screen resolution. In addition, the script is in charge of communicating a possible change of the screen resolution (e.g. when a mobile device is rotated or a window resized) to all `OnResize` listeners.
+
+| ![Editor mask for the SVGCameraBehaviour component]({{site.url}}/assets/images/unity_camera_behaviour_mask.png ) | 
+| :---: |
+| *Editor mask for the SVGCameraBehaviour component* |
+
+Both [orc scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/orc.unity) and [game scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/game.unity) use the `SVGCameraBehaviour` script.
+
+
+---
+
+## SVGAtlas
+
+This [ScriptableObject](http://docs.unity3d.com/ScriptReference/ScriptableObject.html) allows the generation of sprites from different SVG files, packing the generated sprites into one or more textures, according to the specified parameters.
+
+| ![Editor mask for the SVGAtlas scriptable object]({{site.url}}/assets/images/unity_atlas_mask.png ) | 
+| :---: |
+| *Editor mask for the SVGAtlas scriptable object* |
+
+Each SVG file can be drag&dropped in the relative section (the region labeled with "Drag & drop SVG assets here"). Dragged items can be moved within the list, changing their order: this will induce an automatic z-order (i.e. [Order in Layer](http://docs.unity3d.com/ScriptReference/Renderer-sortingOrder.html) value of `SpriteRenderer` components) of generated sprites. In the detail, sprites will be ordered in a way such that the one on the top of the list will be placed behind all others.
+
+For each SVG entry, it is possible to specify if the altas generator must render it as a whole single sprite ("Separate groups" option unchecked), or if first level groups (`<g>`tags) must be rendered as separate sprites ("Separate groups" option checked). This option will allow the animation of each group.
+
+| ![Example of generated textures and sprites]({{site.url}}/assets/images/unity_atlas_textures_and_sprites.png ) | 
+| :---: |
+| *Example of generated textures and sprites* |
+
+Being vector based, SVG can be freely scaled without visual quality loss. In order to give the user an effective way to control the scaling factor, `SVGAtlas` makes available the following parameters:
+
+ - Reference width, height: it's the resolution at which SVG files would be rendered at the native dimensions, specified within the SVG file itself (outermost `<svg>` element, attributes `width` and `height`). It is really important that all used SVG files contain such attributes, because if they are not available, AmanithSVG will render each sprite filling a whole texture.
+
+ - Device test (simulated) width, height: it's the resolution that will be simulated to generate and test sprites in the editor. These settings allow the user to test different device resolutions in advance.
+
+ - Screen match mode: it defines which device dimension will control the scaling factor. The match mode is defined by the [SVGScalerMatchMode](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scripts/SVGAssets/SVGAssets.cs) enum type, and it's an extension of the Unity [ScreenMatchMode](http://docs.unity3d.com/ScriptReference/UI.CanvasScaler.ScreenMatchMode.html).
+
+ - Offset scale: an additional scale factor that will be applied to all SVG files.
+
+The general formula to calculate the scaling factor is:
+
+`Scl` = (`Device dimension` / `Reference dimension`) * `OffsetScale`
+
+where device dimension is the one chosen by the screen match mode parameter.
+
+For example, lets have:
+
+ - an SVG file with `100 x 150` dimensions (i.e. `<svg width="100px" height="150px">`)
+ 
+ - a reference resolution set to `1024 x 768`
+ 
+ - screen match mode set to `Vertical`
+ 
+ - offset scale set to `1`
+
+On a `640 x 480` device resolution, the sprite will be rendered at `62 x 94` pixels, because scaling factor is `0.625 (480 / 768)`.
+On a `1536 x 2048` device resolution, the sprite will be rendered at `266 x 400` pixels, because scaling factor is `2.667 (2048 / 768)`.
+
+For the complete formula, please have a look at the `ScaleFactorCalc` method of [SVGScaler](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scripts/SVGAssets/SVGAssets.cs) class.
+
+Two additional script parameters control some aspects relative to the generated textures:
+
+ - Force pow2 textures: if checked, this parameters will force the atlas generator to produce textures whose dimensions are power-of-two values.
+ 
+ - Max textures dimension: the maximum dimension allowed during the textures atlas generation. Please make sure that such value won't exceed the real device capability.
+
+The last two script parameters control how many pixels will separate each sprite from any other (`Sprite padding`) and the color that is used to clear the surface before to start the rendering (`Clear color`).
+The `Fast upload` flag has the same meaning described for the [SVGTextureBehaviour](#svgtexturebehaviour) class.
+
+
+---
+
+## SVGSpriteLoaderBehaviour
+
+This monobehaviour script takes care to render the associated sprite at runtime on the device, according to its original [SVGAtlas](#svgatlas) generator settings.
+
+| ![Editor mask for the SVGSpriteLoaderBehaviour component]({{site.url}}/assets/images/unity_sprite_loader_behaviour_mask.png ) | 
+| :---: |
+| *Editor mask for the SVGSpriteLoaderBehaviour component* |
+
+Editable parameters consist in:
+
+ - `Resize on Start`: if checked (default value), the sprite will be regenerated at the [Start](http://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) of monobehaviour, else the user must update the sprite programmatically calling the public `UpdateSprite` function.
+
+ - `Update transform`: if checked (default value), at every monobehaviour [LateUpdate](http://docs.unity3d.com/ScriptReference/MonoBehaviour.LateUpdate.html) call, the sprite local position will be fixed according to its current dimensions. This will ensure that animated child sprites will be in the correct position relative to their father (just the position is relevant, rotation and scale do not need to be fixed). If the sprite is moved programmatically by code (e.g. a root body part of a character), this option must be unchecked.
+
+`Atlas` and `Sprite` properties refer to the `SVGAtlas` object that has generated this sprite.
+
+`SVGSpriteLoaderBehaviour` component is attached automatically to those sprites instantiated through the [SVGAtlasEditor](#svgatlaseditor) editor mask.
+
+
+---
+
+## SVGUIAtlas
+
+`SVGUIAtlas` is really similar to [SVGAtlas](#svgatlas), with the only exception that all parameters that determine the scale factor for SVG contents (e.g. reference resolution, screen match mode, and so on) are provided by a [CanvasScaler](http://docs.unity3d.com/ScriptReference/UI.CanvasScaler.html) component.
+`SVGUIAtlas` objects cannot be instantiated as a standalone asset (as opposed to `SVGAtlas`), but they are strictly attached to [SVGCanvasBehaviour](#svgcanvasbehaviour) components: each `SVGCanvasBehaviour` instance contains a single `SVGUIAtlas` instance.
+Because `SVGCanvasBehaviour` components can be attached to [Canvas](http://docs.unity3d.com/ScriptReference/Canvas.html) only, it follows that `SVGUIAtlas` instances are in a 1-1 relation to canvas instances.
+
+
+---
+
+## SVGUISpriteLoaderBehaviour
+
+This monobehaviour script takes care to render the associated UI sprite at runtime on the device, according to its original [SVGUIAtlas](#svguiatlas) generator settings.
+
+| ![Editor mask for the SVGUISpriteLoaderBehaviour component]({{site.url}}/assets/images/unity_ui_sprite_loader_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGUISpriteLoaderBehaviour component* |
+
+Editable parameters consist in:
+
+ - `Resize on Start`: if checked (default value), the UI sprite will be regenerated at the [Start](http://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html) of monobehaviour, else the user must update the sprite programmatically calling the public `UpdateSprite` function.
+
+ - `Sprite` property refers to the sprite generated by the relative `SVGUIAtlas` object.
+
+The `Edit` button is a shortcut to the pivot and borders editor that would still be reachable by selecting the original [SVGCanvasBehaviour](#svgcanvasbehaviour) component.
+
+`SVGUISpriteLoaderBehaviour` component is attached automatically to those UI sprites instantiated through the [SVGCanvasEditor](#svgcanvaseditor) editor mask.
+
+
+---
+
+## SVGCanvasBehaviour
+
+This monobehaviour script can be attached to [Canvas](http://docs.unity3d.com/ScriptReference/Canvas.html) components only, and it is in charge of storing an instance of [SVGUIAtlas](anchor a questa pagina).
+The main role of `SVGCanvasBehaviour` is to communicate the [canvas scale factor](http://docs.unity3d.com/ScriptReference/Canvas-scaleFactor.html) to the maintained `SVGUIAtlas` instance.
+
+| ![Editor mask for the SVGCanvasBehaviour component]({{site.url}}/assets/images/unity_canvas_behaviour.png) | 
+| :---: |
+| *Editor mask for the SVGCanvasBehaviour component* |
+
+
+---
+
+# Editor scripts
+
+To make sure that the use of AmanithSVG is as simple and convenient as possible from the Unity editor, a set of editor scripts have been implemented: they can be found [here](http://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity/Assets/SVGAssets/Editor/SVGAssets).
+
+ - [SVGBackgroundEditor](#svgbackgroundeditor)
+ - [SVGCameraEditor](#svgcameraeditor)
+ - [SVGAtlasEditor](#svgatlaseditor)
+ - [SVGPivotEditor](#svgpivoteditor)
+ - [SVGSpriteLoaderEditor](#svgspriteloadereditor)
+ - [SVGAtlasSelector](#svgatlasselector)
+ - [SVGSpriteSelector](#svgspriteselector)
+ - [SVGCanvasEditor](#svgcanvaseditor)
+ - [SVGUISpriteLoaderEditor](#svguispriteloadereditor)
+ - [SVGRenamerImporter](#svgrenamerimporter)
+
+
+---
+
+## SVGBackgroundEditor
+
+This editor script implements the inspector mask for the editing of [SVGBackgroundBehaviour](#svgbackgroundbehaviour) components. The layout allows to edit all `SVGBackgroundBehaviour` parameters, taking care to present only those needed ones according to the current operational mode (sliced or not-sliced).
+
+| ![Editor mask for the SVGBackgroundBehaviour component]({{site.url}}/assets/images/unity_background_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGBackgroundBehaviour component* |
+
+
+---
+
+## SVGCameraEditor
+
+This editor script implements the inspector mask for [SVGCameraBehaviour](#svgcamerabehaviour) components. The layout simply displays the camera viewport size, both in pixels and world units.
+
+| ![Editor mask for the SVGCameraBehaviour component]({{site.url}}/assets/images/unity_camera_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGCameraBehaviour component* |
+
+
+---
+
+## SVGAtlasEditor
+
+This editor script implements the inspector mask for the editing of [SVGAtlas](#svgatlas) assets. The base class `SVGBasicAtlasEditor` (from which `SVGAtlasEditor` is derived) also implements a `PostProcessBuild` static class that will take care of some aspects relative to the building phase. In particular, it ensures that during the building process all generated atlases won't be included in the final package (actually they are substituted by a dummy 1x1 texture), because they will be regenerated at runtime on the device. This will reduce the build size, showing the advantage of using SVG files instead of bitmaps.
+
+
+---
+
+## SVGPivotEditor
+
+This editor script allows the user to edit the pivot point of generates sprites. The pivot can be moved by simply clicking the mouse on the desired position or by changing values by hand. It is desirable to setup pivot points before instantiating and/or animating sprites.
+
+| ![The pivot editor window]({{site.url}}/assets/images/unity_pivot_editor.png) | 
+| :---: |
+| *The pivot editor window* |
+
+
+---
+
+## SVGSpriteLoaderEditor
+
+This editor script implements the inspector mask for the editing of [SVGSpriteLoaderBehaviour](#svgspriteloaderbehaviour) components. The layout allows to edit (actually to check/uncheck) the `Resize on start` and `Update transform` properties. In addition the `Atlas` and `Sprite` buttons allow to show and/or select the sprite reference: in particular, such two buttons make use of [SVGAtlasSelector](#svgatlasselector) and [SVGSpriteSelector](#svgspriteselector) editor scripts.
+
+| ![Editor mask for the SVGSpriteLoaderBehaviour component]({{site.url}}/assets/images/unity_sprite_loader_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGSpriteLoaderBehaviour component* |
+
+
+---
+
+## SVGAtlasSelector
+
+This editor script implements a [ScriptableWizard](http://docs.unity3d.com/ScriptReference/ScriptableWizard.html) that allows the (visual) selection of `SVGAtlas` assets.
+
+| ![Select SVGAtlas objects wihtin the project]({{site.url}}/assets/images/unity_atlas_selector.png) | 
+| :---: |
+| *Select SVGAtlas objects wihtin the project* |
+
+
+--- 
+
+## SVGSpriteSelector
+
+This editor script implements a [ScriptableWizard](http://docs.unity3d.com/ScriptReference/ScriptableWizard.html) that allows the (visual) selection of a sprite asset generated by `SVGAtlas` objects.
+
+| ![Select a sprite belonging to an SVGAtlas object]({{site.url}}/assets/images/unity_sprite_selector.png) | 
+| :---: |
+| *Select a sprite belonging to an SVGAtlas object* |
+
+
+---
+
+## SVGCanvasEditor
+
+This editor script implements the inspector mask for the editing of [SVGCanvasBehaviour](#svgcanvasbehaviour) components. In the detail the script displays the canvas scale factor and the underlying [SVGUIAtlas](#svguiatlas) object.
+The base class `SVGBasicAtlasEditor` (from which `SVGCanvasEditor` is derived) also implements a `PostProcessBuild` static class that will take care of some aspects relative to the building phase. In particular, it ensures that during the building process all generated atlases won't be included in the final package (actually they are substituted by a dummy `1x1` texture), because they will be regenerated at runtime on the device. This will reduce the build size, showing the advantage of using SVG files instead of bitmaps.
+
+| ![Editor mask for the SVGCanvasBehaviour component]({{site.url}}/assets/images/unity_canvas_behaviour.png) | 
+| :---: |
+| *Editor mask for the SVGCanvasBehaviour component* |
+
+
+---
+
+## SVGUISpriteLoaderEditor
+
+This editor script implements the inspector mask for the editing of [SVGUISpriteLoaderBehaviour](#svguispriteloaderbehaviour) components. The layout allows to edit (actually to check/uncheck) the `Resize on Start` property. In addition the `Sprite` button allows to show and/or select the sprite reference: in particular, such button makes use of [SVGSpriteSelector](#svgspriteselector) editor script.
+The `Edit` button allows the modification of sprite borders and pivot.
+
+| ![Editor mask for the SVGUISpriteLoaderBehaviour component]({{site.url}}/assets/images/unity_ui_sprite_loader_behaviour_mask.png) | 
+| :---: |
+| *Editor mask for the SVGUISpriteLoaderBehaviour component* |
+
+It is desirable to setup pivot points before instantiating UI sprites.
+
+
+---
+
+## SVGRenamerImporter
+
+This script implements an asset post-processor ([AssetPostprocessor](http://docs.unity3d.com/ScriptReference/AssetPostprocessor.html) class). Its task consists in changing the extension of new asset files from `.svg` to `.svg.txt`, so Unity can recognize those files as [text assets](http://docs.unity3d.com/Manual/class-TextAsset.html).
+
+
+---

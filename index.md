@@ -12,12 +12,12 @@ layout: landing
 
 ### AmanithSVG is a high performance native library for the rendering of static SVG files
 
-<a id="redbutton" href="/docs/tut/000-get-amanithsvg-sdk.html">Getting Started</a>
+<a id="redbutton" href="/docs/getst/000-get-amanithsvg-sdk.html">Getting Started</a>
 
 <div id="leftsection">
 <span class="titlesection">Cross Platform</span>
 <p>AmanithSVG is written in ANSI C++, it doesn't depend on third party libraries with the exception of the C/C++
-standard library and a modified version of [PugiXML library](http://www.pugixml.org) (by Arseny Kapoulkine). The package comes with precompiled binaries for Desktop: Windows, OSX, Linux and Mobile: iOS, Android, Linux, QNX platforms and supports x86, x86_64, arm, armv7, aarch64, ppc and mips architectures out of the box.</p>
+standard library and a modified version of [PugiXML library](http://www.pugixml.org). The package comes with precompiled binaries for Desktop: Windows, OSX, Linux and Mobile: iOS, Android, Linux, QNX platforms and supports x86, x86_64, arm, armv7, aarch64, ppc and mips architectures out of the box.</p>
 </div>
 
 <div id="middlesection">
