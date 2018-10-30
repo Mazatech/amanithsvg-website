@@ -423,4 +423,8 @@ typedef enum {
 } SVGTAspectRatioMeetOrSlice;
 ```
 
+| ![Alignments](http://www.w3.org/TR/SVG11/images/coords/PreserveAspectRatio.png) | 
+| :---: |
+| *A brief visual example of possible alignments* |
+
 ---
