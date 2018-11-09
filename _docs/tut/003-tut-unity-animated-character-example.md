@@ -2,7 +2,7 @@
 layout: default
 title: "Unity - animated character"
 date: 2018-01-01 08:00:00 +0100
-chapter: 2
+chapter: 3
 categories: [tut]
 ---
 
