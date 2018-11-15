@@ -10,7 +10,7 @@ layout: landing
 
 <a id="redbutton" href="/docs/getst/000-get-amanithsvg-sdk.html">Getting Started</a>
 
-### AmanithSVG is a high performance native software library that implements fast static SVG files rendering on top of OpenVG API, developed by [Mazatech](https://www.mazatech.com)
+### AmanithSVG is a high performance native software library that implements fast rendering of static SVG files on top of OpenVG API, developed by [Mazatech](https://www.mazatech.com)
 
 <div class="usersection">
 	<div id="leftsection">
@@ -21,12 +21,12 @@ layout: landing
 
 	<div id="middlesection">
 	<span class="titlesection">Lite and Versatile</span>
-	<p>AmanithSVG is designed with rendering speed and easy integration in mind. It's particulary suitable for games and multimedia applications. AmanithSVG bindings for game engines and scripting languages are opensource and free.</p>
+	<p>AmanithSVG is designed with rendering speed and easy integration in mind. It's particulary suitable for games and multimedia applications. AmanithSVG bindings for LibGDX and Unity game engines, as well as bindings for C# and Java scripting languages are opensource, free and available on GitHub.</p>
 	</div>
 
 	<div id="rightsection">
 	<span class="titlesection">Source Code</span>
-	<p>In order to satisfy all the needs to have total control over the software, the complete AmanithSVG (+AmanithVG) source code is always available as a licensing option.</p>
+	<p>In order to satisfy all the needs to have total control over the software, the complete AmanithSVG (along with AmanithVG) engine source code is always available as a licensing option.</p>
 	</div>
 </div>
 
