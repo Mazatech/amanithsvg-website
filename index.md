@@ -10,7 +10,7 @@ layout: landing
 
 <a id="redbutton" href="/docs/getst/000-get-amanithsvg-sdk.html">Getting Started</a>
 
-### AmanithSVG is a high performance native software library for the rendering of static SVG files, developed by [Mazatech](https://www.mazatech.com)
+### AmanithSVG is a high performance native software library that implements fast static SVG files rendering on top of OpenVG API, developed by [Mazatech](https://www.mazatech.com)
 
 <div class="usersection">
 	<div id="leftsection">
