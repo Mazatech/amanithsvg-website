@@ -26,7 +26,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3.0em;
+  font-size: 2.4em;
   color: #f0f0f0
 }
 
@@ -46,7 +46,7 @@ h4, h5, h6 {
   color: #d8d8d8;
 }
 
-a {
+button, a {
   color: #ffc000;
   font-weight: 300;
   text-decoration: none;
@@ -183,6 +183,81 @@ dt {
   }
 }
 
+#gdprUserConsent {
+  position: fixed;
+  display: block;
+  top: 0;
+  height: auto;
+  background-color: transparent;
+}
+
+#gdprConsentFlow {
+  z-index: 1002;
+  position: fixed;
+  display: block;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, .9);
+  color: #000;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, .75);
+  font: 16px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-shadow: none;
+  font-weight: 300;
+  line-height: 1.5;
+  min-height: 100px;
+
+  .consentPopup {
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    min-height: 100px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    color: #000;
+    font: 18px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+  }
+
+  a {
+    font-weight: 500;
+    color: #016;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: #049;
+  }
+
+  .btn-accept {
+    display: block;
+    background-color: #049;
+    color: #FD0;
+    font: 18px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 1.5;
+    margin-top: 11px;
+    text-decoration: none;
+    border: 1px solid #049;
+    padding: 3px 8px;
+  }
+
+  .btn-accept:hover {
+    cursor: pointer;
+    border: 1px solid #049;
+    background-color: #FD0;
+    color: #049;
+  }
+}
+
 #header {
   z-index: 100;
   position: fixed;
@@ -229,7 +304,7 @@ dt {
       display: block;
       overflow: hidden;
       min-height: 1px;
-      padding: 0 0 200px;
+      padding: 0 0 28px;
 
       #logo {
         border-radius: 300px;
@@ -287,7 +362,6 @@ dt {
         font-size: 1em;
         padding: 0 10px;
         line-height: 1.75;
-
       }
       
       &.article:hover {
@@ -590,7 +664,7 @@ dt {
   p {
     line-height: 1.5;
     font-size: 1.15em;
-    margin-bottom: 1.0em;
+    margin-bottom: 0.67em;
   }
 
   ul, ol {
@@ -599,13 +673,21 @@ dt {
   }
 
   .ovg_default {
+    font-family: "Lucida Sans", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+    font-size: 13px;
+    margin: 0;
+    padding: 2px;
+    border-radius: 10px;
+    display: contents;
     color: #f0b000;
   }
 
+/*
   .ovg_default:after {
     content: "\25CF";
   }
- 
+*/
+
   .rwd-table {
     border-color: transparent;
     background-color: #242424;
@@ -627,10 +709,8 @@ dt {
       display: table-cell;
       padding: .25em .5em;
     } 
-  } 
+  }
 }
-
-
 
 @media screen and (max-width: 975px) {
 
@@ -702,6 +782,10 @@ dt {
 
     a {
       color: white;
+    }
+
+    a:hover {
+      text-decoration: none;
     }
 
     #nav-logo {
@@ -799,6 +883,7 @@ dt {
 
       li {
         line-height: 2.0;
+        font-size: 0.825em;
       }
 
       &.title {
@@ -819,7 +904,7 @@ dt {
 
     h1 {
       letter-spacing: 0;
-      font-size: 2.3em;
+      font-size: 2.0em;
     }
 
     h2 {
@@ -833,12 +918,12 @@ dt {
     }
 
     .rwd-table {
-      overflow: hidden;
+      overflow-x: auto;
       margin: 1em 0;
       min-width: 290px; 
         
       tr {
-        border-bottom: 15px solid #181818;
+        border-bottom: 10px solid #181818;
       }
       
       th {
@@ -846,15 +931,27 @@ dt {
       }
       
       td {
-        display: block;
-
-        &:first-child {
-          padding-top: .5em;
-        }
-        &:last-child {
-          padding-bottom: .5em;
-        }
+        display: flex;
+        border-top: 1px solid #181818;
+        text-align: left;
+        padding: .12em .24em;
       }
+      
+      td:before {
+        float: left;
+        font-weight: 500;
+        margin-right: 4px;
+        white-space: nowrap;
+        color: #fff;
+        background-color: #d04000;
+        text-shadow: 0px 1px 3px #000;
+        font-weight: 400;
+        padding: 0 6px;
+      }
+
+      code {
+        display: contents;
+      } 
       
       th, td {
         border-top: 1px solid #181818;
@@ -893,5 +990,247 @@ dt {
     h3 {
       font-size: 1.2em;
     }
+  }
+}
+
+.tbl_images {
+  table-layout: fixed;
+}
+
+.tbl_images th {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: transparent;
+}
+.xcode_prj th:nth-child(1) {
+  background-image: url(../../assets/images/setup-001.png);
+  line-height: 310px;
+  @media screen and (max-width: 975px) {
+    line-height: 31vw;
+  }
+}
+.dev_cert_before th:nth-child(1) {
+  background-image: url(../../assets/images/setup-002.png);
+  line-height: 258px;
+  @media screen and (max-width: 975px) {
+    line-height: 26vw;
+  }
+}
+.dev_cert_after th:nth-child(1) {
+  background-image: url(../../assets/images/setup-003.png);
+  line-height: 194px;
+  @media screen and (max-width: 975px) {
+    line-height: 19vw;
+  }
+}
+.select_tut_target th:nth-child(1) {
+  background-image: url(../../assets/images/setup-004.png);
+  line-height: 254px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+.srf_viewport th:nth-child(1) {
+  background-image: url(../../assets/images/srf_viewport.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+.preserveAspectRatio th:nth-child(1) {
+  background-image: url(https://www.w3.org/TR/SVG11/images/coords/PreserveAspectRatio.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+.orcSvg th:nth-child(1) {
+  background-image: url(../../assets/images/orc.png);
+  line-height: 265px;
+  @media screen and (max-width: 975px) {
+    line-height: 27vw;
+  }
+}
+.orcSvgAtlas th:nth-child(1) {
+  background-image: url(../../assets/images/orc_atlas.png);
+  line-height: 108px;
+  @media screen and (max-width: 975px) {
+    line-height: 11vw;
+  }
+}
+.animalsSvg th:nth-child(1) {
+  background-image: url(../../assets/images/animals.png);
+  line-height: 430px;
+  @media screen and (max-width: 975px) {
+    line-height: 60vw;
+  }
+}
+.unitytut_SVGTextureBehaviour th:nth-child(1) {
+  background-image: url(../../assets/images/unity_texture_behaviour_mask.png);
+  line-height: 120px;
+  @media screen and (max-width: 975px) {
+    line-height: 22vw;
+  }
+}
+.unitytut_unity_plane_scene th:nth-child(1) {
+  background-image: url(../../assets/images/unity_plane_scene.png);
+  line-height: 570px;
+  @media screen and (max-width: 975px) {
+    line-height: 65vw;
+  }
+}
+.unitytut_unity_background_behaviour_mask th:nth-child(1) {
+  background-image: url(../../assets/images/unity_background_behaviour_mask.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 45vw;
+  }
+}
+.unitytut_unity_game_scene th:nth-child(1) {
+  background-image: url(../../assets/images/unity_game_scene.png);
+  line-height: 640px;
+  @media screen and (max-width: 975px) {
+    line-height: 75vw;
+  }
+}
+.unitytut_unity_orc_scene th:nth-child(1) {
+  background-image: url(../../assets/images/unity_orc_scene.png);
+  line-height: 430px;
+  @media screen and (max-width: 975px) {
+    line-height: 52vw;
+  }
+}
+.unitytut_SVGCameraBehaviour th:nth-child(1) {
+  background-image: url(../../assets/images/unity_camera_behaviour_mask.png);
+  line-height: 530px;
+  @media screen and (max-width: 975px) {
+    line-height: 65vw;
+  }
+}
+.unitytut_SVGAtlas_scriptable th:nth-child(1) {
+  background-image: url(../../assets/images/unity_atlas_mask.png);
+  line-height: 513px;
+  @media screen and (max-width: 975px) {
+    line-height: 60vw;
+  }
+}
+.unitytut_generated_textures_sprites th:nth-child(1) {
+  background-image: url(../../assets/images/unity_atlas_textures_and_sprites.png);
+  line-height: 484px;
+  @media screen and (max-width: 975px) {
+    line-height: 58vw;
+  }
+}
+.unitytut_SVGSpriteLoaderBehaviour th:nth-child(1) {
+  background-image: url(../../assets/images/unity_sprite_loader_behaviour_mask.png);
+  line-height: 310px;
+  @media screen and (max-width: 975px) {
+    line-height: 46vw;
+  }
+}
+.unitytut_SVGUISpriteLoaderBehaviour th:nth-child(1) {
+  background-image: url(../../assets/images/unity_ui_sprite_loader_behaviour_mask.png);
+  line-height: 60px;
+  @media screen and (max-width: 975px) {
+    line-height: 12vw;
+  }
+}
+.unitytut_SVGCanvasBehaviour th:nth-child(1) {
+  background-image: url(../../assets/images/unity_canvas_behaviour.png);
+  line-height: 460px;
+  @media screen and (max-width: 975px) {
+    line-height: 56vw;
+  }
+}
+.unitytut_pivot_editor th:nth-child(1) {
+  background-image: url(../../assets/images/unity_pivot_editor.png);
+  line-height: 280px;
+  @media screen and (max-width: 975px) {
+    line-height: 45vw;
+  }
+}
+.unitytut_unity_atlas_selector th:nth-child(1) {
+  background-image: url(../../assets/images/unity_atlas_selector.png);
+  line-height: 315px;
+  @media screen and (max-width: 975px) {
+    line-height: 50vw;
+  }
+}
+.unitytut_unity_sprite_selector th:nth-child(1) {
+  background-image: url(../../assets/images/unity_sprite_selector.png);
+  line-height: 600px;
+  @media screen and (max-width: 975px) {
+    line-height: 75vw;
+  }
+}
+.libgdx_tut1_setup_1 th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_setup_1.png);
+  line-height: 600px;
+  @media screen and (max-width: 975px) {
+    line-height: 75vw;
+  }
+}
+.libgdx_tut1_setup_2 th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_setup_2.png);
+  line-height: 360px;
+  @media screen and (max-width: 975px) {
+    line-height: 62vw;
+  }
+}
+.libgdx_tut1_setup_3 th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_setup_3.png);
+  line-height: 1070px;
+  @media screen and (max-width: 975px) {
+    line-height: 110vw;
+  }
+}
+.libgdx_tut1_setup_4 th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_setup_4.png);
+  line-height: 400px;
+  @media screen and (max-width: 975px) {
+    line-height: 55vw;
+  }
+}
+.libgdx_tut1_setup_5 th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_setup_5.png);
+  line-height: 450px;
+  @media screen and (max-width: 975px) {
+    line-height: 60vw;
+  }
+}
+.libgdx_tut1_basic_template th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_basic_template.png);
+  line-height: 500px;
+  @media screen and (max-width: 975px) {
+    line-height: 60vw;
+  }
+}
+.libgdx_tut1_four_backgrounds th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_four_backgrounds.png);
+  line-height: 600px;
+  @media screen and (max-width: 975px) {
+    line-height: 75vw;
+  }
+}
+.libgdx_tut1_landscape_layout th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_landscape_layout.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 50vw;
+  }
+}
+.libgdx_tut1_portrait_layout th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_portrait_layout.png);
+  line-height: 400px;
+  @media screen and (max-width: 975px) {
+    line-height: 60vw;
+  }
+}
+.libgdx_tut1_the_game th:nth-child(1) {
+  background-image: url(../../assets/images/libgdx_tut1_the_game.png);
+  line-height: 600px;
+  @media screen and (max-width: 975px) {
+    line-height: 80vw;
   }
 }

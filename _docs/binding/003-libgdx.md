@@ -196,9 +196,10 @@ srf.dispose();
 tex.dispose();
 ```
 
-| ![Surface Viewport ]({{site.url}}/assets/images/srf_viewport.png) | 
+| &nbsp; | 
 | :---: |
 | *Usage of surface viewport* |
+{:.tbl_images .srf_viewport} 
 
 
 ---
@@ -270,13 +271,15 @@ If we run the example code using this [orc.svg file](http://github.com/Mazatech/
 | regions[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
 {:.rwd-table2}
 
-| ![Orc svg]({{site.url}}/assets/images/orc.png) | 
+| &nbsp; | 
 | :---: |
 | *orc.svg* |
+{:.tbl_images .orcSvg} 
 
-| ![Orc atlas]({{site.url}}/assets/images/orc_atlas.png) | 
+| &nbsp; | 
 | :---: |
 | *orc atlas* |
+{:.tbl_images .orcSvgAtlas} 
 
 
 ---

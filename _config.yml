@@ -1,13 +1,15 @@
-title: AmanithSVG, a software library for reading and rendering SVG files
-description: Standalone library for reading and rendering SVG files
+title: "AmanithSVG, a software library for reading and rendering SVG files"
+description: "Standalone library for reading and rendering SVG files"
 description2:
-url: https://www.amanithsvg.com
-enforce_ssl: www.amanithsvg.com
-google_analytics: UA-92998226-1
-copyright: (C) 2018 Mazatech, Srl
-vatid: VAT ID IT03498460405
-rights: All rights reserved
-product_name: AmanithSVG
+keywords: "amanithsvg svg vector graphics 2D library software rendering openvg w3c" 
+url: "https://www.amanithsvg.com"
+enforce_ssl: "www.amanithsvg.com"
+google_analytics: "UA-92998226-1"
+copyright: "(C) 2018 Mazatech, Srl"
+vatid: "VAT ID IT03498460405"
+rights: "All rights reserved"
+product_name: "AmanithSVG"
+company_name_ext: "Mazatech, Srl"
 company_email: "info@mazatech.com"
 facebook_username: "mazatechsrl"
 twitter_username: "Mazatech1"

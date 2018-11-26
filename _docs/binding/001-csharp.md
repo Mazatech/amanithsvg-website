@@ -56,10 +56,10 @@ This class represents a couple of values, one taken from the `SVGAlign` enum typ
 Alignment indicates whether to force uniform scaling and, if so, the alignment method to use in case the aspect ratio of the source viewport doesn't match the aspect ratio of the destination viewport.
 For detailed explanation of `SVGAlign` and `SVGMeetOrSlice` enum type, please refer to the [low level API documentation]({{site.url}}/docs/api/007-rendering-svg-document.html#documents-alignment).
 
-| ![Alignments](http://www.w3.org/TR/SVG11/images/coords/PreserveAspectRatio.png) | 
+| &nbsp; | 
 | :---: |
 | *A brief visual example of possible alignments* |
-
+{:.tbl_images .preserveAspectRatio} 
 
 ---
 
@@ -216,10 +216,10 @@ doc.Dispose();
 srf.Dispose();
 ```
 
-| ![Animals]({{site.url}}/assets/images/animals.png) | 
+| &nbsp; | 
 | :---: |
 | *Rendering result* |
-
+{:.tbl_images .animalsSvg} 
 
 By modifying the drawing surface viewport, it's possible to draw more than one SVG document on it. For example, suppose that we want to draw four different SVG documents within the same drawing surface (of course over 4 different non-overlapping sub-regions), the code would look as follow:
 
@@ -259,9 +259,10 @@ svg4.Dispose();
 srf.Dispose();
 ```
 
-| ![Surface Viewport ]({{site.url}}/assets/images/srf_viewport.png) | 
+| &nbsp; | 
 | :---: |
 | *Usage of surface viewport* |
+{:.tbl_images .srf_viewport} 
 
 
 ---
@@ -344,13 +345,15 @@ If we run the example code using this [orc.svg file](https://github.com/Mazatech
 | rects[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
 {:.rwd-table2}
 
-| ![Orc svg]({{site.url}}/assets/images/orc.png) | 
+| &nbsp; | 
 | :---: |
 | *orc.svg* |
+{:.tbl_images .orcSvg} 
 
-| ![Orc atlas]({{site.url}}/assets/images/orc_atlas.png) | 
+| &nbsp; | 
 | :---: |
 | *orc atlas* |
+{:.tbl_images .orcSvgAtlas} 
 
 It is important to note that the whole packing process, as well as the `SVGSurface.Draw(SVGPackedBin, SVGColor, SVGRenderingQuality)` method, is not affected by SVG documents viewports nor by drawing surfaces viewports. In other words, the viewport values set through `SVGDocument.Viewport` and `SVGSurface.Viewport` properties do not affect the behavior of packing processes and atlas generation.
 

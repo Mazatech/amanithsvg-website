@@ -375,9 +375,10 @@ height="264.76px" viewBox="0 0 145.925 264.76">
 </svg>
 ```
 
-| ![Orc svg]({{site.url}}/assets/images/orc.png) | 
+| &nbsp; | 
 | :---: |
 | *orc.svg* |
+{:.tbl_images .orcSvg} 
 
 The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins = SVGT_FALSE, scale = 1`) will produce a single `452 x 108` atlas, with the following packed rectangles:
 
@@ -395,9 +396,10 @@ The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins =
 | rects[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
 {:.rwd-table2}
 
-| ![Orc atlas]({{site.url}}/assets/images/orc_atlas.png) | 
+| &nbsp; | 
 | :---: |
 | *orc atlas* |
+{:.tbl_images .orcSvgAtlas} 
 
 It is important to note that the whole packing process, as well as the `svgtPackingDraw` function, is not affected by SVG documents viewports nor by drawing surfaces viewports. In other words, the viewport values set through `svgtDocViewportSet` and `svgtSurfaceViewportSet` functions do not affect the behavior of packing processes and atlas generation.
 

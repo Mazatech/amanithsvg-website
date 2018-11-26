@@ -188,9 +188,10 @@ svgtSurfaceViewportSet(surface, srfViewport);
 svgtDocDraw(svg4, surface, SVGT_RENDERING_QUALITY_BETTER);
 ```
 
-| ![Surface Viewport ]({{site.url}}/assets/images/srf_viewport.png) | 
+| &nbsp; | 
 | :---: |
 | *Usage of surface viewport* |
+{:.tbl_images .srf_viewport} 
 
 As for drawing surface, a viewport can be defined even for SVG documents. When an SVG document has been created through the `svgtDocCreate` function, its initial viewport is set equal to the viewBox XML attribute of the outermost `<svg>` element. SVG document viewport can be retrieved and set using the following functions:
 
@@ -423,8 +424,9 @@ typedef enum {
 } SVGTAspectRatioMeetOrSlice;
 ```
 
-| ![Alignments](http://www.w3.org/TR/SVG11/images/coords/PreserveAspectRatio.png) | 
+| &nbsp; | 
 | :---: |
 | *A brief visual example of possible alignments* |
+{:.tbl_images .preserveAspectRatio} 
 
 ---
