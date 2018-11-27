@@ -421,7 +421,7 @@ Animals vector graphics are defined within a single SVG file, where each animal 
 
 | &nbsp; | 
 | :---: |
-| *Rendering result* |
+| *animals.svg* |
 {:.tbl_images .animalsSvg} 
 
 Lets start by copying [animals.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/libGDX/gameCards/android/assets/animals.svg) to the project's `android/assets` folder.

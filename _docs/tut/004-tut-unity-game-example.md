@@ -21,9 +21,10 @@ First, lets create the project structure:
 
  - Select the Game view, and make sure that "Scale" slider is completely on the left (i.e. `scale = 1x`); switch back to the Scene view.
 
-    | ![Set a unitary scene scale]({{site.url}}/assets/images/unity_tut3_init.png) |
+    | &nbsp; | 
     | :---: |
     | *Set a unitary scene scale* |
+    {:.tbl_images .unity_tut3_init}
 
  - Because the project is a new one, it is required to copy AmanithSVG binding for Unity (`Editor`, `Plugins` and `Scripts` folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project.
 
@@ -31,9 +32,10 @@ First, lets create the project structure:
 
  - The new scene should have been already populated with an orthographic camera; make sure that camera is positioned at `(0, 0, -10)`
 
-    | ![The project layout after copying all needed files]({{site.url}}/assets/images/unity_tut3_copy_binding.png) |
+    | &nbsp; | 
     | :---: |
     | *The project layout after copying all needed files* |
+    {:.tbl_images .unity_tut3_copy_binding}
 
 
 --- 
@@ -56,9 +58,10 @@ Like we did in the [previous tutorial]({{site.url}}/docs/tut/003-tut-unity-anima
 
  - we create an "empty" `GameObject` (menu `GameObject` → `Create Empty`) that will represent our main entry point (i.e. the game state and logic), we rename the created object as `Game`, then we add a script to it (menu `Component` → `Add` → `New script`); lets call it `GameExampleBehaviour` (you can see the final full implementation [here](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scripts/GameScene/GameBehaviour.cs)).
 
-| ![The basic template of our project]({{site.url}}/assets/images/unity_tut3_template.png) |
+| &nbsp; | 
 | :---: |
 | *The basic template of our project* |
+{:.tbl_images .unity_tut3_template}
 
 Here is `GameExampleBehaviour` basic C# layout (the code is self-explanatory):
 
@@ -133,9 +136,10 @@ The last thing left to do is to assign the public fields, by drag&drop:
 
  - the four background SVG (`gameBkg1.svg`, `gameBkg2.svg`, `gameBkg3.svg`, `gameBkg4.svg`) to the `BackgroundFiles` field
 
-| ![The game starts to take form: camera and the background sprite...done!]({{site.url}}/assets/images/unity_tut3_background.png) |
+| &nbsp; | 
 | :---: |
 | *The game starts to take form: camera and the background sprite...done!* |
+{:.tbl_images .unity_tut3_background}
 
 Now if we click play, we see that the camera viewing volume is covering the whole screen and the background sprite is resized according to the screen dimensions.
 
@@ -334,9 +338,10 @@ Animals vector graphics are defined within a single SVG file ([animals.svg](http
 </svg>
 ```
 
-| ![animals.svg]({{site.url}}/assets/images/animals.png) |
+| &nbsp; | 
 | :---: |
 | *animals.svg* |
+{:.tbl_images .animalsSvg}
 
 As you can see from the `animals.svg` header, it has been designed for a `768 x 640` resolution (the same that we have chosen, not by chance, for the background).
 Now we want to implement a function that generates animals sprites from the given SVG file, taking care of the current screen resolution. This is easy with AmanithSVG, we make use of [SVGAtlas]({{site.url}}/docs/binding/004-unity.html#svgatlas) class. We create an atlas generator (menu `Assets` → `SVGAssets` → `Create SVG sprites atlas`), that will be used to create and pack all the sprites relative to the animals. We rename the created asset as 'animalsAtlas' just to avoid confusion. Then we can proceed with its settings:
@@ -353,9 +358,10 @@ Now we want to implement a function that generates animals sprites from the give
 
 Click the Update button and you'll see the generated animals sprites. Note that at the `768 x 640 reference resolution`, each animal sprite will have a dimension of `128 x 128`: it will ALWAYS guarantee that we can easily place them on a `4 x 3` grid (landscape layout) or on a `3 x 4` grid (portrait layout), REGARDLESS OF SCREEN RESOLUTION.
 
-| ![Animals sprites have been generated from animals.svg]({{site.url}}/assets/images/unity_tut3_animals_atlas.png) |
+| &nbsp; | 
 | :---: |
 | *Animals sprites have been generated from animals.svg* |
+{:.tbl_images .unity_tut3_animals_atlas}
 
 Now we instantiate a single animal sprite, and we model a game card on it:
 
@@ -371,9 +377,10 @@ Now we instantiate a single animal sprite, and we model a game card on it:
 
  - add a `Box Collider 2D` component (menu `Component` → `Physics 2D` → `Box Collider 2D`), because we want to intercept mouse/touch events
 
-| ![We have instantiated our first card!]({{site.url}}/assets/images/unity_tut3_card_instantiated.png) |
+| &nbsp; | 
 | :---: |
 | *We have instantiated our first card!* |
+{:.tbl_images .unity_tut3_card_instantiated}
 
 The game will include a set of 12 cards, so all we have to do is to clone 11 times the newly created card gameobject (it doesn't matter where the clones are placed in the editor); in addition we will link the `GameExampleBehaviour` component (that is our main entry point) to the 12 cards by defining an internal array of `GameExampleCardBehaviour`:
 
@@ -384,9 +391,10 @@ public GameExampleCardBehaviour[] Cards;
 public SVGAtlas Atlas;
 ```
 
-| ![Now game has supervision on backgrounds SVG, card objects and animals sprites]({{site.url}}/assets/images/unity_tut3_cards_cloned.png) |
+| &nbsp; | 
 | :---: |
 | *Now game has supervision on backgrounds SVG, card objects and animals sprites* |
+{:.tbl_images .unity_tut3_cards_cloned}
 
 The next step is to generate animals sprites at runtime, at each camera `OnResize` event; on the same occasion we have to rearrange the cards on the screen to take account of the new resolution. We split such two functionalities in different functions, within the `GameExampleBehaviour` component:
 
@@ -562,9 +570,10 @@ public void StartNewGame()
 }
 ```
 
-| ![All the graphics are perfectly sized and respect the screen layout]({{site.url}}/assets/images/unity_tut3_cards_shuffled.png) |
+| &nbsp; | 
 | :---: |
 | *All the graphics are perfectly sized and respect the screen layout* |
+{:.tbl_images .unity_tut3_cards_shuffled}
 
 The last detail that is missing is how we detect if a card is selected by mouse/touch actions. This is really simple, because we have already configured box colliders on cards: we just need to write the `OnMouseDown` event handler within the `GameExampleCardBehaviour` script.
 
@@ -578,9 +587,10 @@ void OnMouseDown()
 
 The remaining code (not reported here because really trivial) simply deals with the gameplay: all the cards must start as backside and if the two selected cards match, they are made inactive (`GameExampleCardBehaviour.Active = false`) and removed from the game, otherwise they are covered again. The game ends when all the cards are inactive (i.e. all pairs of animals have been discovered).
 
-| ![A new game and we immediately chose a pair that does not match!]({{site.url}}/assets/images/unity_tut3_the_game.png) |
+| &nbsp; | 
 | :---: |
 | *A new game and we immediately chose a pair that does not match!* |
+{:.tbl_images .unity_tut3_the_game}
 
 The complete project can be found [here](http://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity) (the [game scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/game.unity)).
 As it can be seen, card objects have also an [Animation](http://docs.unity3d.com/Manual/class-Animation.html) component attached, used to perform a simple rotation when shuffling or when two selected cards match.
