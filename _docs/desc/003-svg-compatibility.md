@@ -47,8 +47,6 @@ Index:
 	- [Transfer function element attributes](#transfer-function-element-attributes) 
 	- [Xlink attributes](#xlink-attributes) 
 
-[Toggle display supported/unsupported features block](){:#features-show-hide}
-
 ---
 
 
@@ -1838,7 +1836,6 @@ Index:
 | height | <span class="supported"></span> | <span class="supported"></span> | | - |
 {:.rwd-table}
 {:.unsupported-features}
-
 
 
 ---
