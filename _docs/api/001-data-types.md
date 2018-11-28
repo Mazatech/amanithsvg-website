@@ -67,6 +67,6 @@ typedef enum {
  | `SVGTfloat` | `4 byte` | `IEEE 754 Standard` | 
  | `SVGTboolean` | `4 byte` | `[ SVGT_FALSE(0), SVGT_TRUE(1) ]` |
  | `SVGTbitfiled` | `4 byte` | `[ 0, 2^32 - 1 ]` |
-{:.rwd-table2}
+{:.rwd-table2 .rwd-table-dataTypes}
 
 ---

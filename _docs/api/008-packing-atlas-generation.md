@@ -382,8 +382,8 @@ height="264.76px" viewBox="0 0 145.925 264.76">
 
 The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins = SVGT_FALSE, scale = 1`) will produce a single `452 x 108` atlas, with the following packed rectangles:
 
-|          | elemName | originalX | originalY | x    | y    | width | height | zOrder |
-| :------- | :------- | --------: | --------: | ---: | ---: | ----: | -----: | -----: |
+|          | elemName | originalX | originalY | x   | y   | width | height | zOrder |
+| -------- | -------- | --------- | --------- | --- | --- | ----- | ------ | ------ |
 | rects[0] | head | 5 | 9 | 0 | 0 | 133 | 105 | 9 |
 | rects[1] | body | 26 | 80 | 133 | 0 | 93 | 97 | 7 |
 | rects[2] | sx_leg_down | 75 | 191 | 226 | 0 | 48 | 61 | 2 |
@@ -394,7 +394,7 @@ The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins =
 | rects[7] | sx_arm_down | 99 | 139 | 420 | 0 | 32 | 68 | 0 |
 | rects[8] | dx_leg_up | 43 | 147 | 312 | 54 | 38 | 54 | 3 |
 | rects[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
-{:.rwd-table2}
+{:.rwd-table2 .rwd-table-orcAtlas}
 
 | &nbsp; | 
 | :---: |

@@ -960,7 +960,7 @@ dt {
       font-size: 1.4em;
     }
 
-    .rwd-table {
+    .rwd-table, .rwd-table2 {
       overflow-x: auto;
       margin: 1em 0;
       min-width: 290px; 
@@ -995,12 +995,67 @@ dt {
       code {
         display: contents;
       } 
-      
-      th, td {
-        border-top: 1px solid #181818;
-        text-align: left;
-      }
     }
+  }
+
+  .rwd-table-elements {
+    td:before {
+      min-width: 82px;
+    }
+    td:nth-of-type(1):before { content: "Elements"; }
+    td:nth-of-type(2):before { content: "SVG Full 1.1"; } 
+    td:nth-of-type(3):before { content: "SVG Tiny 1.2"; }
+    td:nth-of-type(4):before { content: "AmanithSVG"; } 
+    td:nth-of-type(5):before { content: "Notes"; } 
+  }
+
+  .rwd-table-attributes {
+    td:before {
+      min-width: 82px;
+    }
+    td:nth-of-type(1):before { content: "Attributes"; }
+    td:nth-of-type(2):before { content: "SVG Full 1.1"; } 
+    td:nth-of-type(3):before { content: "SVG Tiny 1.2"; }
+    td:nth-of-type(4):before { content: "AmanithSVG"; } 
+    td:nth-of-type(5):before { content: "Notes"; } 
+  }
+
+  .rwd-table-dataTypes {
+    td:before {
+      min-width: 100px;
+    }
+    td:nth-of-type(1):before { content: "Data type name"; }
+    td:nth-of-type(2):before { content: "Size"; }
+    td:nth-of-type(3):before { content: "Values range"; }
+  }
+  .rwd-table-errors {
+    td:before {
+      min-width: 65px;
+    }
+    td:nth-of-type(1):before { content: "Error code"; }
+    td:nth-of-type(2):before { content: "Notes"; }  
+  }
+  .rwd-table-orcAtlas {
+    td:before {
+      min-width: 70px;
+    }
+    td:nth-of-type(1):before { content: ""; }
+    td:nth-of-type(2):before { content: "elemName"; } 
+    td:nth-of-type(3):before { content: "originalX"; }
+    td:nth-of-type(4):before { content: "originalY"; } 
+    td:nth-of-type(5):before { content: "x"; }
+    td:nth-of-type(6):before { content: "y"; } 
+    td:nth-of-type(7):before { content: "width"; }
+    td:nth-of-type(8):before { content: "height"; } 
+    td:nth-of-type(9):before { content: "zOrder"; }
+  }
+  .rwd-table-orcPivots {
+    td:before {
+      min-width: 80px;
+    }
+    td:nth-of-type(1):before { content: "Sprite name"; }
+    td:nth-of-type(2):before { content: "Pivot (x)"; }
+    td:nth-of-type(3):before { content: "Pivot (y)"; }
   }
 
   .jumptarget {

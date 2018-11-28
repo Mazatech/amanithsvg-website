@@ -137,7 +137,7 @@ Index:
 | [\<font-face-name\>](#font-face-name-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | [\<metadata\>](#metadata-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | [\<foreignObject\>](#foreignobject-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-elements}
 
 ---
 
@@ -153,7 +153,7 @@ Index:
 | onend | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | onrepeat | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | onload | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Animation attribute target attributes
@@ -163,7 +163,7 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | attributeType | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | attributeName | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Animation timing attributes
@@ -180,7 +180,7 @@ Index:
 | repeatCount | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | repeatDur | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | fill | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Animation value attributes
@@ -195,7 +195,7 @@ Index:
 | from | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | to | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | by | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Animation addition attributes
@@ -205,7 +205,7 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | additive | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | accumulate | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Conditional processing attributes
@@ -218,7 +218,7 @@ Index:
 | requiredFormats | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | requiredFonts | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | systemLanguage | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Core attributes
@@ -230,7 +230,7 @@ Index:
 | xml:lang | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | xml:space | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | xml:id | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### Document event attributes
 {:.unsupported-features}
@@ -243,7 +243,7 @@ Index:
 | onresize | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | onscroll | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | onzoom | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Filter primitive attributes
@@ -256,7 +256,7 @@ Index:
 | width | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | height | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | result | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Graphical event attributes
@@ -274,7 +274,7 @@ Index:
 | onmousemove | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | onmouseout | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | onload | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Presentation attributes
@@ -350,7 +350,7 @@ Index:
 | visibility | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | word-spacing | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | writing-mode | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### Transfer function element attributes
 {:.unsupported-features}
@@ -364,7 +364,7 @@ Index:
 | amplitude | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | exponent | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | offset | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### Xlink attributes
@@ -378,7 +378,7 @@ Index:
 | xlink:role | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | xlink:arcrole | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | xlink:title | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ---
 
@@ -412,7 +412,7 @@ Index:
 | playbackOrder | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | timelineBegin | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | focusable | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<g\> attributes
 
@@ -426,7 +426,7 @@ Index:
 | style | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<defs\> attributes
 
@@ -440,7 +440,7 @@ Index:
 | style | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<desc\> attributes
 
@@ -449,7 +449,7 @@ Index:
 | [Core attributes](#core-attributes) | | | | - |
 | class | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | style | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<title\> attributes
 
@@ -458,7 +458,7 @@ Index:
 | [Core attributes](#core-attributes) | | | | - |
 | class | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | style | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<symbol\> attributes
 
@@ -471,7 +471,7 @@ Index:
 | style | <span class="supported"></span> | | <span class="supported"></span> | - |
 | viewBox | <span class="supported"></span> | | <span class="supported"></span> | - |
 | preserveAspectRatio | <span class="supported"></span> | | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<use\> attributes
 
@@ -491,7 +491,7 @@ Index:
 | width | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | height | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | xlink:href | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<image\> attributes
 {:.unsupported-features}
@@ -513,7 +513,7 @@ Index:
 | width | <span class="supported"></span> | | | - |
 | height | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<switch\> attributes
@@ -529,7 +529,7 @@ Index:
 | style | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | transform | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -546,7 +546,7 @@ Index:
 | type | <span class="supported"></span> | | | - |
 | media | <span class="supported"></span> | | | - |
 | title | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -568,7 +568,7 @@ Index:
 | transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | d | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | pathLength | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ---
 
@@ -593,7 +593,7 @@ Index:
 | height | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | rx | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | ry | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<circle\> attributes
 
@@ -610,7 +610,7 @@ Index:
 | cx | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | cy | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | r | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<ellipse\> attributes
 
@@ -628,7 +628,7 @@ Index:
 | cy | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | rx | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | ry | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<line\> attributes
 
@@ -646,7 +646,7 @@ Index:
 | y1 | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | x2 | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | y2 | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<polyline\> attributes
 
@@ -661,7 +661,7 @@ Index:
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | points | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<polygon\> attributes
 
@@ -676,7 +676,7 @@ Index:
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | points | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ---
 
@@ -704,7 +704,7 @@ Index:
 | rotate | <span class="supported"></span> | <span class="supported"></span> | | - |
 | textLenght | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | editable | <span class="unsupported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<tspan\> attributes
@@ -726,7 +726,7 @@ Index:
 | rotate | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | textLenght | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | lenghtAdjust | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
  
 ### \<tref\> attributes
@@ -743,7 +743,7 @@ Index:
 | style | <span class="supported"></span> | | | - |
 | externalResourcesRequired | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<textPath\> attributes
@@ -763,7 +763,7 @@ Index:
 | startOffset | <span class="supported"></span> | | | - |
 | method | <span class="supported"></span> | | | - |
 | spacing | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<altGlyph\> attributes
@@ -787,7 +787,7 @@ Index:
 | format | <span class="supported"></span> | | | - |
 | rotate | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<altGlyphDef\> attributes
@@ -796,7 +796,7 @@ Index:
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<altGlyphItem\> attributes
@@ -805,7 +805,7 @@ Index:
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<glyphRef\> attributes
@@ -825,7 +825,7 @@ Index:
 | glyphRef | <span class="supported"></span> | | | - |
 | format | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<textArea\> attributes
@@ -843,7 +843,7 @@ Index:
 | height | | <span class="supported"></span> | | - |
 | editable | | <span class="supported"></span> | | - |
 | format | | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<tbreak\> attributes
@@ -853,7 +853,7 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Conditional processing attributes](#conditional-processing-attributes) | | | | - |
 | [Core attributes](#core-attributes) | | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -878,7 +878,7 @@ Index:
 | markerWidth | <span class="supported"></span> | | | - |
 | markerHeight | <span class="supported"></span> | | | - |
 | orient | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<solidColor\> attributes
@@ -889,7 +889,7 @@ Index:
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | solid-color | | <span class="supported"></span> | <span class="supported"></span> | - |
 | solid-opacity | | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ---
 
@@ -907,7 +907,7 @@ Index:
 | name | <span class="supported"></span> | | | - |
 | rendering-intent | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -934,7 +934,7 @@ Index:
 | gradientTransform | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | spreadMethod | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | xlink:href | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<radialGradient\> attributes
 
@@ -956,7 +956,7 @@ Index:
 | gradientTransform | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | spreadMethod | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | xlink:href | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<stop\> attributes
 
@@ -969,7 +969,7 @@ Index:
 | offset | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | stop-color | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | stop-opacity | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<pattern\> attributes
 {:.unsupported-features}
@@ -993,7 +993,7 @@ Index:
 | patternContentUnits | <span class="supported"></span> | | | - |
 | patternTransform | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 --
@@ -1013,7 +1013,7 @@ Index:
 | externalResourcesRequired | <span class="supported"></span> | | <span class="unsupported"></span> | - |
 | transform | <span class="supported"></span> | | <span class="supported"></span> | - |
 | clipPathUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<mask\> attributes
 
@@ -1031,7 +1031,7 @@ Index:
 | height | <span class="supported"></span> | | <span class="supported"></span> | - |
 | maskUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
 | maskContentUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ---
 
@@ -1056,7 +1056,7 @@ Index:
 | filterUnits | <span class="supported"></span> | | <span class="unsupported"></span> | - |
 | primitiveUnits | <span class="supported"></span> | | <span class="unsupported"></span> | - |
 | xlink:href | <span class="supported"></span> | | <span class="unsupported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<feDistantLight\> attributes
 {:.unsupported-features}
@@ -1066,7 +1066,7 @@ Index:
 | [Core attributes](#core-attributes) | | | | - |
 | azimuth | <span class="supported"></span> | | | - |
 | elevation | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<fePointLight\> attributes
@@ -1078,7 +1078,7 @@ Index:
 | x | <span class="supported"></span> | | | - |
 | y | <span class="supported"></span> | | | - |
 | z | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feSpotLight\> attributes
@@ -1095,7 +1095,7 @@ Index:
 | pointsAtZ | <span class="supported"></span> | | | - |
 | specularExponent | <span class="supported"></span> | | | - |
 | limitingConeAngle | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feBlend\> attributes
@@ -1111,7 +1111,7 @@ Index:
 | in | <span class="supported"></span> | | | - |
 | in2 | <span class="supported"></span> | | | - |
 | mode | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feColorMatrix\> attributes
@@ -1126,7 +1126,7 @@ Index:
 | in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic only |
 | type | <span class="supported"></span> | | <span class="supported"></span> | - |
 | values | <span class="supported"></span> | | <span class="supported"></span> | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 
 ### \<feComponentTransfer\> attributes
 {:.unsupported-features}
@@ -1139,7 +1139,7 @@ Index:
 | class | <span class="supported"></span> | | | - |
 | style | <span class="supported"></span> | | | - |
 | in | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feFuncR\> attributes
@@ -1156,7 +1156,7 @@ Index:
 | amplitude | <span class="supported"></span> | | | - |
 | exponent | <span class="supported"></span> | | | - |
 | offset | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feFuncG\> attributes
@@ -1173,7 +1173,7 @@ Index:
 | amplitude | <span class="supported"></span> | | | - |
 | exponent | <span class="supported"></span> | | | - |
 | offset | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feFuncB\> attributes
@@ -1190,7 +1190,7 @@ Index:
 | amplitude | <span class="supported"></span> | | | - |
 | exponent | <span class="supported"></span> | | | - |
 | offset | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feFuncA\> attributes
@@ -1207,7 +1207,7 @@ Index:
 | amplitude | <span class="supported"></span> | | | - |
 | exponent | <span class="supported"></span> | | | - |
 | offset | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feComposite\> attributes
@@ -1227,7 +1227,7 @@ Index:
 | k2 | <span class="supported"></span> | | | - |
 | k3 | <span class="supported"></span> | | | - |
 | k4 | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feConvolveMatrix\> attributes
@@ -1250,7 +1250,7 @@ Index:
 | edgeMode | <span class="supported"></span> | | | - |
 | kernelUnitLength | <span class="supported"></span> | | | - |
 | preserveAlpha | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feDiffuseLighting\> attributes
@@ -1267,7 +1267,7 @@ Index:
 | surfaceScale | <span class="supported"></span> | | | - |
 | diffuseConstant | <span class="supported"></span> | | | - |
 | kernelUnitLength | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feDisplacementMap\> attributes
@@ -1285,7 +1285,7 @@ Index:
 | scale | <span class="supported"></span> | | | - |
 | xChannelSelector | <span class="supported"></span> | | | - |
 | yChannelSelector | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feFlood\> attributes
@@ -1300,7 +1300,7 @@ Index:
 | style | <span class="supported"></span> | | | - |
 | flood-color | <span class="supported"></span> | | | - |
 | flood-opacity | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feGaussianBlur\> attributes
@@ -1315,7 +1315,7 @@ Index:
 | style | <span class="supported"></span> | | | - |
 | in | <span class="supported"></span> | | | - |
 | stdDeviation | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feImage\> attributes
@@ -1332,7 +1332,7 @@ Index:
 | externalResourcesRequired | <span class="supported"></span> | | | - |
 | preserveAspectRatio | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feMerge\> attributes
@@ -1345,7 +1345,7 @@ Index:
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
 | class | <span class="supported"></span> | | | - |
 | style | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feMergeNode\> attributes
@@ -1355,7 +1355,7 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | in | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feMorphology\> attributes
@@ -1371,7 +1371,7 @@ Index:
 | in | <span class="supported"></span> | | | - |
 | operator | <span class="supported"></span> | | | - |
 | radius | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feOffset\> attributes
@@ -1387,7 +1387,7 @@ Index:
 | in | <span class="supported"></span> | | | - |
 | dx | <span class="supported"></span> | | | - |
 | dy | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feSpecularLighting\> attributes
@@ -1405,7 +1405,7 @@ Index:
 | specularConstant | <span class="supported"></span> | | | - |
 | specularExponent | <span class="supported"></span> | | | - |
 | kernelUnitLength | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feTile\> attributes
@@ -1419,7 +1419,7 @@ Index:
 | class | <span class="supported"></span> | | | - |
 | style | <span class="supported"></span> | | | - |
 | in | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<feTurbulence\> attributes
@@ -1437,7 +1437,7 @@ Index:
 | seed | <span class="supported"></span> | | | - |
 | stitchTiles | <span class="supported"></span> | | | - |
 | type | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1457,7 +1457,7 @@ Index:
 | x | <span class="supported"></span> | | | - |
 | y | <span class="supported"></span> | | | - |
 | xlink:href | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1483,7 +1483,7 @@ Index:
 | xlink:show | <span class="supported"></span> | <span class="supported"></span> | | - |
 | xlink:actuate | <span class="supported"></span> | <span class="supported"></span> | | - |
 | target | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<view\> attributes
@@ -1497,7 +1497,7 @@ Index:
 | preserveAspectRatio | <span class="supported"></span> | <span class="supported"></span> | | - |
 | zoomAndPan | <span class="supported"></span> | <span class="supported"></span> | | - |
 | viewTarget | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1515,7 +1515,7 @@ Index:
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | type | <span class="supported"></span> | <span class="supported"></span> | | - |
 | xlink:href | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1538,7 +1538,7 @@ Index:
 | [Animation addition attributes](#animation-addition-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<set\> attributes
@@ -1554,7 +1554,7 @@ Index:
 | [Animation timing attributes](#animation-timing-attributes) | | | | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | to | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<animateMotion\> attributes
@@ -1574,7 +1574,7 @@ Index:
 | keyPoints | <span class="supported"></span> | <span class="supported"></span> | | - |
 | rotate | <span class="supported"></span> | <span class="supported"></span> | | - |
 | origin | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<animateColor\> attributes
@@ -1592,7 +1592,7 @@ Index:
 | [Animation addition attributes](#animation-addition-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<animateTransform\> attributes
@@ -1610,7 +1610,7 @@ Index:
 | [Animation addition attributes](#animation-addition-attributes) | | | | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | type | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<mpath\> attributes
@@ -1622,7 +1622,7 @@ Index:
 | [Xlink attributes](#xlink-attributes) | | | | - |
 | externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | xlink:href | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1646,7 +1646,7 @@ Index:
 |  vert-origin-x | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 |  vert-origin-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 |  vert-adv-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<glyph\> attributes
@@ -1668,7 +1668,7 @@ Index:
 | orientation | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | arabic-form | <span class="supported"></span> | <span class="supported"></span> | | - |
 | lang | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<missing-glyph\> attributes
@@ -1685,7 +1685,7 @@ Index:
 | vert-origin-x | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | vert-origin-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 | vert-adv-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<hkern\> attributes
@@ -1699,7 +1699,7 @@ Index:
 | u2 | <span class="supported"></span> | <span class="supported"></span> | | - |
 | g2 | <span class="supported"></span> | <span class="supported"></span> | | - |
 | k | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<vkern\> attributes
@@ -1713,7 +1713,7 @@ Index:
 | u2 | <span class="supported"></span> | <span class="supported"></span> | | - |
 | g2 | <span class="supported"></span> | <span class="supported"></span> | | - |
 | k | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<font-face\> attributes
@@ -1755,7 +1755,7 @@ Index:
 | strikethrough-thickness | <span class="supported"></span> | <span class="supported"></span> | | - |
 | overline-position | <span class="supported"></span> | <span class="supported"></span> | | - |
 | overline-thickness | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<font-face-src\> attributes
@@ -1764,7 +1764,7 @@ Index:
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<font-face-uri\> attributes
@@ -1775,7 +1775,7 @@ Index:
 | [Core attributes](#core-attributes) | | | | - |
 | [Xlink attributes](#xlink-attributes) | | | | - |
 | xlink:href | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<font-face-format\> attributes
@@ -1785,7 +1785,7 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | string | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ### \<font-face-name\> attributes
@@ -1795,7 +1795,7 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | name | <span class="supported"></span> | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1809,7 +1809,7 @@ Index:
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 ---
@@ -1834,7 +1834,7 @@ Index:
 | y | <span class="supported"></span> | <span class="supported"></span> | | - |
 | width | <span class="supported"></span> | <span class="supported"></span> | | - |
 | height | <span class="supported"></span> | <span class="supported"></span> | | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 
 

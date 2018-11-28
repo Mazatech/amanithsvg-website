@@ -105,7 +105,7 @@ In order to animate each body part like a real character, we must setup:
     {:.tbl_images .unity_tut2_sprites_pivot}
 
 | Sprite name               | Pivot (x) | Pivot (y) |
-| :------------------------ | --------: | --------: |
+| :------------------------ | --------- | --------- |
 | `orc_head`                |  `0.55`   |  `0.40`   |
 | `orc_body`                |  `0.50`   |  `0.50`   |
 | `orc_dx_x5F_arm_x5F_down` |  `0.50`   |  `0.80`   |
@@ -116,7 +116,7 @@ In order to animate each body part like a real character, we must setup:
 | `orc_sx_x5F_arm_x5F_up`   |  `0.45`   |  `0.70`   |
 | `orc_sx_x5F_leg_x5F_down` |  `0.40`   |  `0.80`   |
 | `orc_sx_x5F_leg_x5F_up`   |  `0.50`   |  `0.70`   |
-{:.rwd-table}
+{:.rwd-table .rwd-table-orcPivots}
 
 Because we are going to move the orc (actually the body part, and consequently the whole children hierarchy) programmatically by code, we must select the `orc_body` object and uncheck the `Update transform` option of the `SVGSpriteLoaderBehaviour` component.
 
