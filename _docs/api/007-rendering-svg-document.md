@@ -188,7 +188,7 @@ svgtSurfaceViewportSet(surface, srfViewport);
 svgtDocDraw(svg4, surface, SVGT_RENDERING_QUALITY_BETTER);
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Usage of surface viewport* |
 {:.tbl_images .srf_viewport} 
@@ -424,7 +424,7 @@ typedef enum {
 } SVGTAspectRatioMeetOrSlice;
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *A brief visual example of possible alignments* |
 {:.tbl_images .preserveAspectRatio} 

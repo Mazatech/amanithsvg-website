@@ -21,10 +21,9 @@ The whole process consists of some steps that must be followed in this order:
  - stop the packing process using the `svgtPackingEnd` function
 
  - get the number of generated "atlas data structures" using the `svgtPackingBinsCount` function
- 
+
  - for each atlas, get its information (e.g. its dimensions in pixels) using the `svgtPackingBinInfo` function, then:
- 	
-	- create a drawing surface with the same atlas dimensions, using the `svgtSurfaceCreate` function
+- create a drawing surface with the same atlas dimensions, using the `svgtSurfaceCreate` function
 	- get the list of SVG documents/elements packed in the current atlas, using the `svgtPackingBinRects` function
 	- draw the SVG documents/elements packed in the current atlas, using the `svgtPackingDraw` function
 
@@ -78,7 +77,6 @@ for (i = 0; i < atlasesCount; ++i) {
 }
 ```
 
-
 ---
 
 ## Start a packing process
@@ -127,7 +125,6 @@ SVGTErrorCode svgtPackingBegin(SVGTuint maxDimension,
 ```
 
 If generated atlases are going to be uploaded on GPU textures (OpenGL/Direct3D), the `maxDimension` and `pow2Bins` parameters should match the relative GPU capabilities (maximum texture dimension and the support of rectangular/NPOT textures).
-
 
 ---
 
@@ -181,7 +178,6 @@ Information returned by the `info` parameter is particularly useful when `explod
 
 In this case, the application can choose to inform the user and/or abort the packing process (see the next chapter). If desired, a new packing process could be restarted by calling `svgtPackingBegin` with a bigger `maxDimension` value (or a smaller `scale` parameter).
 
-
 ---
 
 ## Stop a packing process
@@ -208,7 +204,6 @@ SVGTErrorCode svgtPackingEnd(SVGTboolean performPacking);
 ```
 
 If the `performPacking` flag is set to `SVGT_FALSE`, the whole packing process is aborted, and all collected information is simply discarded: if desired, a new packing process could be restarted by calling `svgtPackingBegin`. If instead the flag is set to `SVGT_TRUE`, the real packing algorithm will be ran over the collected SVG elements.
-
 
 ---
 
@@ -375,7 +370,7 @@ height="264.76px" viewBox="0 0 145.925 264.76">
 </svg>
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *orc.svg* |
 {:.tbl_images .orcSvg} 
@@ -396,7 +391,7 @@ The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins =
 | rects[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
 {:.rwd-table2 .rwd-table-orcAtlas}
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *orc atlas* |
 {:.tbl_images .orcSvgAtlas} 

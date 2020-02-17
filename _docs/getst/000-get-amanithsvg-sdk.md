@@ -44,9 +44,9 @@ Choose a toolchain and platform using:
 
 // Generators 
 -G "NMake Makefiles"        // NMake, or 
--G "Visual Studio 12 2013"  // Visual Studio 2013 solution, or
--G "Visual Studio 14 2015"  // Visual Studio 2015 solution, or
--G "Visual Studio 15 2017"  // Visual Studio 2017 solution 
+-G "Visual Studio 12 2013 [arch]"  // Visual Studio 2013 solution, or
+-G "Visual Studio 14 2015 [arch]"  // Visual Studio 2015 solution, or
+-G "Visual Studio 15 2017 [arch]"  // Visual Studio 2017 solution 
 ```
 
 ```
@@ -85,7 +85,7 @@ Choose a toolchain and platform using:
 ```
 // Windows x86_64, Visual Studio 2015 solution
 <open x64 Native Tools Command Prompt for VS 2015>
-cmake -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 14 2015"
+cmake -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 14 2015 Win64"
 <open the generated .sln solution>
 
 // Windows x86, Visual Studio 2017 solution
@@ -138,7 +138,7 @@ Open project located in `/examples/svgPlayer/platform/android`
 SVG viewer for iOS can be compiled using Xcode only.
 Once you have generated the Xcode project (through CMake), plug your iOS device in and open the .xcodeproj file.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Open the .xcodeproj file* |
 {:.tbl_images .xcode_prj} 
@@ -146,19 +146,19 @@ Once you have generated the Xcode project (through CMake), plug your iOS device 
 Then select the iOS device and check project properties.
 Select a valid developer certificate for the signing process.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Select a valid developer certificate, before* |
 {:.tbl_images .dev_cert_before} 
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Select a valid developer certificate, after* |
 {:.tbl_images .dev_cert_after} 
 
 Select the svg_player target, in order to run it.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Select a valid developer certificate, after* |
 {:.tbl_images .select_tut_target} 

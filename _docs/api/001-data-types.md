@@ -14,8 +14,7 @@ AmanithSVG defines a number of primitive data types by means of C typedefs.
 
 ### SVGTbyte
 
-`SVGTbyte` defines an 8-bit two’s complement signed integer, which may contain values between `-128` and
-`127`, inclusive.
+`SVGTbyte` defines an 8-bit two’s complement signed integer, which may contain values between `-128` and `127`, inclusive.
 
 ### SVGTubyte
 
@@ -23,8 +22,7 @@ AmanithSVG defines a number of primitive data types by means of C typedefs.
 
 ### SVGTshort
 
-`SVGTshort` defines a 16-bit two’s complement signed integer, which may contain values between `-32768` and
-`32767`, inclusive.
+`SVGTshort` defines a 16-bit two’s complement signed integer, which may contain values between `-32768` and `32767`, inclusive.
 
 ### SVGTint
 
@@ -35,13 +33,11 @@ AmanithSVG defines a number of primitive data types by means of C typedefs.
 
 ### SVGTbitfield
 
-`SVGTbitfiel` defines a 32-bit unsigned integer value, used for parameters that may combine a number of
-independent single-bit values. A `SVGTbitfield` must be able to hold at least 32 bits.
+`SVGTbitfiel` defines a 32-bit unsigned integer value, used for parameters that may combine a number of independent single-bit values. A `SVGTbitfield` must be able to hold at least 32 bits.
 
 ### SVGTboolean
 
-`SVGTboolean` is an enumeration that only takes on the values of `SVGT_FALSE (0)` or `SVGT_TRUE (1)`. Any nonzero
-value used as a `SVGTboolean` will be interpreted as `SVGT_TRUE`.
+`SVGTboolean` is an enumeration that only takes on the values of `SVGT_FALSE (0)` or `SVGT_TRUE (1)`. Any nonzero value used as a `SVGTboolean` will be interpreted as `SVGT_TRUE`.
 
 ```c
 typedef enum {
@@ -57,16 +53,16 @@ typedef enum {
 ---
 
 
- | Data type name | Size | Values range |
- | -------------- | ---- | -------------|
- | `SVGTbyte` | `1 byte` | `[ -128, 127 ]` |
- | `SVGTubyte` | `1 byte` | `[ 0, 255 ]` |
- | `SVGTshort` | `2 byte` | `[ -32768, 32767 ]` |
- | `SVGTint` | `4 byte` | `[ -(2^31), 2^31 - 1 ]` |
- | `SVGTuint` | `4 byte` | `[ 0, 2^32 - 1 ]` |
- | `SVGTfloat` | `4 byte` | `IEEE 754 Standard` | 
- | `SVGTboolean` | `4 byte` | `[ SVGT_FALSE(0), SVGT_TRUE(1) ]` |
- | `SVGTbitfiled` | `4 byte` | `[ 0, 2^32 - 1 ]` |
+| Data type name | Size | Values range |
+| -------------- | ---- | -------------|
+| `SVGTbyte` | `1 byte` | `[ -128, 127 ]` |
+| `SVGTubyte` | `1 byte` | `[ 0, 255 ]` |
+| `SVGTshort` | `2 byte` | `[ -32768, 32767 ]` |
+| `SVGTint` | `4 byte` | `[ -(2^31), 2^31 - 1 ]` |
+| `SVGTuint` | `4 byte` | `[ 0, 2^32 - 1 ]` |
+| `SVGTfloat` | `4 byte` | `IEEE 754 Standard` |
+| `SVGTboolean` | `4 byte` | `[ SVGT_FALSE(0), SVGT_TRUE(1) ]` |
+| `SVGTbitfiled` | `4 byte` | `[ 0, 2^32 - 1 ]` |
 {:.rwd-table2 .rwd-table-dataTypes}
 
 ---

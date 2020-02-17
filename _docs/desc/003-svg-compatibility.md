@@ -8,8 +8,7 @@ categories: [desc]
 
 # SVG Features compatibility
 
-AmanithSVG implements the rendering of static SVG files, supporting a limited set of SVG elements and
-attributes, as follow. 
+AmanithSVG implements the rendering of static SVG files, supporting a limited set of SVG elements and attributes, as follow. 
 
 Index:
 
@@ -728,7 +727,7 @@ Index:
 | lenghtAdjust | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 {:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
- 
+
 ### \<tref\> attributes
 {:.unsupported-features}
 
@@ -1836,6 +1835,5 @@ Index:
 | height | <span class="supported"></span> | <span class="supported"></span> | | - |
 {:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
-
 
 ---

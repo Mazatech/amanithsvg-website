@@ -10,15 +10,9 @@ categories: [api]
 
 ## Errors
 
-Some AmanithSVG functions may encounter errors. Unless otherwise specified, any value returned from a
-function following an error is undefined. An error condition within an AmanithSVG function must never result
-in process termination, with the exception of illegal memory accesses taking place within functions that
-accept an application provided pointer.
+Some AmanithSVG functions may encounter errors. Unless otherwise specified, any value returned from a function following an error is undefined. An error condition within an AmanithSVG function must never result in process termination, with the exception of illegal memory accesses taking place within functions that accept an application provided pointer.
 
-All AmanithSVG functions may signal `SVGT_OUT_OF_MEMORY_ERROR`. Such an error may occur midway
-through the execution of an AmanithSVG function, in which case the function may have caused changes to
-the state of AmanithSVG (or to drawing structures) prior to failure. When an AmanithSVG function encounters an error other than a `SVGT_OUT_OF_MEMORY_ERROR`, the context state is not modified and no
-drawing takes place.
+All AmanithSVG functions may signal `SVGT_OUT_OF_MEMORY_ERROR`. Such an error may occur midway through the execution of an AmanithSVG function, in which case the function may have caused changes to the state of AmanithSVG (or to drawing structures) prior to failure. When an AmanithSVG function encounters an error other than a `SVGT_OUT_OF_MEMORY_ERROR`, the context state is not modified and no drawing takes place.
 
 All possible error codes are defined by the enumeration type `SVGTErrorCode`.
 
