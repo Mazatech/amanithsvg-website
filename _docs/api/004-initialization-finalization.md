@@ -217,7 +217,7 @@ dpi = Gdx.graphics.getPpiX();
 
 NB: the `svgtInit` function returns a `SVGT_ILLEGAL_ARGUMENT_ERROR` error code if one of the passed parameters is less or equal to zero.
 
-## finalization
+## Finalization
 
 Once finished to use AmanithSVG functionalities, it is advisable to call the `svgtDone` function, in order to be sure that all allocated SVG resources will be freed.
 
