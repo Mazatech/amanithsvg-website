@@ -14,25 +14,26 @@ In addition to the features already described, AmanithSVG exposes some utility f
 /*
     Copy drawing surface content into the specified pixels buffer.
 
-    This function is useful for managed environments (e.g. C#, Unity, Java, Android),
-    where the use of a direct pixels access (i.e. svgtSurfacePixels) is not advisable
-    nor comfortable.
+    This function is useful for managed environments (e.g. C#, Unity, Java,
+    Android), where the use of a direct pixels access (i.e. svgtSurfacePixels)
+    is not advisable nor comfortable.
 
-    If the 'redBlueSwap' flag is set to SVGT_TRUE, the copy process will also swap
-    red and blue channels for each pixel; this kind of swap could be useful when dealing
-    with OpenGL/Direct3D texture uploads (RGBA or BGRA formats).
-    
-    If the 'dilateEdgesFix' flag is set to SVGT_TRUE, the copy process will also perform
-    a 1-pixel dilate post-filter; this dilate filter could be useful when surface pixels
-    will be uploaded to OpenGL/Direct3D bilinear-filtered textures.
+    If the 'redBlueSwap' flag is set to SVGT_TRUE, the copy process will also
+    swap red and blue channels for each pixel; this kind of swap could be useful
+    when dealing with OpenGL/Direct3D texture uploads (RGBA or BGRA formats).
+
+    If the 'dilateEdgesFix' flag is set to SVGT_TRUE, the copy process will also
+    perform a 1-pixel dilate post-filter; this dilate filter could be useful
+    when surface pixels will be uploaded to OpenGL/Direct3D bilinear-filtered
+    textures.
 
     This function returns:
 
     - SVGT_BAD_HANDLE_ERROR if the specified surface handle is not valid
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'dstPixels32' pointer is NULL or if
       it's not properly aligned
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtSurfaceCopy(SVGTHandle surface,
@@ -48,7 +49,8 @@ If surface pixels are going to be uploaded to GPU textures, it could be useful t
 ```c
 SVGTuint surfaceWidth = svgtSurfaceWidth(surface);
 SVGTuint surfaceHeight = svgtSurfaceHeight(surface);
-SVGTuint* tmpPixels = (SVGTuint*)malloc(surfaceWidth * surfaceHeight * sizeof(SVGTuint));
+SVGTuint* tmpPixels = (SVGTuint*)malloc(surfaceWidth * surfaceHeight *
+                                        sizeof(SVGTuint));
 /* copy surface pixels, applying a 1-pixel dilate filter (no red-blue channels swap) */
 svgtSurfaceCopy(surface, tmpPixels, SVGT_FALSE, SVGT_TRUE);
 < upload tmpPixels to the GPU, using your preferred 3D API >
@@ -57,27 +59,29 @@ free(tmpPixels);
 
 ```c
 /*
-    Map a point, expressed in the document viewport system, into the surface viewport.
-    The transformation will be performed according to the current document viewport (see
-    svgtDocViewportGet) and the current surface viewport (see svgtSurfaceViewportGet).
+    Map a point, expressed in the document viewport system, into the surface
+    viewport. The transformation will be performed according to the current
+    document viewport (see svgtDocViewportGet) and the current surface viewport
+    (see svgtSurfaceViewportGet).
 
-    The 'dst' parameter must be an array of (at least) 2 float entries, it will be filled
-    with:
+    The 'dst' parameter must be an array of (at least) 2 float entries, it will
+    be filled with:
 
     - dst[0] = transformed x
-    
+
     - dst[1] = transformed y
 
     NB: floating-point values of NaN are treated as 0, values of +Inf and -Inf
-    are clamped to the largest and smallest available float values.
+        are clamped to the largest and smallest available float values.
 
     This function returns:
 
-    - SVGT_BAD_HANDLE_ERROR if specified document (or surface) handle is not valid
-    
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'dst' pointer is NULL or
-      if it's not properly aligned
-    
+    - SVGT_BAD_HANDLE_ERROR if specified document (or surface) handle is not
+      valid
+
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'dst' pointer is NULL or if it's not
+      properly aligned
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtPointMap(SVGTHandle svgDoc,

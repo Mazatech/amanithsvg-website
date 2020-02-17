@@ -23,7 +23,7 @@ The whole process consists of some steps that must be followed in this order:
  - get the number of generated "atlas data structures" using the `svgtPackingBinsCount` function
 
  - for each atlas, get its information (e.g. its dimensions in pixels) using the `svgtPackingBinInfo` function, then:
-- create a drawing surface with the same atlas dimensions, using the `svgtSurfaceCreate` function
+  - create a drawing surface with the same atlas dimensions, using the `svgtSurfaceCreate` function
 	- get the list of SVG documents/elements packed in the current atlas, using the `svgtPackingBinRects` function
 	- draw the SVG documents/elements packed in the current atlas, using the `svgtPackingDraw` function
 
@@ -93,29 +93,31 @@ A packing process must be initialized through the `svgtPackingBegin` function:
 
     If SVGT_TRUE, 'pow2Bins' will force bins to have power-of-two dimensions.
 
-    Each rectangle will be separated from the others by the specified 'border' in pixels.
+    Each rectangle will be separated from the others by the specified 'border'
+    in pixels.
 
     The specified 'scale' factor will be applied to all collected SVG
     documents/elements, in order to realize resolution-independent atlases.
 
-    NB: floating-point values of NaN are treated as 0, values of +Inf and -Inf 
+    NB: floating-point values of NaN are treated as 0, values of +Inf and -Inf
     are clamped to the largest and smallest available float values.
 
     This function returns:
 
     - SVGT_STILL_PACKING_ERROR if a current packing task is still open
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'maxDimension' is 0
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'pow2Bins' is SVGT_TRUE and the
       specified 'maxDimension' is not a power-of-two number
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'border' itself would exceed
       the specified 'maxDimension' (border must allow a packable region of
       at least one pixel)
-    
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'scale' factor is less than or equal 0
-    
+
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'scale' factor is less than or
+      equal 0
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtPackingBegin(SVGTuint maxDimension,
@@ -135,7 +137,7 @@ Once that a packing process has been started, one or more SVG documents can be a
 ```c
 /*
     Add an SVG document to the current packing task.
-    
+
     If SVGT_TRUE, 'explodeGroups' tells the packer to not pack the whole
     SVG document, but instead to pack each first-level element separately.
 
@@ -155,17 +157,17 @@ Once that a packing process has been started, one or more SVG documents can be a
     are clamped to the largest and smallest available float values.
 
     This function returns:
-    
+
     - SVGT_NOT_PACKING_ERROR if there isn't a currently open packing task
-    
+
     - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'scale' factor
       is less than or equal 0
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'info' pointer is NULL or
       if it's not properly aligned
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtPackingAdd(SVGTHandle svgDoc,
@@ -186,18 +188,19 @@ After adding all the desired SVG documents/elements to the current packing proce
 
 ```c
 /*
-    Close the current packing task and, if specified, perform the real packing algorithm.
-    
-    All collected SVG documents/elements (actually their bounding boxes) are packed
-    into bins for later use (i.e. atlases generation).
+    Close the current packing task and, if specified, perform the real packing
+    algorithm.
+
+    All collected SVG documents/elements (actually their bounding boxes) are
+    packed into bins for later use (i.e. atlases generation).
     After calling this function, the application could use svgtPackingBinsCount,
     svgtPackingBinInfo and svgtPackingDraw in order to get information about the
     resulted packed elements and draw them.
 
     This function returns:
-    
+
     - SVGT_NOT_PACKING_ERROR if there isn't a currently open packing task
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtPackingEnd(SVGTboolean performPacking);
@@ -215,8 +218,9 @@ Once that a packing process has been executed successfully, the number of genera
 /*
     Return the number of generated bins from the last packing task.
 
-    This function returns a negative number in case of errors (e.g. if the current
-    packing task has not been previously closed by a call to svgtPackingEnd).
+    This function returns a negative number in case of errors (e.g. if the
+    current packing task has not been previously closed by a call to
+    svgtPackingEnd).
 */
 SVGTint svgtPackingBinsCount(void);
 ```
@@ -229,23 +233,23 @@ All the information relative to a single atlas data structure can be achieved us
 
     The requested bin is selected by its index; the 'binInfo' parameter must
     be an array of (at least) 3 entries, it will be filled with:
-    
+
     - binInfo[0] = bin width, in pixels
-    
+
     - binInfo[1] = bin height, in pixels
-    
+
     - binInfo[2] = number of packed rectangles within the bin
 
     This function returns:
-    
+
     - SVGT_STILL_PACKING_ERROR if a current packing task is still open
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'binIdx' is not valid(must be
       >= 0 and less than the value returned by svgtPackingBinsCount function)
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'binInfo' pointer is NULL or if
       it's not properly aligned
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtPackingBinInfo(SVGTuint binIdx,
@@ -274,30 +278,31 @@ Before to explain the `SVGTPackedRect` structure in detail, it is useful to show
 
 ```c
 /*
-    Draw a set of packed SVG documents/elements over the specified drawing surface.
+    Draw a set of packed SVG documents/elements over the specified drawing
+    surface.
 
-    The drawing surface is cleared (or not) according to the current settings (see
-    svgtClearColor and svgtClearPerform).
-    After calling svgtPackingEnd, the application could use this function in order
-    to draw packed elements before to start another packing task with svgtPackingBegin.
+    The drawing surface is cleared (or not) according to the current settings
+    (see svgtClearColor and svgtClearPerform). After calling svgtPackingEnd, the
+    application could use this function in order to draw packed elements before
+    to start another packing task with svgtPackingBegin.
 
     This function returns:
-    
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'binIdx' is not valid (must be >= 0
-      and less than the value returned by svgtPackingBinsCount function)
-    
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'startRectIdx', along with 'rectsCount',
-      identifies an invalid range of rectangles; defined:
+
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'binIdx' is not valid (must be
+      >= 0 and less than the value returned by svgtPackingBinsCount function)
+
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified 'startRectIdx', along with
+      'rectsCount',identifies an invalid range of rectangles; defined:
 
         - maxCount = binInfo[2] (see svgtPackingBinInfo)
-        
+
         - endRectIdx = 'startRectIdx' + 'rectsCount' - 1
 
-    it must be ensured that 'startRectIdx' < maxCount and 'endRectIdx' < maxCount,
-    else SVGT_ILLEGAL_ARGUMENT_ERROR is returned.
+    it must be ensured that 'startRectIdx' < maxCount and
+    'endRectIdx' < maxCount, else SVGT_ILLEGAL_ARGUMENT_ERROR is returned.
 
     - SVGT_BAD_HANDLE_ERROR if specified surface handle is not valid
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtPackingDraw(SVGTuint binIdx,
@@ -343,12 +348,12 @@ typedef struct {
     SVGTint zOrder;
     /* The used destination viewport width (induced by packing scale factor). */
     SVGTfloat dstViewportWidth;
-    /* The used destination viewport height (induced by packing scale factor). */
+    /* The used destination viewport height (induced by packing scale factor).*/
     SVGTfloat dstViewportHeight;
 } SVGTPackedRect;
 ```
 
-The `SVGTPackedRect` structure itself is not needed for the rendering of packed SVG elements, but it contains useful information that could be used by the application for different purposes. In particular, the fields `x`, `y`, `width`, `height` identify the exact SVG element location within the drawing surface (i.e. the location where the element has been rendered); if the element has an id attribute within the SVG document (e.g. a mnemonic name), such value is reported through the `elemName `field. The `zOrder` field represents the position of the element within its SVG document (i.e. the order in which it appears within the XML).
+The `SVGTPackedRect` structure itself is not needed for the rendering of packed SVG elements, but it contains useful information that could be used by the application for different purposes. In particular, the fields `x`, `y`, `width`, `height` identify the exact SVG element location within the drawing surface (i.e. the location where the element has been rendered); if the element has an id attribute within the SVG document (e.g. a mnemonic name), such value is reported through the `elemName` field. The `zOrder` field represents the position of the element within its SVG document (i.e. the order in which it appears within the XML).
 
 For example, lets consider the following SVG (`orc.svg`):
 
@@ -373,7 +378,7 @@ height="264.76px" viewBox="0 0 145.925 264.76">
 | &nbsp; |
 | :---: |
 | *orc.svg* |
-{:.tbl_images .orcSvg} 
+{:.tbl_images .orcSvg}
 
 The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins = SVGT_FALSE, scale = 1`) will produce a single `452 x 108` atlas, with the following packed rectangles:
 
@@ -394,7 +399,7 @@ The packing of first-level elements (`maxDimension = 512, border = 1, pow2Bins =
 | &nbsp; |
 | :---: |
 | *orc atlas* |
-{:.tbl_images .orcSvgAtlas} 
+{:.tbl_images .orcSvgAtlas}
 
 It is important to note that the whole packing process, as well as the `svgtPackingDraw` function, is not affected by SVG documents viewports nor by drawing surfaces viewports. In other words, the viewport values set through `svgtDocViewportSet` and `svgtSurfaceViewportSet` functions do not affect the behavior of packing processes and atlas generation.
 

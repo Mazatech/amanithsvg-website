@@ -14,12 +14,13 @@ Once that an SVG document has been created, it can be rendered over a drawing su
 
 ```c
 /*
-    Draw an SVG document, over the specified drawing surface, with the given quality.
-    If the specified SVG document is SVGT_INVALID_HANDLE, the drawing surface is cleared
-    (or not) according to the current settings (see svgtClearColor and svgtClearPerform)
-    and nothing else is drawn.
+    Draw an SVG document, over the specified drawing surface, with the given
+    quality. If the specified SVG document is SVGT_INVALID_HANDLE, the drawing
+    surface is cleared (or not) according to the current settings (see
+    svgtClearColor and svgtClearPerform) and nothing else is drawn.
 
-    Return SVGT_NO_ERROR if the operation was completed successfully, else an error code.
+    Return SVGT_NO_ERROR if the operation was completed successfully, else an
+    error code.
 */
 SVGTErrorCode svgtDocDraw(SVGTHandle svgDoc,
                           SVGTHandle surface,
@@ -38,8 +39,8 @@ Every time that `svgtDocDraw` is called, before to perform the requested renderi
 
 ```c
 /*
-    Set the clear color (i.e. the color used to clear the whole drawing surface).
-    Each color component must be a number between 0 and 1.
+    Set the clear color (i.e. the color used to clear the whole drawing
+    surface). Each color component must be a number between 0 and 1.
     Values outside this range will be clamped.
 
     Return SVGT_NO_ERROR if the operation was completed successfully,
@@ -90,7 +91,7 @@ Sometime it would be useful to select just a sub-region of the whole drawing sur
 
     The 'viewport' parameter must be an array of (at least)
     4 float entries, it must contain:
-    
+
     - viewport[0] = top/left x
     - viewport[1] = top/left y
     - viewport[2] = width
@@ -107,7 +108,7 @@ Sometime it would be useful to select just a sub-region of the whole drawing sur
     available float values.
 
     This function returns:
-    
+
     - SVGT_BAD_HANDLE_ERROR if specified surface handle is not valid
 
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL
@@ -138,10 +139,10 @@ When a drawing surface is created through the `svgtSurfaceCreate` function, its 
 
     This function returns:
     - SVGT_BAD_HANDLE_ERROR if specified surface handle is not valid
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL
       or if it's not properly aligned
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtSurfaceViewportGet(SVGTHandle surface,
@@ -191,22 +192,22 @@ svgtDocDraw(svg4, surface, SVGT_RENDERING_QUALITY_BETTER);
 | &nbsp; |
 | :---: |
 | *Usage of surface viewport* |
-{:.tbl_images .srf_viewport} 
+{:.tbl_images .srf_viewport}
 
 As for drawing surface, a viewport can be defined even for SVG documents. When an SVG document has been created through the `svgtDocCreate` function, its initial viewport is set equal to the viewBox XML attribute of the outermost `<svg>` element. SVG document viewport can be retrieved and set using the following functions:
 
 ```c
 /*
-    Get the document (logical) viewport to map onto the destination (drawing surface)
-    viewport. When an SVG document has been created through the svgtDocCreate function,
-    the initial value of its viewport is equal to the 'viewBox' attribute present in the
-    outermost <svg> element.
-    If such element does not contain the viewBox attribute, SVGT_NO_ERROR is returned and
-    viewport array will be filled with zeros.
+    Get the document (logical) viewport to map onto the destination (drawing
+    surface) viewport. When an SVG document has been created through the
+    svgtDocCreate function, the initial value of its viewport is equal to the
+    'viewBox' attribute present in the outermost <svg> element.
+    If such element does not contain the viewBox attribute, SVGT_NO_ERROR is
+    returned and viewport array will be filled with zeros.
 
     The 'viewport' parameter must be an array of (at least) 4 float entries,
     it will be filled with:
-    
+
     - viewport[0] = top/left x
     - viewport[1] = top/left y
     - viewport[2] = width
@@ -214,10 +215,10 @@ As for drawing surface, a viewport can be defined even for SVG documents. When a
 
     This function returns:
     - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL or
       if it's not properly aligned
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtDocViewportGet(SVGTHandle svgDoc,
@@ -231,7 +232,7 @@ SVGTErrorCode svgtDocViewportGet(SVGTHandle svgDoc,
 
     The 'viewport' parameter must be an array of (at least)
     4 float entries, it must contain:
-    
+
     - viewport[0] = top/left x
     - viewport[1] = top/left y
     - viewport[2] = width
@@ -242,13 +243,13 @@ SVGTErrorCode svgtDocViewportGet(SVGTHandle svgDoc,
 
     This function returns:
     - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL or
       if it's not properly aligned
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified viewport width or
       height are less than or equal zero
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtDocViewportSet(SVGTHandle svgDoc,
@@ -262,28 +263,29 @@ If the two viewports do not have the same aspect ratio (i.e. width-to-height rat
 ```c
 /*
     Set the document alignment.
-    The alignment parameter indicates whether to force uniform scaling and, if so, the
-    alignment method to use in case the aspect ratio of the document viewport doesn't
-    match the aspect ratio of the surface viewport.
+    The alignment parameter indicates whether to force uniform scaling and,
+    if so, the alignment method to use in case the aspect ratio of the document
+    viewport doesn't match the aspect ratio of the surface viewport.
 
-    The 'values' parameter must be an array of (at least)
-    2 unsigned integers entries, it must contain:
-    
+    The 'values' parameter must be an array of (at least) 2 unsigned integers
+    entries, it must contain:
+
     - values[0] = alignment (see SVGTAspectRatioAlign)
     - values[1] = meetOrSlice (see SVGTAspectRatioMeetOrSlice)
 
     This function returns:
+
     - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL or
       if it's not properly aligned
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified alignment is not
       a valid SVGTAspectRatioAlign value
-    
+
     - SVGT_ILLEGAL_ARGUMENT_ERROR if specified meetOrSlice is not
       a valid SVGTAspectRatioMeetOrSlice value
-    
+
     - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtDocViewportAlignmentSet(SVGTHandle svgDoc,
@@ -307,8 +309,9 @@ Alignment is defined by the `SVGTAspectRatioAlign` enumeration type:
 typedef enum {
     /*
         Do not force uniform scaling.
-        Scale the graphic content of the given element non-uniformly if necessary such
-        that the element's bounding box exactly matches the viewport rectangle.
+        Scale the graphic content of the given element non-uniformly if
+        necessary such that the element's bounding box exactly matches the
+        viewport rectangle.
         NB: in this case, the <meetOrSlice> value is ignored.
     */
     SVGT_ASPECT_RATIO_ALIGN_NONE,
@@ -382,8 +385,8 @@ typedef enum {
         the destination viewport.
         Align the <max-y> of the source viewport with the maximum y value of
         the destination viewport.
-        */
-        SVGT_ASPECT_RATIO_ALIGN_XMAXYMAX
+    */
+    SVGT_ASPECT_RATIO_ALIGN_XMAXYMAX
 } SVGTAspectRatioAlign;
 ```
 
@@ -393,32 +396,34 @@ The way in which the aspect ratio is to be preserved is defined by the `SVGTAspe
 typedef enum {
     /*
         Scale the graphic such that:
-        
+
         - aspect ratio is preserved
-        
+
         - the entire viewBox is visible within the viewport
-        
+
         - the viewBox is scaled up as much as possible,
           while still meeting the other criteria
-        
-        In this case, if the aspect ratio of the graphic does not match the viewport,
-        some of the viewport will extend beyond the bounds of the viewBox (i.e., the 
-        area into which the viewBox will draw will be smaller than the viewport).
+
+        In this case, if the aspect ratio of the graphic does not match the
+        viewport, some of the viewport will extend beyond the bounds of the
+        viewBox (i.e., the area into which the viewBox will draw will be smaller
+        than the viewport).
     */
     SVGT_ASPECT_RATIO_MEET,
     /*
         Scale the graphic such that:
-        
+
         - aspect ratio is preserved
-        
+
         - the entire viewport is covered by the viewBox
-        
+
         - the viewBox is scaled down as much as possible,
           while still meeting the other criteria
-        
-        In this case, if the aspect ratio of the viewBox does not match the viewport,
-        some of the viewBox will extend beyond the bounds of the viewport (i.e., the 
-        area into which the viewBox will draw is larger than the viewport).
+
+        In this case, if the aspect ratio of the viewBox does not match the
+        viewport, some of the viewBox will extend beyond the bounds of the
+        viewport (i.e., the area into which the viewBox will draw is larger than
+        the viewport).
     */
     SVGT_ASPECT_RATIO_SLICE
 } SVGTAspectRatioMeetOrSlice;
@@ -427,6 +432,6 @@ typedef enum {
 | &nbsp; |
 | :---: |
 | *A brief visual example of possible alignments* |
-{:.tbl_images .preserveAspectRatio} 
+{:.tbl_images .preserveAspectRatio}
 
 ---

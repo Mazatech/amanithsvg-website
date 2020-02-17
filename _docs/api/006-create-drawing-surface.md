@@ -21,7 +21,8 @@ SVG documents can be drawn on surfaces (a "rectangular" memory region made of pi
     The user should call svgtSurfaceWidth and svgtSurfaceHeight after
     svgtSurfaceCreate in order to check real drawing surface dimensions.
 
-    Return SVGT_INVALID_HANDLE in case of errors, else a valid drawing surface handle.
+    Return SVGT_INVALID_HANDLE in case of errors, else a valid drawing surface
+    handle.
 */
 SVGTHandle svgtSurfaceCreate(SVGTuint width, SVGTuint height);
 ```
@@ -61,11 +62,12 @@ SVGTuint svgtSurfaceHeight(SVGTHandle surface);
     Get access to the drawing surface pixels.
     If the specified surface handle is not valid, NULL is returned.
 
-    Please use this function to access surface pixels for read-only purposes (e.g. blit
-    the surface on the screen according to the platform graphic subsystem, upload pixels
-    into a GPU texture, and so on).
-    
-    Writing or modifying surface pixels by hand is still possible, but NOT ADVISABLE.
+    Please use this function to access surface pixels for read-only purposes
+    (e.g. blit the surface on the screen according to the platform graphic
+    subsystem, upload pixels into a GPU texture, and so on).
+
+    Writing or modifying surface pixels by hand is still possible, but NOT
+    ADVISABLE.
 */
 const void* svgtSurfacePixels(SVGTHandle surface);
 ```

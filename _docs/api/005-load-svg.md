@@ -10,7 +10,7 @@ categories: [api]
 
 ## Create an SVG document and load an SVG file
 
-SVG defines vector-based graphics in [XML](https://www.w3.org/XML/) format (a markup language that defines a set of rules for encoding documents in a format which is both human-readable and machine-readable), so SVG files content can be represented as a C string. 
+SVG defines vector-based graphics in [XML](https://www.w3.org/XML/) format (a markup language that defines a set of rules for encoding documents in a format which is both human-readable and machine-readable), so SVG files content can be represented as a C string.
 
 Here is a standard C function able to load an SVG file and return a pointer to its content:
 
@@ -111,7 +111,8 @@ When an SVG document is no longer necessary, its resources can be freed using th
 ```c
 /*
     Destroy a previously created SVG document.
-    Return SVGT_NO_ERROR if the operation was completed successfully, else an error code.
+    Return SVGT_NO_ERROR if the operation was completed successfully, else an
+    error code.
 */
 SVGTErrorCode svgtDocDestroy(SVGTHandle svgDoc);
 ```
@@ -121,7 +122,8 @@ SVG files themself optionally can provide information about the appropriate view
 ```c
 /*
     It returns -1 (i.e. an invalid width) in the following cases:
-    - the library has not previously been initialized through the svgtInit function
+    - the library has not previously been initialized through the svgtInit
+      function
     - outermost element is not an <svg> element
     - outermost <svg> element doesn't have a 'width' attribute specified
     - outermost <svg> element has a 'width' attribute specified
@@ -133,7 +135,8 @@ SVGTfloat svgtDocWidth(SVGTHandle svgDoc);
 ```c
 /*
     It returns -1 (i.e. an invalid height) in the following cases:
-    - the library has not previously been initialized through the svgtInit function
+    - the library has not previously been initialized through the svgtInit
+      function
     - outermost element is not an <svg> element
     - outermost <svg> element doesn't have a 'height' attribute specified
     - outermost <svg> element has a 'height' attribute specified in
