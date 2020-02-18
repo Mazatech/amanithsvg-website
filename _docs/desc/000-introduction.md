@@ -26,4 +26,8 @@ Some headlines about the library:
 
  * Based on the robust AmanithVG SRE software rendering engine
 
+ * Open Source Components: the library does not include open source components with the exception of:
+  * a modified version of PugiXML (https://pugixml.org/) a light-weight, simple and fast XML parser for C++ with XPath support, under MIT License.
+  * C_Hashmap (https://github.com/petewarden/c_hashmap), no license attached, the author states: "There are no restriction on how you reuse this code”.
+
 ---
