@@ -375,7 +375,7 @@ This script implements an asset post-processor ([AssetPostprocessor](http://docs
 
 In order to make it work on Android arm64-v8a target platforms you'll need to follow this [guide](https://docs.unity3d.com/Manual/AndroidNativePlugins.html)
 
-In the detail be sure to browse the `SVGAssets\Plugins\Android\libs\arm64-v8a\libAmanithSVG.so` file in the project window, select it and then from Inspector:
+In the detail be sure to browse the `SVGAssets/Plugins/Android/libs/arm64-v8a/libAmanithSVG.so` file in the project window, select it and then from Inspector:
  * deselect 'Any platform' option, if checked
  * select 'Include Platforms' --> 'Android' option
  * select 'ARM64' as CPU
