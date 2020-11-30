@@ -106,7 +106,7 @@ So, for example, in order to let AmanithSVG to render the userInterface.svg file
 SVGTHandle svgDoc = loadSvg("userInterface.svg");
 ```
 
-When an SVG document is no longer necessary, its resources can be freed using the `svgtDocDestroyFunction`:
+When an SVG document is no longer necessary, its resources can be freed using the `svgtDocDestroy` function:
 
 ```c
 /*
