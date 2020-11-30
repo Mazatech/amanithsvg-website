@@ -15,12 +15,18 @@ Once that an SVG document has been created, it can be rendered over a drawing su
 ```c
 /*
     Draw an SVG document, over the specified drawing surface, with the given
-    quality. If the specified SVG document is SVGT_INVALID_HANDLE, the drawing
-    surface is cleared (or not) according to the current settings (see
-    svgtClearColor and svgtClearPerform) and nothing else is drawn.
+    quality.
 
-    Return SVGT_NO_ERROR if the operation was completed successfully, else an
-    error code.
+    This function returns:
+
+    - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
+
+    - SVGT_BAD_HANDLE_ERROR if specified surface handle is not valid
+
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if specified rendering quality is not a valid
+      value from the SVGTRenderingQuality enumeration
+
+    - SVGT_NO_ERROR if the operation was completed successfully
 */
 SVGTErrorCode svgtDocDraw(SVGTHandle svgDoc,
                           SVGTHandle surface,
@@ -35,34 +41,6 @@ The third parameter influences the quality (and speed) of the drawing process, i
 
  - `SVGT_RENDERING_QUALITY_BETTER`: it causes rendering to be done with the highest available quality.
 
-Every time that `svgtDocDraw` is called, before to perform the requested rendering, the drawing surface will be cleared (or not) according to the current state induced by these two functions:
-
-```c
-/*
-    Set the clear color (i.e. the color used to clear the whole drawing
-    surface). Each color component must be a number between 0 and 1.
-    Values outside this range will be clamped.
-
-    Return SVGT_NO_ERROR if the operation was completed successfully,
-    else an error code.
-*/
-SVGTErrorCode svgtClearColor(SVGTfloat r,
-                             SVGTfloat g,
-                             SVGTfloat b,
-                             SVGTfloat a);
-```
-
-```c
-/*
-    Specify if the whole drawing surface must be cleared by the
-    svgtDocDraw function, before to draw the SVG document.
-
-    Return SVGT_NO_ERROR if the operation was completed successfully,
-    else an error code.
-*/
-SVGTErrorCode svgtClearPerform(SVGTboolean doClear);
-```
-
 For example, suppose that we want to clear the drawing surface with a dark blue color, then draw over it a transparent background representing mountains and clouds (`background.svg`), and finally put on top of it a user interface (`ui.svg`). The code would be the following:
 
 ```c
@@ -71,14 +49,11 @@ SVGTHandle background = loadSvg("background.svg");
 SVGTHandle ui = loadSvg("ui.svg");
 /* create a drawing surface */
 SVGTHandle surface = svgtSurfaceCreate(1024, 512);
-/* set a dark blue clear color and enable surface clearing */
-svgtClearColor(0.06f, 0.02f, 0.75f, 1.0f);
-svgtClearPerform(SVGT_TRUE);
-/* draw the background (NB: before the drawing, the surface
-will be cleared with the dark blue color) */
+/* clear the surface with a dark blue color */
+svgtSurfaceClear(surface, 0.06f, 0.02f, 0.75f, 1.0f);
+/* draw the background */
 svgtDocDraw(background, surface, SVGT_RENDERING_QUALITY_BETTER);
-/* disable surface clearing and draw user interface */
-svgtClearPerform(SVGT_FALSE);
+/* draw user interface */
 svgtDocDraw(ui, surface, SVGT_RENDERING_QUALITY_BETTER);
 ```
 
@@ -103,10 +78,6 @@ Sometime it would be useful to select just a sub-region of the whole drawing sur
     surface viewport (respecting the specified alignment): all SVG content will
     be drawn accordingly.
 
-    NB: floating-point values of NaN are treated as 0, values of
-    +Infinity and -Infinity are clamped to the largest and smallest
-    available float values.
-
     This function returns:
 
     - SVGT_BAD_HANDLE_ERROR if specified surface handle is not valid
@@ -118,6 +89,10 @@ Sometime it would be useful to select just a sub-region of the whole drawing sur
       height are less than or equal zero
 
     - SVGT_NO_ERROR if the operation was completed successfully
+
+    NB: floating-point values of NaN are treated as 0, values of
+    +Infinity and -Infinity are clamped to the largest and smallest
+    available float values.
 */
 SVGTErrorCode svgtSurfaceViewportSet(SVGTHandle surface,
                                      SVGTfloat* viewport);
@@ -138,6 +113,7 @@ When a drawing surface is created through the `svgtSurfaceCreate` function, its 
     - viewport[3] = height
 
     This function returns:
+
     - SVGT_BAD_HANDLE_ERROR if specified surface handle is not valid
 
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL
@@ -160,9 +136,8 @@ SVGTHandle svg3 = loadSvg("car_brake.svg");
 SVGTHandle svg4 = loadSvg("car_oil.svg");
 /* create a drawing surface */
 SVGTHandle surface = svgtSurfaceCreate(512, 512);
-/* set an opaque white clear color and enable surface clearing */
-svgtClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-svgtClearPerform(SVGT_TRUE);
+/* clear the surface with an opaque white color */
+svgtSurfaceClear(surface, 1.0f, 1.0f, 1.0f, 1.0f);
 /* select an upper-left sub-region and draw the first SVG document */
 srfViewport[0] = 0;
 srfViewport[1] = 0;
@@ -170,8 +145,6 @@ srfViewport[2] = 256;
 srfViewport[3] = 256;
 svgtSurfaceViewportSet(surface, srfViewport);
 svgtDocDraw(svg1, surface, SVGT_RENDERING_QUALITY_BETTER);
-/* disable surface clearing */
-svgtClearPerform(SVGT_FALSE);
 /* select an upper-right sub-region and draw the second SVG document */
 srfViewport[0] = 256;
 srfViewport[1] = 0;
@@ -194,7 +167,7 @@ svgtDocDraw(svg4, surface, SVGT_RENDERING_QUALITY_BETTER);
 | *Usage of surface viewport* |
 {:.tbl_images .srf_viewport}
 
-As for drawing surface, a viewport can be defined even for SVG documents. When an SVG document has been created through the `svgtDocCreate` function, its initial viewport is set equal to the viewBox XML attribute of the outermost `<svg>` element. SVG document viewport can be retrieved and set using the following functions:
+As for drawing surface, a viewport can be defined even for SVG documents. When an SVG document has been created through the `svgtDocCreate` function, its initial viewport is set equal to the `viewBox` XML attribute of the outermost `<svg>` element. SVG document viewport can be retrieved and set using the following functions:
 
 ```c
 /*
@@ -214,6 +187,7 @@ As for drawing surface, a viewport can be defined even for SVG documents. When a
     - viewport[3] = height
 
     This function returns:
+
     - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
 
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL or
@@ -242,6 +216,7 @@ SVGTErrorCode svgtDocViewportGet(SVGTHandle svgDoc,
     are clamped to the largest and smallest available float values.
 
     This function returns:
+
     - SVGT_BAD_HANDLE_ERROR if specified document handle is not valid
 
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'viewport' pointer is NULL or
@@ -258,7 +233,7 @@ SVGTErrorCode svgtDocViewportSet(SVGTHandle svgDoc,
 
 The document viewport could be though as the source (or logical) viewport, the surface viewport instead could be though as the destination (or physical) viewport. The combined use of `svgtDocViewportSet` and `svgtSurfaceViewportSet` induces a transformation matrix, that will be used (by the `svgtDocDraw` function) to draw the whole SVG document. The induced matrix will ensure that the document viewport will be mapped onto the surface viewport: all SVG content will be drawn accordingly.
 
-If the two viewports do not have the same aspect ratio (i.e. width-to-height ratio), we need to specify how the svgtDocDraw function is to display the SVG document. We do so using the following function:
+If the two viewports do not have the same aspect ratio (i.e. width-to-height ratio), we need to specify how the `svgtDocDraw` function is to display the SVG document. We do so using the following function:
 
 ```c
 /*

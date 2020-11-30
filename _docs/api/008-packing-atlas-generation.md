@@ -38,10 +38,6 @@ for (i = 0; i < DOCS_COUNT; ++i) {
     docHandles[i] = loadSvg(fileNames[i]);
 }
 
-/* set a transparent black clear color and enable surface clearing */
-svgtClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-svgtClearPerform(SVGT_TRUE);
-
 /* initialize the packing process: generate atlases with a maximum
    1024 pixels dimension and no additional scale */
 svgtPackingBegin(1024, 1, SVGT_FALSE, 1.0f);
@@ -67,6 +63,8 @@ for (i = 0; i < atlasesCount; ++i) {
     svgtPackingBinInfo(i, atlasInfo);
     /* create a drawing surface with the same atlas dimension */
     surface = svgtSurfaceCreate(atlasInfo[0], atlasInfo[1]);
+    /* clear the surface with a transparent black color */
+    svgtSurfaceClear(surface, 0.0f, 0.0f, 0.0f, 0.0f);
     /* draw all documents/elements over the drawing surface */
     svgtPackingDraw(i, 0, atlasInfo[2], surface, SVGT_RENDERING_QUALITY_BETTER);
     /* if needed, process the drawing surface (e.g. upload its pixels

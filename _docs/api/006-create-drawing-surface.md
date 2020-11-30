@@ -34,7 +34,8 @@ SVGTHandle svgtSurfaceCreate(SVGTuint width, SVGTuint height);
     This is the maximum valid value that can be specified as 'width' and
     'height' for the svgtSurfaceCreate and svgtSurfaceResize functions.
 
-    Bigger values are silently clamped to it.
+    In order to get a valid value, the library must have been already
+    initialized (see svgtInit).
 */
 SVGTuint svgtSurfaceMaxDimension(void);
 ```
@@ -82,6 +83,29 @@ When it is no longer needed, a surface can be destroyed using the `svgtSurfaceDe
     else an error code.
 */
 SVGTErrorCode svgtSurfaceDestroy(SVGTHandle surface);
+```
+
+## Clear a drawing surface
+
+Before to draw SVG documents, it is highly recommended to clear the drawing surface with a given color:
+
+```c
+/*
+    Clear the whole drawing surface with the given color.
+    Each color component must be a number between 0 and 1. Values outside this
+    range will be clamped.
+
+    It returns SVGT_NO_ERROR if the operation was completed successfully, else
+    an error code.
+
+    NB: floating-point values of NaN are treated as 0, values of +Infinity and
+    -Infinity are clamped to the largest and smallest available float values.
+*/
+SVGTErrorCode svgtSurfaceClear(SVGTHandle surface,
+                               SVGTfloat r,
+                               SVGTfloat g,
+                               SVGTfloat b,
+                               SVGTfloat a);
 ```
 
 ---
