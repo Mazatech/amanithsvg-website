@@ -97,4 +97,13 @@ The induced matrix grants the document viewport to be mapped onto the surface vi
 
 The `svgtPointMap` function can be used to calculate the drawing surface position that will take a point belonging to the SVG document viewport.
 
+```c
+/*!
+    Get renderer and version information.
+*/
+const char* svgtGetString(SVGTStringID name);
+```
+
+Using this function it is possible to get information about AmanithSVG version, OpenVG backend version and extensions, the list of compile-time options used to build the library.
+
 ---
