@@ -50,9 +50,6 @@ typedef enum {
 
 `SVGTfloat` defines a 32-bit IEEE 754 floating-point value.
 
----
-
-
 | Data type name | Size | Values range |
 | -------------- | ---- | -------------|
 | `SVGTbyte` | `1 byte` | `[ -128, 127 ]` |
