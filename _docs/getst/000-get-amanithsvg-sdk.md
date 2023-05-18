@@ -74,7 +74,8 @@ Choose a toolchain and platform using:
 ```
 // MacOS X (Xcode)
 // ---------------
--DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake  // Universal Binary (arm64, x86_64)
+-DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake  // Universal Binary
+                                                       // (arm64, x86_64)
 
 // Generators
 -G "Xcode"           // Xcode project
@@ -93,7 +94,8 @@ Choose a toolchain and platform using:
 ```
 // iOS (Xcode)
 // -----------
--DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake  // Universal Binary (arm64, x86_64)
+-DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake  // Universal Binary
+                                                       // (arm64, x86_64)
 
 // Generator
 -G "Xcode"  // Xcode project

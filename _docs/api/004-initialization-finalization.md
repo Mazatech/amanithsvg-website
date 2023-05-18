@@ -66,7 +66,7 @@ int screen = DefaultScreen(display);
 screenWidth = DisplayWidth(display, screen);
 screenHeight = DisplayHeight(display, screen);
 // 25.4 millimetres in an inch
-dpi = (screenWidth / DisplayWidthMM(display, screen)) * 25.4f);
+dpi = ((screenWidth / DisplayWidthMM(display, screen)) * 25.4f);
 ```
 
 ### Android
@@ -353,9 +353,9 @@ NB: the `svgtInit` function returns a `SVGT_ILLEGAL_ARGUMENT_ERROR` error code i
 Before to start the creation of SVG documents, drawing surfaces and begin drawing operations, some configuration parameters can be passed to the library. In the detail, it is possible to:
 
 - specify the curves quality: it forces the renderer to flatten the curves (i.e. generate polygon approximation) with more or less precision.
-  `svgtConfigSet(SVGT_CONFIG_CURVES_QUALITY, <quality>)` where `quality` parameter ranges between 1 and 100: 1 represents the worst quality and 100 the best one.
+  `svgtConfigSet(SVGT_CONFIG_CURVES_QUALITY, <quality>)` where `quality` parameter ranges between `1` and `100`: `1` represents the worst quality and `100` the best one.
 - specify the system/user-agent language; this setting will affect the conditional rendering of `<switch>` elements and elements with `systemLanguage` attribute specified.
-  `svgtLanguageSet(<languages>)` where `languages` is list of languages separated by semicolon (e.g. "en-US;en-GB;it;es").
+  `svgtLanguageSet(<languages>)` where `languages` is list of languages separated by semicolon (e.g. `"en-US;en-GB;it;es"`).
 - specify external resources; this setting allows the library to acknowledge about an external resource (font or image) along with possible hints; when needed, such resources will be used for the rendering of SVG documents.
   `svgtResourceSet(<id>, <buffer>, <bufferSize>, <type>, <hints>)`
 
@@ -532,7 +532,7 @@ SVGTErrorCode svgtResourceSet(const char* id,
 The types of supported resource are defined by the enumeration type `SVGTResourceType`.
 
 | Resource type | Notes |
-| ------- | -------------- |
+| ------ | -------------- |
 | `SVGT_RESOURCE_TYPE_FONT` | Resource is a font (vector fonts like OTF, TTF and WOFF are supported, bitmap fonts are not supported) |
 | `SVGT_RESOURCE_TYPE_IMAGE` | Resource is a bitmap/image (only JPEG and PNG are supported; 16 bits PNG are not supported) |
 {:.rwd-table .rwd-table-resource-types}
@@ -540,6 +540,7 @@ The types of supported resource are defined by the enumeration type `SVGTResourc
 SVG generic font families are a fallback mechanism, a means of preserving some of the SVG author's intent when none of the specified fonts are available. `svgtResourceSet` functions allows to tag some of the provided font resources as corresponding to one (or more) generic family name. The `hints` parameter is a bitwise `or` of values from the `SVGTResourceHint` enumeration:
 
 | Resource hint | Notes |
+| ------ | -------------- |
 | `SVGT_RESOURCE_HINT_DEFAULT_SERIF_FONT` | Font resource must be selected when the `font-family` attribute matches the `serif` generic family |
 | `SVGT_RESOURCE_HINT_DEFAULT_SANS_SERIF_FONT` | Font resource must be selected when the `font-family` attribute matches the `sans-serif` generic family |
 | `SVGT_RESOURCE_HINT_DEFAULT_MONOSPACE_FONT` | Font resource must be selected when the `font-family` attribute matches the `monospace` generic family |

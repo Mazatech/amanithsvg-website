@@ -17,7 +17,7 @@ All AmanithSVG functions may signal `SVGT_OUT_OF_MEMORY_ERROR`. Such an error ma
 All possible error codes are defined by the enumeration type `SVGTErrorCode`.
 
 | Error code | Notes |
-| ---------- | ----- |
+| ----- | ----- |
 | `SVGT_NO_ERROR` | The operation was completed successfully (defined as 0) |
 | `SVGT_NOT_INITIALIZED_ERROR` | It indicates that the library has not previously been initialized through the `svgtInit` function |
 | `SVGT_BAD_HANDLE_ERROR` | Returned when one or more invalid document/surface handles are passed to AmanithSVG functions |
