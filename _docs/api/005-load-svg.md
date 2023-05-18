@@ -49,7 +49,8 @@ char* loadXml(const char* fileName) {
     }
 
     /* allocate a memory buffer equal to the file size */
-    buffer = (char *)malloc((size + 1) * sizeof(char));
+    /* plus an additional character for the trailing '\0' */
+    buffer = calloc(size + 1, sizeof(char));
     if (buffer == NULL) {
         fclose(fp);
         return NULL;
@@ -64,7 +65,6 @@ char* loadXml(const char* fileName) {
     }
 
     /* close the file and return the pointer to the memory buffer */
-    buffer[size] = '\0';
     fclose(fp);
     return buffer;
 }
@@ -121,26 +121,44 @@ SVG files themself optionally can provide information about the appropriate view
 
 ```c
 /*
-    It returns -1 (i.e. an invalid width) in the following cases:
+    It returns a negative number (i.e. an invalid width) in the following cases:
+
     - the library has not previously been initialized through the svgtInit
       function
+
     - outermost element is not an <svg> element
+
     - outermost <svg> element doesn't have a 'width' attribute specified
+
+    - outermost <svg> element has a negative 'width' attribute specified
+      (e.g. width="-50")
+
     - outermost <svg> element has a 'width' attribute specified
       in relative measure units (i.e. em, ex, % percentage)
+
+    In all such cases the last-error code will be set to SVGT_INVALID_SVG_ERROR.
 */
 SVGTfloat svgtDocWidth(SVGTHandle svgDoc);
 ```
 
 ```c
 /*
-    It returns -1 (i.e. an invalid height) in the following cases:
+    It returns a negative number (i.e. an invalid height) in the following cases:
+
     - the library has not previously been initialized through the svgtInit
       function
+
     - outermost element is not an <svg> element
+
     - outermost <svg> element doesn't have a 'height' attribute specified
+
+    - outermost <svg> element has a negative 'height' attribute specified
+    (e.g. height="-30")
+
     - outermost <svg> element has a 'height' attribute specified in
       relative measure units (i.e. em, ex, % percentage)
+
+    In all such cases the last-error code will be set to SVGT_INVALID_SVG_ERROR.
 */
 SVGTfloat svgtDocHeight(SVGTHandle svgDoc);
 ```

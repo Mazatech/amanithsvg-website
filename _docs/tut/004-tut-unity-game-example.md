@@ -8,8 +8,7 @@ categories: [tut]
 
 # Unity game example
 
-In this tutorial, we will create a simple prototype of a memory-like game, using Unity and the relative [AmanithSVG binding API]({{site.url}}/docs/binding/004-unity.html).
-
+In this tutorial, we will create a simple prototype of a memory-like game, using Unity and the relative [AmanithSVG binding API]({{site.url}}/docs/binding/004-unity.html). The example explained in this chapter is implemented in the [game scene](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scenes/game.unity)
 
 ---
 
@@ -21,24 +20,23 @@ First, lets create the project structure:
 
  - Select the Game view, and make sure that "Scale" slider is completely on the left (i.e. `scale = 1x`); switch back to the Scene view.
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
     | *Set a unitary scene scale* |
-    {:.tbl_images .unity_tut3_init}
+    {:.tbl_images .unity_tut_init}
 
  - Because the project is a new one, it is required to copy AmanithSVG binding for Unity (`Editor`, `Plugins` and `Scripts` folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project.
 
- - Copy the [animals.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/animals.svg.txt), [gameBkg1.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg2.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg3.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg4.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/gameBkg4.svg.txt) files in the project's `Assets` folder. If needed, such files will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](http://docs.unity3d.com/ScriptReference/TextAsset.html).
+ - Copy the [animals.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/animals.svg.txt), [gameBkg1.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg2.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg3.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg4.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg4.svg.txt) files in the project's `Assets` folder. If needed, such files will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](https://docs.unity3d.com/ScriptReference/TextAsset.html).
 
  - The new scene should have been already populated with an orthographic camera; make sure that camera is positioned at `(0, 0, -10)`
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
-    | *The project layout after copying all needed files* |
+    | *The Game project layout after copying all needed files* |
     {:.tbl_images .unity_tut3_copy_binding}
 
-
---- 
+---
 
 ## The game background
 
@@ -47,18 +45,18 @@ Like we did in the [previous tutorial]({{site.url}}/docs/tut/003-tut-unity-anima
  - we add a [SVGCameraBehaviour]({{site.url}}/docs/binding/004-unity.html#svgcamerabehaviour) component to the main camera (menu `Component` → `Add`, then `Scripts` subsection): this script, at each monobehaviour `Update` call, checks for a screen resolution change and, if this event occurs, first it sets the `Camera.orthographicSize` properly, then it informs all its listeners through the `OnResize` event.
 
  - we create the sprite that we will use as background (menu `GameObject` → `2D Object` → `Sprite`). We rename the created object as `Background`, we position it at `(0, 0, 0)` and we set the `Order in Layer` value of the `SpriteRenderer` component to `-1`, so the background sprite will always be behind all other sprites. Now we attach a `SVGBackgroundBehaviour` script to it (menu `Component` → `Add`, then `Scripts` subsection), then set its fields:
- 
+
     - drag&drop one of the four backgrounds (e.g. `gameBkg1.svg`) file to the `SVG file` property
-    
+
     - check the `Sliced` checkbox, because we don't want to generate a potentially scrollable background (see the relative [documentation]({{site.url}}/docs/binding/004-unity.html#svgbackgroundbehaviour))
-    
+
     - uncheck the `Generate on Start()` checkbox (we will perform the generation at runtime, when the camera `OnResize` event will inform us about a screen resolution change)
-    
+
     - set `Width` and `Height` values to something valid (please set `768 x 640`, the reason will be clear in the next paragraph), just to have something visible in the editor
 
- - we create an "empty" `GameObject` (menu `GameObject` → `Create Empty`) that will represent our main entry point (i.e. the game state and logic), we rename the created object as `Game`, then we add a script to it (menu `Component` → `Add` → `New script`); lets call it `GameExampleBehaviour` (you can see the final full implementation [here](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scripts/GameScene/GameBehaviour.cs)).
+ - we create an "empty" `GameObject` (menu `GameObject` → `Create Empty`) that will represent our main entry point (i.e. the game state and logic), we rename the created object as `Game`, then we add a script to it (menu `Component` → `Add` → `New script`); lets call it `GameExampleBehaviour` (you can see the final full implementation [here](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/GameScene/GameBehaviour.cs)).
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *The basic template of our project* |
 {:.tbl_images .unity_tut3_template}
@@ -74,45 +72,45 @@ public class GameExampleBehaviour : MonoBehaviour {
     private void ResizeBackground(int newScreenWidth, int newScreenHeight)
     {
         // we want to cover the whole screen
-        this.Background.SlicedWidth = newScreenWidth;
-        this.Background.SlicedHeight = newScreenHeight;
+        Background.SlicedWidth = newScreenWidth;
+        Background.SlicedHeight = newScreenHeight;
 
         // generate the background texture at the desired resolution
-        this.Background.UpdateBackground(true);
+        Background.UpdateBackground(true);
     }
 
     private void OnResize(int newScreenWidth, int newScreenHeight)
     {
         // resize the background
-        this.ResizeBackground(newScreenWidth, newScreenHeight);
+        ResizeBackground(newScreenWidth, newScreenHeight);
     }
 
     private void StartNewGame()
     {
         // destroy current background texture
-        this.Background.DestroyAll(true);
+        Background.DestroyAll(true);
 
         // assign a new SVG file
-        int idx = (this.m_BackgroundIndex % this.BackgroundFiles.Length);
-        this.Background.SVGFile = this.BackgroundFiles[idx];
+        int idx = (backgroundIndex % BackgroundFiles.Length);
+        Background.SVGFile = BackgroundFiles[idx];
 
         // advance for the next background SVG
-        this.m_BackgroundIndex++;
+        backgroundIndex++;
     }
 
     // Use this for initialization
     void Start()
     {
         // start with the first background
-        this.m_BackgroundIndex = 0;
+        backgroundIndex = 0;
 
         // start a new game
-        this.StartNewGame();
+        StartNewGame();
 
         // register ourself for receiving resize events
-        this.Camera.OnResize += this.OnResize;
+        Camera.OnResize += OnResize;
         // now fire a resize event by hand
-        this.Camera.Resize(true);
+        Camera.Resize(true);
     }
     
     // the main camera, used to intercept screen resize events
@@ -124,7 +122,7 @@ public class GameExampleBehaviour : MonoBehaviour {
 
     // the current background (i.e. the index within the BackgroundFiles array)
     [NonSerialized]
-    private int m_BackgroundIndex;
+    private int backgroundIndex;
 }
 ```
 
@@ -136,19 +134,18 @@ The last thing left to do is to assign the public fields, by drag&drop:
 
  - the four background SVG (`gameBkg1.svg`, `gameBkg2.svg`, `gameBkg3.svg`, `gameBkg4.svg`) to the `BackgroundFiles` field
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *The game starts to take form: camera and the background sprite...done!* |
 {:.tbl_images .unity_tut3_background}
 
 Now if we click play, we see that the camera viewing volume is covering the whole screen and the background sprite is resized according to the screen dimensions.
 
-
 ---
 
 ## The cards
 
-The characters hidden behind the cards are cute animals and we model a single card instance as a set of basic attributes (see full implementation [here](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scripts/GameScene/GameCardBehaviour.cs)). Lets start by creating a new C# script (menu `Assets` → `Create` → `C# Script`) and call it `GameExampleCardBehaviour`:
+The characters hidden behind the cards are cute animals and we model a single card instance as a set of basic attributes (see full implementation [here](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/GameScene/GameCardBehaviour.cs)). Lets start by creating a new C# script (menu `Assets` → `Create` → `C# Script`) and call it `GameExampleCardBehaviour`:
 
 ```c#
 using System;
@@ -261,7 +258,7 @@ public class GameExampleCardBehaviour : MonoBehaviour {
 
         int v = (int)(UnityEngine.Random.value * (float)AnimalsCount())
               + (int)GameExampleCardType.Panda;
-        
+
         return (GameExampleCardType)v;
     }
 
@@ -279,10 +276,10 @@ public class GameExampleCardBehaviour : MonoBehaviour {
     // to give good default values in the inspector.
     void Reset()
     {
-        this.Active = true;
-        this.BackSide = true;
-        this.AnimalType = GameExampleCardType.Undefined;
-        this.Game = null;
+        Active = true;
+        BackSide = true;
+        AnimalType = GameExampleCardType.Undefined;
+        Game = null;
     }
 #endif
 
@@ -298,15 +295,15 @@ public class GameExampleCardBehaviour : MonoBehaviour {
 }
 ```
 
-Animals vector graphics are defined within a single SVG file ([animals.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/animals.svg.txt)), where each animal is a single first-level group (a `<g>` element):
+Animals vector graphics are defined within a single SVG file ([animals.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/animals.svg.txt)), where each animal is a single first-level group (a `<g>` element):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
      id="Animals"
-     xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns="https://www.w3.org/2000/svg"
+     xmlns:xlink="https://www.w3.org/1999/xlink"
      width="768px" height="640px"
      viewBox="0 0 3072 2560"
      xml:space="preserve">
@@ -338,7 +335,7 @@ Animals vector graphics are defined within a single SVG file ([animals.svg](http
 </svg>
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *animals.svg* |
 {:.tbl_images .animalsSvg}
@@ -358,7 +355,7 @@ Now we want to implement a function that generates animals sprites from the give
 
 Click the Update button and you'll see the generated animals sprites. Note that at the `768 x 640 reference resolution`, each animal sprite will have a dimension of `128 x 128`: it will ALWAYS guarantee that we can easily place them on a `4 x 3` grid (landscape layout) or on a `3 x 4` grid (portrait layout), REGARDLESS OF SCREEN RESOLUTION.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Animals sprites have been generated from animals.svg* |
 {:.tbl_images .unity_tut3_animals_atlas}
@@ -372,12 +369,12 @@ Now we instantiate a single animal sprite, and we model a game card on it:
  - uncheck both `Resize on Start()` and `Update transform` checkboxes (because we want to resize and position the sprite programmatically, by C# code at runtime)
 
  - add a `GameExampleCardBehaviour` component (menu `Component` → `Add`, then `Scripts` subsection)
- 
+
  - drag&drop the `Game` gameobject to the `Game` property (so the card can access to its game)
 
  - add a `Box Collider 2D` component (menu `Component` → `Physics 2D` → `Box Collider 2D`), because we want to intercept mouse/touch events
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *We have instantiated our first card!* |
 {:.tbl_images .unity_tut3_card_instantiated}
@@ -391,7 +388,7 @@ public GameExampleCardBehaviour[] Cards;
 public SVGAtlas Atlas;
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Now game has supervision on backgrounds SVG, card objects and animals sprites* |
 {:.tbl_images .unity_tut3_cards_cloned}
@@ -405,12 +402,12 @@ public Sprite UpdateCardSprite(GameExampleCardBehaviour card)
                                                  : card.AnimalType;
     // get the sprite, given its name
     string name = GameExampleCardBehaviour.AnimalSpriteName(cardType);
-    SVGRuntimeSprite data = this.Atlas.GetSpriteByName(name);
-    
+    SVGRuntimeSprite data = Atlas.GetSpriteByName(name);
+
     // keep updated the SVGSpriteLoaderBehaviour component too
     SVGSpriteLoaderBehaviour loader = 
         card.gameObject.GetComponent<SVGSpriteLoaderBehaviour>();
-   
+
     card.gameObject.GetComponent<SpriteRenderer>().sprite = data.Sprite;
     loader.SpriteReference = data.SpriteReference;
 
@@ -420,47 +417,68 @@ public Sprite UpdateCardSprite(GameExampleCardBehaviour card)
 private void UpdateCardsSprites()
 {
     // assign the new sprites and update colliders
-    for (int i = 0; i < this.Cards.Length; ++i)
+    for (int i = 0; i < Cards.Length; ++i)
     {
-        Sprite sprite = this.UpdateCardSprite(this.Cards[i]);
-        this.Cards[i].GetComponent<BoxCollider2D>().size = sprite.bounds.size;
+        Sprite sprite = UpdateCardSprite(Cards[i]);
+        Cards[i].GetComponent<BoxCollider2D>().size = sprite.bounds.size;
     }
 }
 
-private void ResizeCards(int newScreenWidth, int newScreenHeight)
+private void ResizeCards(int newScreenWidth,
+                         int newScreenHeight)
 {
-    float scale;
-
     // update card sprites according to the current screen resolution
-    if (this.Atlas.UpdateRuntimeSprites(newScreenWidth, newScreenHeight, out scale))
+    if (Atlas.UpdateRuntimeSprites(newScreenWidth, newScreenHeight,
+                                   out float scale))
     {
         // assign the new sprites and update colliders
-        this.UpdateCardsSprites();
+        UpdateCardsSprites();
     }
 }
 
-private void DisposeCards()
+private void PlaceCards(int screenWidth,
+                        int screenHeight)
 {
     int[] cardsIndexes;
     int slotsPerRow, slotsPerColumn;
     string name = GameExampleCardBehaviour.AnimalSpriteName(GameExampleCardType.BackSide);
-    SVGRuntimeSprite data = this.Atlas.GetSpriteByName(name);
+    SVGRuntimeSprite data = Atlas.GetSpriteByName(name);
     float cardWidth = data.Sprite.bounds.size.x;
     float cardHeight = data.Sprite.bounds.size.y;
-    float worldWidth = this.Camera.WorldWidth;
-    float worldHeight = this.Camera.WorldHeight;
+    float worldWidth = Camera.WorldWidth;
+    float worldHeight = Camera.WorldHeight;
 
-    if (worldWidth <= worldHeight) {
-        // number of card slots in each dimension
-        slotsPerRow = 3;
-        slotsPerColumn = 4;
-        cardsIndexes = CARDS_INDEXES_PORTRAIT;
+    // check actual orientation on iOS and Android devices
+    if ((Application.platform == RuntimePlatform.Android) ||
+        (Application.platform == RuntimePlatform.IPhonePlayer))
+    {
+        // portrait orientation
+        if (screenWidth <= screenHeight)
+        {
+            // number of card slots in each dimension
+            slotsPerRow = 3;
+            slotsPerColumn = 4;
+            cardsIndexes = CARDS_INDEXES_NATIVE_PORTRAIT;
+        }
+        else
+        {
+            // get current (landscape) orientation
+            ScreenOrientation orientation = SVGAssetsUnity.ScreenOrientation;
+            // number of card slots in each dimension
+            slotsPerRow = 4;
+            slotsPerColumn = 3;
+            invertCoord = true;
+            cardsIndexes = (orientation == ScreenOrientation.LandscapeRight) ? CARDS_INDEXES_LANDSCAPE_ROT90
+                                                                             : CARDS_INDEXES_LANDSCAPE_ROT270;
+        }
     }
-    else {
-        // number of card slots in each dimension
-        slotsPerRow = 4;
-        slotsPerColumn = 3;
-        cardsIndexes = CARDS_INDEXES_LANDSCAPE;
+    else
+    {
+        // Desktop, detect orientation according to screen dimensions
+        slotsPerRow = (screenWidth <= screenHeight) ? 3 : 4;
+        slotsPerColumn = (screenWidth <= screenHeight) ? 4 : 3;
+        cardsIndexes = (screenWidth <= screenHeight) ? CARDS_INDEXES_NATIVE_PORTRAIT
+                                                     : CARDS_INDEXES_NATIVE_LANDSCAPE;
     }
 
     // 5% border
@@ -478,36 +496,58 @@ private void DisposeCards()
                        - (worldWidth * 0.5f) + (cardWidth * 0.5f);
             float posY = ofsY + (y * (cardHeight + vertSeparator)) 
                        - (worldHeight * 0.5f) + (cardHeight * 0.5f);
-            this.Cards[cardsIndexes[cardIdx]].transform.position = new Vector3(posX, posY);
+            // invert coordinates, if needed
+            Cards[cardsIndexes[cardIdx]].transform.position = invertCoord ? new Vector3(-posX, -posY)
+                                                                          : new Vector3(posX, posY);
             cardIdx++;
         }
     }
 }
 
-private void OnResize(int newScreenWidth, int newScreenHeight)
+private void OnResize(int newScreenWidth,
+                      int newScreenHeight)
 {
     // resize the background
-    this.ResizeBackground(newScreenWidth, newScreenHeight);
+    ResizeBackground(newScreenWidth, newScreenHeight);
     // resize animals sprites
-    this.ResizeCards(newScreenWidth, newScreenHeight);
+    ResizeCards(newScreenWidth, newScreenHeight);
     // rearrange cards on the screen
-    this.DisposeCards();
+    PlaceCards(newScreenWidth, newScreenHeight);
 }
 
-private static readonly int[] CARDS_INDEXES_PORTRAIT = { 
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+// cards arrangement when native device orientation is portrait
+private static readonly int[] CARDS_INDEXES_NATIVE_PORTRAIT = {
+    0,  1,  2,
+    3,  4,  5,
+    6,  7,  8,
+    9, 10, 11
 };
-private static readonly int[] CARDS_INDEXES_LANDSCAPE = { 
-    9, 6, 3, 0, 10, 7, 4, 1, 11, 8, 5, 2 
+// landscape orientation, clockwise from the portrait orientation
+private static readonly int[] CARDS_INDEXES_LANDSCAPE_ROT90 = {
+    9, 6, 3, 0,
+    10, 7, 4, 1,
+    11, 8, 5, 2
+};
+// landscape orientation, counter-clockwise from the portrait orientation
+private static readonly int[] CARDS_INDEXES_LANDSCAPE_ROT270 = {
+    2, 5, 8, 11,
+    1, 4, 7, 10,
+    0, 3, 6,  9
 };
 
+// cards arrangement when native device orientation is landscape
+private static readonly int[] CARDS_INDEXES_NATIVE_LANDSCAPE = {
+    0,  1,  2, 3,
+    4,  5,  6, 7,
+    8,  9, 10, 11
+};
 ```
 
 The code is really simple, here are some notes:
 
  - when sprites are regenerated at runtime, due to a resolution change, the relative box colliders are update too (`UpdateCardsSprites` function)
 
- - if the screen has a landscape layout, the cards are arranged on 3 rows and 4 columns; on portrait layouts, instead, they are arranged on 4 rows and 3 columns (`DisposeCards` function)
+ - if the screen has a landscape layout, the cards are arranged on 3 rows and 4 columns; on portrait layouts, instead, they are arranged on 4 rows and 3 columns (`PlaceCards` function)
 
 The `StartNewGame` function has been modified in order to generate six pairs of animals (12 cards in total), randomly chosen among the 25 available:
 
@@ -538,12 +578,12 @@ private void Shuffle(GameExampleCardType[] array)
 
 public void StartNewGame()
 {
-    GameExampleCardType[] animalCouples = new GameExampleCardType[this.Cards.Length];
+    GameExampleCardType[] animalCouples = new GameExampleCardType[Cards.Length];
     // start with a random animal
     GameExampleCardType currentAnimal = GameExampleCardBehaviour.RandomAnimal();
 
     // generate animal couples
-    for (int i = 0; i < (this.Cards.Length / 2); ++i)
+    for (int i = 0; i < (Cards.Length / 2); ++i)
     {
         animalCouples[i * 2] = currentAnimal;
         animalCouples[(i * 2) + 1] = currentAnimal;
@@ -551,26 +591,26 @@ public void StartNewGame()
     }
 
     // shuffle couples
-    this.Shuffle(animalCouples);
+    Shuffle(animalCouples);
 
     // assign cards
-    for (int i = 0; i < this.Cards.Length; ++i)
+    for (int i = 0; i < Cards.Length; ++i)
     {
-        this.Cards[i].AnimalType = animalCouples[i];
-        this.ShowCard(this.Cards[i]);
+        Cards[i].AnimalType = animalCouples[i];
+        ShowCard(Cards[i]);
     }
 
     // destroy current background texture
-    this.Background.DestroyAll(true);
+    Background.DestroyAll(true);
     // assign a new SVG file
-    int idx = (this.m_BackgroundIndex % this.BackgroundFiles.Length);
-    this.Background.SVGFile = this.BackgroundFiles[idx];
+    int idx = (backgroundIndex % BackgroundFiles.Length);
+    Background.SVGFile = BackgroundFiles[idx];
     // advance for the next background SVG
-    this.m_BackgroundIndex++;
+    backgroundIndex++;
 }
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *All the graphics are perfectly sized and respect the screen layout* |
 {:.tbl_images .unity_tut3_cards_shuffled}
@@ -581,19 +621,190 @@ The last detail that is missing is how we detect if a card is selected by mouse/
 void OnMouseDown()
 {
     // forward the selection event to the Game
-    this.Game.SelectCard(this);
+    Game.SelectCard(this);
 }
 ```
 
 The remaining code (not reported here because really trivial) simply deals with the gameplay: all the cards must start as backside and if the two selected cards match, they are made inactive (`GameExampleCardBehaviour.Active = false`) and removed from the game, otherwise they are covered again. The game ends when all the cards are inactive (i.e. all pairs of animals have been discovered).
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *A new game and we immediately chose a pair that does not match!* |
 {:.tbl_images .unity_tut3_the_game}
 
-The complete project can be found [here](http://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity) (the [game scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/game.unity)).
-As it can be seen, card objects have also an [Animation](http://docs.unity3d.com/Manual/class-Animation.html) component attached, used to perform a simple rotation when shuffling or when two selected cards match.
+---
+
+## The "You win!" message
+
+When the player has guessed all pairs, a "You win!"-like message will be displayed. This will be implemented using a simple SVG that uses a rotated `<text>` element:
+
+```xml
+<svg version="1.1" width="512" height="512" viewBox="0 0 512 512">
+    <!-- 45 degree rotation around the center, then a
+         translation to vertically center the baseline -->
+    <g transform="rotate(-45 256 256) translate(0 42)"
+       text-anchor="middle"
+       font-family="Acme" font-size="120"
+       fill="white" stroke="black" stroke-width="4">
+        <!-- make the text centered at (256, 256) -->
+        <switch>
+            <!-- German language -->
+            <text x="256" y="256" systemLanguage="de">Du gewinnst!</text>
+            <!-- English language -->
+            <text x="256" y="256" systemLanguage="en">You win!</text>
+            <!-- Spanish language -->
+            <text x="256" y="256" systemLanguage="es">Tú ganas!</text>
+            <!-- French language -->
+            <text x="256" y="256" systemLanguage="fr">Vous gagnez!</text>
+            <!-- Italian language -->
+            <text x="256" y="256" systemLanguage="it">Hai vinto!</text>
+            <!-- the fallback element with no systemLanguage attribute
+                 if none of them match -->
+            <text x="256" y="256">You win!</text>
+        </switch>
+    </g>
+</svg>
+```
+
+| &nbsp; |
+| :---: |
+| *The SVG used to display a congratulation message to the player* |
+{:.tbl_images .congratsSvg}
+
+In order to display the message, an object must be added to the scene (menu `GameObject` → `Create Empty`), its default location `(0, 0, 0)` will be just fine, because it corresponds to the center of the camera frame. Then a dedicated `GameCongratsBehaviour` script must be attached to it (menu `Component` → `Add`, then `Scripts` subsection): as soon as the script is attached to the object, it checks the presence of a `SpriteRenderer` component and creates it if not present (the default `Order in Layer` property value will be `0`, that is just fine because it means that the congratulation object/sprite will be displayed upon the background).
+The script takes the congratulation SVG file as input, loads it when needed and destroys it at the `OnDestroy` event. In order to generate the texture according to screen resolution, a public `Resize` method has been exposed.
+
+```c#
+void OnDestroy()
+{
+    if (document != null)
+    {
+        // release SVG document
+        document.Dispose();
+    }
+}
+
+public void Resize(int newScreenWidth,
+                   int newScreenHeight)
+{
+    // load the SVG document, if needed
+    if ((document == null) && (SVGFile != null))
+    {
+        document = SVGAssetsUnity.CreateDocument(SVGFile.text);
+    }
+
+    if (document != null)
+    {
+        // congratulation SVG is squared by design, we choose to generate a texture with
+        // a size equal to 3/5 of the smallest screen dimension; e.g. on a 1920 x 1080
+        // device screen, texture will have a size of (1080 * 3) / 5 = 648 pixels
+        uint size = (uint)(Math.Min(newScreenWidth, newScreenHeight) * 3) / 5;
+        // create a drawing surface
+        SVGSurfaceUnity surface = SVGAssetsUnity.CreateSurface(size, size);
+        // draw SVG and generate the relative texture
+        Texture2D texture = surface.DrawTexture(document, SVGColor.Clear);
+        // create the sprite out of the texture
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        renderer.sprite = SVGAssetsUnity.CreateSprite(texture, new Vector2(0.5f, 0.5f));
+        // destroy the temporary drawing surface
+        surface.Dispose();
+    }
+}
+
+// SVG to be displayed when the player wins.
+public TextAsset SVGFile = null;
+// The loaded SVG document.
+private SVGDocument document = null;
+```
+
+---
+
+## The project settings
+
+As seen in the previous chapter, the SVG file used to generate the "You win!" texture message is made of `<text>` elements; all such elements inherit the use of a Acme font family. In addition a `<switch>` element is used to provide an ability to specify alternate viewing depending on the capabilities of a given user agent or the user's language. In the detail not all `<text>` elements will be rendered, but only the one that matches the user's language.
+In order to provide AmanithSVG fonts and language settings, [SVGAssetsConfigUnity]({{site.url}}/docs/binding/004-unity.html#svgassetsconfigunity) class must be used. Such class is interfaced to Unity editor through the [SVGAssetsConfigUnityScriptable](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/SVGAssets/SVGAssetsConfigUnityScriptable.cs) scriptable object: it simply ensures that configuration parameters are saved/synchronized to an external resource file (`SVGAssetsConfigUnity.asset`, located in `Assets/SVGAssets/Resources` directory).
+
+By opening the `Edit` → `Project Settings` menu, then `SVGAssets` subsection, it is possible to edit the basic parameters (e.g. user-agent language, curves quality) and provide resources (OTF/TTF/WOFF fonts and JPEG/PNG images) to AmanithSVG. In this game example we must drag&drop the Acme font (from `Assets/SVGAssets/Resources` directory), since it is needed by the congratulation message SVG. In this way, when AmanithSVG will be initialized at runtime, it will find and use the font file to render `<text>` elements.
+
+| &nbsp; |
+| :---: |
+| *Editor panel for AmanithSVG resources and configuration parameters* |
+{:.tbl_images .unity_tut3_config_parameters}
+
+| &nbsp; |
+| :---: |
+| *The Acme font* |
+{:.tbl_images .acmeFont}
+
+---
+
+## The splash screen
+
+The implementation of an initial splash screen, showing a "Powered by AmanithSVG" logo, is really simple. It is just a matter to load the relative SVG document, and generate a texture. Because the logo must cover the whole screen, while maintaining its original aspect ratio (i.e. the aspect ratio induced by the `viewBox` attribute), we must calculate the smallest scale factor that "fits" the logo within the screen.
+The code has been incapsulated within a `GameSplashScreenBehaviour` class, which is very similar to the `GameCongratsBehaviour` script, the only thing that changes is the method of calculating the texture size:
+
+```c#
+void OnDestroy()
+{
+    if (_document != null)
+    {
+        // release SVG document
+        document.Dispose();
+    }
+}
+
+public void Resize(int newScreenWidth,
+                   int newScreenHeight)
+{
+    // load the SVG document, if needed
+    if ((_document == null) && (SVGFile != null))
+    {
+        _document = SVGAssetsUnity.CreateDocument(SVGFile.text);
+    }
+
+    if (_document != null)
+    {
+        // get 'viewBox' dimensions
+        float viewW = _document.Viewport.Width;
+        float viewH = _document.Viewport.Height;
+        // keep the SVG aspect ratio
+        float sx = newScreenWidth / viewW;
+        float sy = newScreenHeight / viewH;
+        // keep 2% border on each side
+        float scaleMin = Math.Min(sx, sy) * 0.96f;
+        // and at the same time we fit the screen
+        uint texW = (uint)Math.Round(viewW * scaleMin);
+        uint texH = (uint)Math.Round(viewH * scaleMin);
+
+        // create a drawing surface
+        SVGSurfaceUnity surface = SVGAssetsUnity.CreateSurface(texW, texH);
+        // draw SVG and generate the relative texture
+        Texture2D texture = surface.DrawTexture(document, SVGColor.Clear);
+        // create the sprite out of the texture
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        renderer.sprite = SVGAssetsUnity.CreateSprite(texture, new Vector2(0.5f, 0.5f));
+        // destroy the temporary drawing surface
+        surface.Dispose();
+    }
+}
+
+// The "Powered by AmanithSVG" logo.
+public TextAsset SVGFile = null;
+// The loaded SVG document.
+private SVGDocument document = null;
+```
+
+| &nbsp; |
+| :---: |
+| *Powered by AmanithSVG logo (for dark backgrounds)* |
+{:.tbl_images .amanithsvgPowByDark}
+
+| &nbsp; |
+| :---: |
+| *Powered by AmanithSVG logo (for light backgrounds)* |
+{:.tbl_images .amanithsvgPowByLight}
+
+As it can be seen, card objects have also an [Animation](https://docs.unity3d.com/Manual/class-Animation.html) component attached, used to perform a simple rotation when shuffling or when two selected cards match.
 
 Now you can have fun experimenting with it!
 

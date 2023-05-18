@@ -51,97 +51,98 @@ Index:
 
 ## Elements
 
-| Elements | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
-| ---------- | :----------: | :----------: | :--------: | ----- |
-| [\<svg\>](#svg-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<g\>](#g-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<defs\>](#defs-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<desc\>](#desc-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<title\>](#title-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<symbol\>](#symbol-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<use\>](#use-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<image\>](#image-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<switch\>](#switch-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<style\>](#style-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<path\>](#path-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<rect\>](#rect-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<circle\>](#circle-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<ellipse\>](#ellipse-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<line\>](#line-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<polyline\>](#polyline-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<polygon\>](#polygon-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<text\>](#text-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<tspan\>](#tspan-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<tref\>](#tref-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<textPath\>](#textpath-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<altGlyph\>](#altglyph-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<altGlyphDef\>](#altglyphdef-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<altGlyphItem\>](#altglyphitem-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<glyphRef\>](#gliphref-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<textArea\>](#textarea-attributes) | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<tbreak\>](#tbreak-attributes) | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<marker\>](#marker-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<solidColor\>](#solidcolor-attributes) | <span class="unsupported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<color-profile\>](#color-profile-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<linearGradient\>](#lineargradient-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<radialGradient\>](#radialgradient-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<stop\>](#stop-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| [\<pattern\>](#pattern-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<clipPath\>](#clippath-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="partial"></span> | Recursive clipping limited to 15 \<clipPath\> elements. For \<clipPath\> containing multiple geometry entities, it’s required that entities must be homogeneous in terms of ‘clip-rule’ and cw/ccw direction of the outlines. |
-| [\<mask\>](#mask-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<filter\>](#filter-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<feDistantLight\>](#fedistantlight-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<fePointLight\>](#fepointlight-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feSpotLight\>](#fespotlight-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feBlend\>](#feblend-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feColorMatrix\>](#fecolormatrix-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<feComponentTransfer\>](#fecomponenttransfer-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feFuncR\>](#fefuncr-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feFuncG\>](#fefuncg-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feFuncB\>](#fefuncb-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feFuncA\>](#fefunca-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feComposite\>](#fecomposite-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feConvolveMatrix\>](#feconvolvematrix-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feDiffuseLighting\>](#fediffuselighting-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feDisplacementMap\>](#fedisplacementmap-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feFlood\>](#feflood-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feGaussianBlur\>](#fegaussianblur-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<feImage\>](#feimage-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feMerge\>](#femerge-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feMergeNode\>](#femergenode-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feMorphology\>](#femorphology-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feOffset\>](#feoffset-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| [\<feSpecularLighting\>](#fespecularlighting-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feTile\>](#fetile-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<feTurbulence\>](#feturbulence-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<cursor\>](#cursor-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<a\>](#a-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<view\>](#view-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<script\>](#script-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<animate\>](#animate-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<set\>](#set-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<animateMotion\>](#animatemotion-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<animateColor\>](#animatecolor-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<animateTransform\>](#animatetransform-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<mpath\>](#mpath-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<font\>](#font-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<glyph\>](#glyph-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<missing-glyph\>](#missing-glyph-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<hkern\>](#hkern-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<vkern\>](#vkern-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<font-face\>](#font-face-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<font-face-src\>](#font-face-src-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<font-face-uri\>](#font-face-uri-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<font-face-format\>](#font-face-format-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<font-face-name\>](#font-face-name-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| [\<metadata\>](#metadata-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
-| [\<foreignObject\>](#foreignobject-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| Elements | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG Full | AmanithSVG Lite | Notes |
+| -------- | :----------: | :----------: | :-------------: | :-------------: | ----- |
+| [\<svg\>](#svg-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<g\>](#g-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<defs\>](#defs-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<desc\>](#desc-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<title\>](#title-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<symbol\>](#symbol-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<use\>](#use-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<image\>](#image-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="partial"></span> | <span class="unsupported"></span> | Embedded base64 encoded JPEG and PNG images (no 16bit formats), and through `svgtResourceSet` API. |
+| [\<switch\>](#switch-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="partial"></span> | <span class="partial"></span> | 'requiredExtensions' attribute is not supported. |
+| [\<style\>](#style-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<path\>](#path-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<rect\>](#rect-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<circle\>](#circle-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<ellipse\>](#ellipse-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<line\>](#line-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<polyline\>](#polyline-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<polygon\>](#polygon-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<text\>](#text-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<tspan\>](#tspan-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<tref\>](#tref-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<textPath\>](#textpath-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<altGlyph\>](#altglyph-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<altGlyphDef\>](#altglyphdef-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<altGlyphItem\>](#altglyphitem-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<glyphRef\>](#gliphref-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<textArea\>](#textarea-attributes) | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<tbreak\>](#tbreak-attributes) | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<marker\>](#marker-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<solidColor\>](#solidcolor-attributes) | <span class="unsupported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<color-profile\>](#color-profile-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<linearGradient\>](#lineargradient-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | Solid color equal to the first stop is used instead, in AmanithSVG Lite. |
+| [\<radialGradient\>](#radialgradient-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | Solid color equal to the first stop is used instead, in AmanithSVG Lite. |
+| [\<stop\>](#stop-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | Only the first stop is used in AmanithSVG Lite. |
+| [\<pattern\>](#pattern-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | Solid white is used instead, in AmanithSVG Lite. |
+| [\<clipPath\>](#clippath-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="partial"></span> | <span class="partial"></span> | \<clipPath\> elements containing a single child and a maximum of 31 concurrent active \<clipPath\> only are supported. |
+| [\<mask\>](#mask-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<filter\>](#filter-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | 'filterRes' attribute is not supported. |
+| [\<feDistantLight\>](#fedistantlight-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<fePointLight\>](#fepointlight-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feSpotLight\>](#fespotlight-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feBlend\>](#feblend-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feColorMatrix\>](#fecolormatrix-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feComponentTransfer\>](#fecomponenttransfer-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feFuncR\>](#fefuncr-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feFuncG\>](#fefuncg-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feFuncB\>](#fefuncb-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feFuncA\>](#fefunca-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feComposite\>](#fecomposite-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feConvolveMatrix\>](#feconvolvematrix-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feDiffuseLighting\>](#fediffuselighting-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | 'kernelUnitLength' attribute is not supported. |
+| [\<feDisplacementMap\>](#fedisplacementmap-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feFlood\>](#feflood-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feGaussianBlur\>](#fegaussianblur-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feImage\>](#feimage-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feMerge\>](#femerge-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feMergeNode\>](#femergenode-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feMorphology\>](#femorphology-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feOffset\>](#feoffset-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<feSpecularLighting\>](#fespecularlighting-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="partial"></span> | <span class="unsupported"></span> | 'kernelUnitLength' attribute is not supported. |
+| [\<feTile\>](#fetile-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<feTurbulence\>](#feturbulence-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| [\<cursor\>](#cursor-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<a\>](#a-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| [\<view\>](#view-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<script\>](#script-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<animate\>](#animate-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<set\>](#set-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<animateMotion\>](#animatemotion-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<animateColor\>](#animatecolor-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<animateTransform\>](#animatetransform-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<mpath\>](#mpath-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<font\>](#font-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<glyph\>](#glyph-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<missing-glyph\>](#missing-glyph-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<hkern\>](#hkern-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<vkern\>](#vkern-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<font-face\>](#font-face-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<font-face-src\>](#font-face-src-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<font-face-uri\>](#font-face-uri-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<font-face-format\>](#font-face-format-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<font-face-name\>](#font-face-name-attributes) | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<metadata\>](#metadata-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| [\<foreignObject\>](#foreignobject-attributes) | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 {:.rwd-table .rwd-table-elements}
 
 ---
 
 
 ## Attributes
+Note for AmanithSVG Lite: although indicated as supported, attributes are intended to be truly supported only if the element to which they refer is itself supported.
 
 ### Animation event attributes
 {:.unsupported-features}
@@ -208,17 +209,15 @@ Index:
 {:.unsupported-features}
 
 ### Conditional processing attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | requiredFeatures | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| requiredExtensions | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| requiredExtensions | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | requiredFormats | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | requiredFonts | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | systemLanguage | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### Core attributes
 
@@ -228,7 +227,7 @@ Index:
 | xml:base | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | xml:lang | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | xml:space | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| xml:id | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| xml:id | <span class="unsupported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
 
 ### Document event attributes
@@ -246,7 +245,6 @@ Index:
 {:.unsupported-features}
 
 ### Filter primitive attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -254,9 +252,8 @@ Index:
 | y | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | width | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | height | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| result | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| result | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### Graphical event attributes
 {:.unsupported-features}
@@ -302,21 +299,21 @@ Index:
 | fill-opacity | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | fill-rule | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | filter | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| flood-color | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
-| flood-opacity | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| flood-color | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
+| flood-opacity | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | font-family | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | font-size | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | font-size-adjust | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | font-stretch | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | font-style | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| font-variant | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| font-variant | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | font-weight | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | glyph-orientation-horizontal | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | glyph-orientation-vertical | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | non-deprecated values only |
 | image-rendering | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | kerning | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | letter-spacing | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| lighting-color | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| lighting-color | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
 | line-increment | <span class="unsupported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 | marker-end | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
 | marker-mid | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
@@ -493,7 +490,6 @@ Index:
 {:.rwd-table .rwd-table-attributes}
 
 ### \<image\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -502,18 +498,17 @@ Index:
 | [Graphical event attributes](#graphical-event-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Xlink attributes](#xlink-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| externalResourcesRequired | <span class="supported"></span> | | | - |
-| preserveAspectRatio | <span class="supported"></span> | | | - |
-| transform | <span class="supported"></span> | | | - |
-| x | <span class="supported"></span> | | | - |
-| y | <span class="supported"></span> | | | - |
-| width | <span class="supported"></span> | | | - |
-| height | <span class="supported"></span> | | | - |
-| xlink:href | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| externalResourcesRequired | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| preserveAspectRatio | <span class="supported"></span> | | <span class="supported"></span> | - |
+| transform | <span class="supported"></span> | | <span class="supported"></span> | - |
+| x | <span class="supported"></span> | | <span class="supported"></span> | - |
+| y | <span class="supported"></span> | | <span class="supported"></span> | - |
+| width | <span class="supported"></span> | | <span class="supported"></span> | - |
+| height | <span class="supported"></span> | | <span class="supported"></span> | - |
+| xlink:href | <span class="supported"></span> | | <span class="partial"></span> | Embedded base64 encoded JPEG and PNG images (no 16bit formats), and through `svgtResourceSet` API. |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<switch\> attributes
 
@@ -586,8 +581,8 @@ Index:
 | transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | x | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | y | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
-| width | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
-| height | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
+| width | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| height | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | rx | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 | ry | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
@@ -681,7 +676,6 @@ Index:
 ## Text elements
 
 ### \<text\> attributes
-(AmanithSVG >= 1.3.3)
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -704,7 +698,6 @@ Index:
 {:.rwd-table .rwd-table-attributes}
 
 ### \<tspan\> attributes
-(AmanithSVG >= 1.3.3)
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -742,7 +735,6 @@ Index:
 {:.unsupported-features}
 
 ### \<textPath\> attributes
-(AmanithSVG >= 1.3.3)
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -966,7 +958,6 @@ Index:
 {:.rwd-table .rwd-table-attributes}
 
 ### \<pattern\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -974,21 +965,20 @@ Index:
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Xlink attributes](#xlink-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| externalResourcesRequired | <span class="supported"></span> | | | - |
-| viewBox | <span class="supported"></span> | | | - |
-| preserveAspectRatio | <span class="supported"></span> | | | - |
-| x | <span class="supported"></span> | | | - |
-| y | <span class="supported"></span> | | | - |
-| width | <span class="supported"></span> | | | - |
-| height | <span class="supported"></span> | | | - |
-| patternUnits | <span class="supported"></span> | |  | - |
-| patternContentUnits | <span class="supported"></span> | | | - |
-| patternTransform | <span class="supported"></span> | | | - |
-| xlink:href | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| externalResourcesRequired | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| viewBox | <span class="supported"></span> | | <span class="supported"></span> | - |
+| preserveAspectRatio | <span class="supported"></span> | | <span class="supported"></span> | - |
+| x | <span class="supported"></span> | | <span class="supported"></span> | - |
+| y | <span class="supported"></span> | | <span class="supported"></span> | - |
+| width | <span class="supported"></span> | | <span class="supported"></span> | - |
+| height | <span class="supported"></span> | | <span class="supported"></span> | - |
+| patternUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
+| patternContentUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
+| patternTransform | <span class="supported"></span> | | <span class="supported"></span> | - |
+| xlink:href | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ---
 
@@ -1047,69 +1037,60 @@ Index:
 | width | <span class="supported"></span> | | <span class="supported"></span> | - |
 | height | <span class="supported"></span> | | <span class="supported"></span> | - |
 | filterRes | <span class="supported"></span> | | <span class="unsupported"></span> | - |
-| filterUnits | <span class="supported"></span> | | <span class="unsupported"></span> | - |
-| primitiveUnits | <span class="supported"></span> | | <span class="unsupported"></span> | - |
-| xlink:href | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| filterUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
+| primitiveUnits | <span class="supported"></span> | | <span class="supported"></span> | - |
+| xlink:href | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
 
 ### \<feDistantLight\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-| azimuth | <span class="supported"></span> | | | - |
-| elevation | <span class="supported"></span> | | | - |
+| azimuth | <span class="supported"></span> | | <span class="supported"></span> | - |
+| elevation | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<fePointLight\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-| x | <span class="supported"></span> | | | - |
-| y | <span class="supported"></span> | | | - |
-| z | <span class="supported"></span> | | | - |
+| x | <span class="supported"></span> | | <span class="supported"></span> | - |
+| y | <span class="supported"></span> | | <span class="supported"></span> | - |
+| z | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feSpotLight\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-| x | <span class="supported"></span> | | | - |
-| y | <span class="supported"></span> | | | - |
-| z | <span class="supported"></span> | | | - |
-| pointsAtX | <span class="supported"></span> | | | - |
-| pointsAtY | <span class="supported"></span> | | | - |
-| pointsAtZ | <span class="supported"></span> | | | - |
-| specularExponent | <span class="supported"></span> | | | - |
-| limitingConeAngle | <span class="supported"></span> | | | - |
+| x | <span class="supported"></span> | | <span class="supported"></span> | - |
+| y | <span class="supported"></span> | | <span class="supported"></span> | - |
+| z | <span class="supported"></span> | | <span class="supported"></span> | - |
+| pointsAtX | <span class="supported"></span> | | <span class="supported"></span> | - |
+| pointsAtY | <span class="supported"></span> | | <span class="supported"></span> | - |
+| pointsAtZ | <span class="supported"></span> | | <span class="supported"></span> | - |
+| specularExponent | <span class="supported"></span> | | <span class="supported"></span> | - |
+| limitingConeAngle | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feBlend\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| in | <span class="supported"></span> | | | - |
-| in2 | <span class="supported"></span> | | | - |
-| mode | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| in2 | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| mode | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feColorMatrix\> attributes
-(AmanithSVG >= 1.3.3)
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -1206,24 +1187,22 @@ Index:
 {:.unsupported-features}
 
 ### \<feComposite\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| in | <span class="supported"></span> | | | - |
-| in2 | <span class="supported"></span> | | | - |
-| operator | <span class="supported"></span> | | | - |
-| k1 | <span class="supported"></span> | | | - |
-| k2 | <span class="supported"></span> | | | - |
-| k3 | <span class="supported"></span> | | | - |
-| k4 | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| in2 | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| operator | <span class="supported"></span> | | <span class="supported"></span> | - |
+| k1 | <span class="supported"></span> | | <span class="supported"></span> | - |
+| k2 | <span class="supported"></span> | | <span class="supported"></span> | - |
+| k3 | <span class="supported"></span> | | <span class="supported"></span> | - |
+| k4 | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feConvolveMatrix\> attributes
 {:.unsupported-features}
@@ -1249,57 +1228,50 @@ Index:
 {:.unsupported-features}
 
 ### \<feDiffuseLighting\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| in | <span class="supported"></span> | | | - |
-| surfaceScale | <span class="supported"></span> | | | - |
-| diffuseConstant | <span class="supported"></span> | | | - |
-| kernelUnitLength | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| in | <span class="supported"></span> | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only | - |
+| surfaceScale | <span class="supported"></span> | | <span class="supported"></span> | - |
+| diffuseConstant | <span class="supported"></span> | | <span class="supported"></span> | - |
+| kernelUnitLength | <span class="supported"></span> | | <span class="unsupported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feDisplacementMap\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| in | <span class="supported"></span> | | | - |
-| in2 | <span class="supported"></span> | | | - |
-| scale | <span class="supported"></span> | | | - |
-| xChannelSelector | <span class="supported"></span> | | | - |
-| yChannelSelector | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| in2 | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| scale | <span class="supported"></span> | | <span class="supported"></span> | - |
+| xChannelSelector | <span class="supported"></span> | | <span class="supported"></span> | - |
+| yChannelSelector | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feFlood\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| flood-color | <span class="supported"></span> | | | - |
-| flood-opacity | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| flood-color | <span class="supported"></span> | | <span class="supported"></span> | - |
+| flood-opacity | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feGaussianBlur\> attributes
-(AmanithSVG >= 1.3.3)
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -1330,46 +1302,39 @@ Index:
 {:.unsupported-features}
 
 ### \<feMerge\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feMergeNode\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
-| in | <span class="supported"></span> | | | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feMorphology\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| in | <span class="supported"></span> | | | - |
-| operator | <span class="supported"></span> | | | - |
-| radius | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| operator | <span class="supported"></span> | | <span class="supported"></span> | - |
+| radius | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feOffset\> attributes
-(AmanithSVG >= 1.3.3)
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -1385,22 +1350,20 @@ Index:
 
 
 ### \<feSpecularLighting\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| in | <span class="supported"></span> | | | - |
-| surfaceScale | <span class="supported"></span> | | | - |
-| specularConstant | <span class="supported"></span> | | | - |
-| specularExponent | <span class="supported"></span> | | | - |
-| kernelUnitLength | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
+| surfaceScale | <span class="supported"></span> | | <span class="supported"></span> | - |
+| specularConstant | <span class="supported"></span> | | <span class="supported"></span> | - |
+| specularExponent | <span class="supported"></span> | | <span class="supported"></span> | - |
+| kernelUnitLength | <span class="supported"></span> | | <span class="unsupported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<feTile\> attributes
 {:.unsupported-features}
@@ -1417,22 +1380,20 @@ Index:
 {:.unsupported-features}
 
 ### \<feTurbulence\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
-| class | <span class="supported"></span> | | | - |
-| style | <span class="supported"></span> | | | - |
-| baseFrequency | <span class="supported"></span> | | | - |
-| numOctaves | <span class="supported"></span> | | | - |
-| seed | <span class="supported"></span> | | | - |
-| stitchTiles | <span class="supported"></span> | | | - |
-| type | <span class="supported"></span> | | | - |
+| class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | | <span class="supported"></span> | - |
+| baseFrequency | <span class="supported"></span> | | <span class="supported"></span> | - |
+| numOctaves | <span class="supported"></span> | | <span class="supported"></span> | - |
+| seed | <span class="supported"></span> | | <span class="supported"></span> | - |
+| stitchTiles | <span class="supported"></span> | | <span class="supported"></span> | - |
+| type | <span class="supported"></span> | | <span class="supported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ---
 
@@ -1460,7 +1421,6 @@ Index:
 ## Linking elements
 
 ### \<a\> attributes
-{:.unsupported-features}
 
 | Attributes | SVG Full 1.1 | SVG Tiny 1.2 | AmanithSVG | Notes |
 | ---------- | :----------: | :----------: | :--------: | ----- |
@@ -1469,16 +1429,15 @@ Index:
 | [Graphical event attributes](#graphical-event-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
 | [Xlink attributes](#xlink-attributes) | | | | - |
-| class | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-| style | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-| externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-| transform | <span class="supported"></span> | <span class="supported"></span> | | - |
-| xlink:href | <span class="supported"></span> | <span class="supported"></span> | | - |
-| xlink:show | <span class="supported"></span> | <span class="supported"></span> | | - |
-| xlink:actuate | <span class="supported"></span> | <span class="supported"></span> | | - |
-| target | <span class="supported"></span> | <span class="supported"></span> | | - |
+| class | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| style | <span class="supported"></span> | <span class="unsupported"></span> | <span class="supported"></span> | - |
+| externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | <span class="unsupported"></span> | - |
+| transform | <span class="supported"></span> | <span class="supported"></span> | <span class="supported"></span> | - |
+| xlink:href | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| xlink:show | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| xlink:actuate | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
+| target | <span class="supported"></span> | <span class="supported"></span> | <span class="unsupported"></span> | - |
 {:.rwd-table .rwd-table-attributes}
-{:.unsupported-features}
 
 ### \<view\> attributes
 {:.unsupported-features}
@@ -1631,15 +1590,15 @@ Index:
 | ---------- | :----------: | :----------: | :--------: | ----- |
 | [Core attributes](#core-attributes) | | | | - |
 | [Presentation attributes](#presentation-attributes) | | | | - |
-|  class | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-|  style | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-|  externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-|  horiz-origin-x | <span class="supported"></span> | <span class="supported"></span> | | - |
-|  horiz-origin-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-|  horiz-adv-x | <span class="supported"></span> | <span class="supported"></span> | | - |
-|  vert-origin-x | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-|  vert-origin-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
-|  vert-adv-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| class | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| style | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| externalResourcesRequired | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| horiz-origin-x | <span class="supported"></span> | <span class="supported"></span> | | - |
+| horiz-origin-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| horiz-adv-x | <span class="supported"></span> | <span class="supported"></span> | | - |
+| vert-origin-x | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| vert-origin-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
+| vert-adv-y | <span class="supported"></span> | <span class="unsupported"></span> | | - |
 {:.rwd-table .rwd-table-attributes}
 {:.unsupported-features}
 

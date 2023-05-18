@@ -8,11 +8,11 @@ categories: [tut]
 
 # Unity animated character example
 
-The example explained in this chapter is contained in the [orc scene](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scenes/orc.unity). The example implements a simple 2D character (the orc), walking on a (potentially scrollable) background. Both orc and background are native SVG files.
+The example explained in this chapter is implemented in the [orc scene](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scenes/orc.unity). The example shows a simple 2D character (the orc), walking on a (potentially scrollable) background. Both orc and background are native SVG files.
 
 The orc asset is an SVG file where each body part is a separate first level group (`<g>` tag), each group has a well defined name (id attribute). This setup will allow to render each body part as a separate animable sprite. AmanithSVG atlas generator will perform an optimized sprite packing routine in the editor, and later on the target device (at runtime).
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Adobe Illustrator allows to show and edit groups* |
 {:.tbl_images .unity_tut2_ai_orc}
@@ -23,33 +23,33 @@ Now we can proceed in the following way:
 
  - Select the Game view, and make sure that "Scale" slider is completely on the left (i.e. `scale = 1x`); switch back to the Scene view.
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
     | *Set a unitary scene scale* |
-    {:.tbl_images .unity_tut2_init}
+    {:.tbl_images .unity_tut_init}
 
- - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](http://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity/Assets/SVGAssets) (`Editor`, `Plugins` and `Scripts` folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project. Copy the `Anim` folder too (it contains two simple "idle" and "walking" animation assets), inside the project's Assets folder.
+ - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](https://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity/Assets/SVGAssets) (`Editor`, `Plugins` and `Scripts` folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project. Copy the `Anim` folder too (it contains two simple "idle" and "walking" animation assets), inside the project's Assets folder.
 
- - Copy the [orc.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/orc.svg.txt) and [background.svg](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/background.svg.txt) files in the project's `Assets` folder. If needed, such files will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](http://docs.unity3d.com/ScriptReference/TextAsset.html).
+ - Copy the [orc.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/orc.svg.txt) and [background.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/background.svg.txt) files in the project's `Assets` folder. If needed, such files will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](https://docs.unity3d.com/ScriptReference/TextAsset.html).
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
-    | *The project layout after copying all needed files* |
+    | *The Orc project layout after copying all needed files* |
     {:.tbl_images .unity_tut2_copy_binding}
 
  - The new scene should have been already populated with an orthographic camera; make sure that camera is positioned at `(0, 0, -10)`
 
  - Create the sprite that we will use as background (menu `GameObject` → `2D Object` → `Sprite`). We rename the created object as `Background`, we position it at `(0, 0, 0)` and we set the `Order in Layer` value of the `SpriteRenderer` component to `-1`, so the background sprite will always be behind all other sprites. Now we can attach a `SVGBackgroundBehaviour` script to it (menu `Component` → `Add`, then `Scripts` subsection), then set its fields:
-    
+
     - drag&drop the background.svg file to the `SVG file` property
-    
+
     - ensure that `Sliced` checkbox is unchecked
-    
+
     - set scale adaption to `Vertical`, because we want the background to cover the whole device screen height, making the horizontal direction (potentially) scrollable
-    
+
     - set the `Size` property to `540`, that is the original `background.svg` vertical size (i.e. `height` attribute)
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
     | *The background SVG placed on the scene* |
     {:.tbl_images .unity_tut2_background}
@@ -61,23 +61,23 @@ Now we can proceed in the following way:
     - drag&drop the orc.svg file to the region labeled with `Drag & drop SVG assets here` and check the `Separate groups` option
 
     - set reference width and height to `960 x 540` (the dimensions of the background): at design time, we want to see if the orc character size is "compatible" with the background
-    
+
     - set device test width and height to `960 x 540`, so in the editor we can simulate a device with a resolution equal to the background; setting a device test resolution equal to the reference resolution has the effect to generate all the orc sprites at their original dimension, as specified in the orc.svg file
-    
+
     - Set scale adaption to vertical, for the same reason that we discussed for the background
-    
+
     - Click the `Update` button
 
  - At this point, the texture atlas and the sprites assets relative to orc character parts have been generated, and made available in the editor. Please note that each sprite starts with a pivot point equal to `[0.5, 0.5]`, that means "the center of sprite".
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
     | *The generated orc sprite assets* |
     {:.tbl_images .unity_tut2_orc_sprites}
 
 - Now we can instantiate the whole orc (i.e. all its parts) by clicking the `Instantiate` button present in the row where the orc.svg file has been dropped. In this way, previously generated sprites assets will be instantiated in the scene.
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
     | *Orc has been instantiated with just one click* |
     {:.tbl_images .unity_tut2_orc_instantiated}
@@ -92,14 +92,14 @@ In order to animate each body part like a real character, we must setup:
 
  - the correct hierarchy of all instantiated sprites (in the `Hierarchy` section on the left, simply drag&drop each child object under its father): we want the body part to be the root of our hierarchy
 
-    | &nbsp; | 
+    | &nbsp; |
     | :---: |
     | *Orc hierarchy, body is the root* |
     {:.tbl_images .unity_tut2_orc_hierarchy}
 
  - the pivot points of each sprite: to do this, use the pivot editor made available by the `orcAtlas` object
-    
-    | &nbsp; | 
+
+    | &nbsp; |
     | :---: |
     | *The pivot editor window* |
     {:.tbl_images .unity_tut2_sprites_pivot}
@@ -120,14 +120,14 @@ In order to animate each body part like a real character, we must setup:
 
 Because we are going to move the orc (actually the body part, and consequently the whole children hierarchy) programmatically by code, we must select the `orc_body` object and uncheck the `Update transform` option of the `SVGSpriteLoaderBehaviour` component.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *"Update transform" must be unchecked for the body part* |
 {:.tbl_images .unity_tut2_orc_body_update_transform}
 
 Now the scene is almost complete, so we can save it.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *The scene is now complete* |
 {:.tbl_images .unity_tut2_scene_almost_complete}
@@ -140,7 +140,7 @@ If we click the Play button, we see that:
 
  - the main camera viewing volume is not covering the exact height of the background
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Playing the scene* |
 {:.tbl_images .unity_tut2_scene_play}
@@ -155,7 +155,7 @@ The reason is because at design time, in the editor, all sprites and their posit
 
 In order to accomplish these tasks, we add a [SVGCameraBehaviour]({{site.url}}/docs/binding/004-unity.html#svgcamerabehaviour) component to the main camera (menu `Component` → `Add`, then `Scripts` subsection): this script, at each monobehaviour `Update` call, checks for a screen resolution change and, if this event occurs, first it sets the `Camera.orthographicSize` properly, then it informs all its listeners through the `OnResize` event.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *The SVGCameraBehaviour script detects if screen resolution has changed* |
 {:.tbl_images .unity_tut2_camera_behaviour}
@@ -227,7 +227,7 @@ public class OrcCharacterBehaviour : MonoBehaviour {
         // now fire a resize event by hand
         Camera.Resize(true);
     }
-    
+
     // the scene camera
     public SVGCameraBehaviour Camera;
     // the background gameobject
@@ -236,12 +236,12 @@ public class OrcCharacterBehaviour : MonoBehaviour {
 ```
 
 Before to play the scene, we must set `OrcCharacterBehaviour` properties; so we must drag&drop:
- 
+
  - The `Main Camera` gameobject to the `Camera` property
 
  - The `Background` gameobject to the `Background` property
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *The OrcCharacterBehaviour script, attached to the body sprite* |
 {:.tbl_images .unity_tut2_orc_behaviour}
@@ -275,7 +275,7 @@ private void CameraPosAssign(Vector3 orcPos)
 }
 ```
 
-and two functions to move the orc left or right, changing its body world position (the y coordinate will be fixed to the walking line); such functions will be called in the [LateUpdate](http://docs.unity3d.com/ScriptReference/MonoBehaviour.LateUpdate.html) routine, if the user has pressed the mouse button:
+and two functions to move the orc left or right, changing its body world position (the y coordinate will be fixed to the walking line); such functions will be called in the [LateUpdate](https://docs.unity3d.com/ScriptReference/MonoBehaviour.LateUpdate.html) routine, if the user has pressed the mouse button:
 
 ```c#
 private void Move(Vector3 delta)
@@ -338,7 +338,7 @@ void LateUpdate()
 private const float WALKING_SPEED = 0.04f;
 ```
 
-As you can see, all the code (orc and camera movement) is based on world coordinates. The source code of the final script can be found [here](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/Scripts/OrcScene/OrcBehaviour.cs).
+As you can see, all the code (orc and camera movement) is based on world coordinates. The source code of the final script can be found [here](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/OrcScene/OrcBehaviour.cs).
 
 In order to complete the example, we must animate the orc; we can use the "idle" and "walking" animations that we have already prepared in the `Assets/Anim/OrcScene` folder:
 
@@ -348,7 +348,7 @@ In order to complete the example, we must animate the orc; we can use the "idle"
 
  - drag&drop the `orc_body` controller from the `Assets/Anim/OrcScene` to the Animator's `Controller` field
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Animation attached to the orc body* |
 {:.tbl_images .unity_tut2_orc_animate}
@@ -356,6 +356,5 @@ In order to complete the example, we must animate the orc; we can use the "idle"
 Save the scene and click play and see the animated orc, starting with the "idle" animation; by pressing the mouse (or tapping the device screen), the orc will walk towards right or left.
 
 Now you can have fun experimenting with it!
-
 
 ---

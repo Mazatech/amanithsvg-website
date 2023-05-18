@@ -15,6 +15,7 @@ Before to use any functionality, AmanithSVG must be initialized by calling `svgt
 ```c
 /*
     Initialize the library.
+    This function does not set the last-error code (see svgtGetLastError).
 
     Return SVGT_NO_ERROR if the operation was completed successfully, else
     an error code.
@@ -89,42 +90,42 @@ uname(&systemInfo);
 NSString* code = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 NSDictionary* deviceNamesByCode = @{
     // 1st Gen
-    @"iPhone1,1" :@163,
+    @"iPhone1,1"  :@163,
     // 3G
-    @"iPhone1,2" :@163,
+    @"iPhone1,2"  :@163,
     // 3GS
-    @"iPhone2,1" :@163,
+    @"iPhone2,1"  :@163,
     // 4
-    @"iPhone3,1" :@326,
-    @"iPhone3,2" :@326,
-    @"iPhone3,3" :@326,
+    @"iPhone3,1"  :@326,
+    @"iPhone3,2"  :@326,
+    @"iPhone3,3"  :@326,
     // 4S
-    @"iPhone4,1" :@326,
+    @"iPhone4,1"  :@326,
     // 5
-    @"iPhone5,1" :@326,
-    @"iPhone5,2" :@326,
+    @"iPhone5,1"  :@326,
+    @"iPhone5,2"  :@326,
     // 5c
-    @"iPhone5,3" :@326,
-    @"iPhone5,4" :@326,
+    @"iPhone5,3"  :@326,
+    @"iPhone5,4"  :@326,
     // 5s
-    @"iPhone6,1" :@326,
-    @"iPhone6,2" :@326,
+    @"iPhone6,1"  :@326,
+    @"iPhone6,2"  :@326,
     // 6 Plus
-    @"iPhone7,1" :@401,
+    @"iPhone7,1"  :@401,
     // 6
-    @"iPhone7,2" :@326,
+    @"iPhone7,2"  :@326,
     // 6s
-    @"iPhone8,1" :@326,
+    @"iPhone8,1"  :@326,
     // 6s Plus
-    @"iPhone8,2" :@401,
+    @"iPhone8,2"  :@401,
     // SE
-    @"iPhone8,4" :@326,
+    @"iPhone8,4"  :@326,
     // 7
-    @"iPhone9,1" :@326,
-    @"iPhone9,3" :@326,
+    @"iPhone9,1"  :@326,
+    @"iPhone9,3"  :@326,
     // 7 Plus
-    @"iPhone9,2" :@401,
-    @"iPhone9,4" :@401,
+    @"iPhone9,2"  :@401,
+    @"iPhone9,4"  :@401,
     // 8
     @"iPhone10,1" :@326,
     @"iPhone10,4" :@326,
@@ -149,99 +150,172 @@ NSDictionary* deviceNamesByCode = @{
     @"iPhone12,5" :@458,
     // SE 2
     @"iPhone12,8" :@326,
+    // 12 mini
+    @"iPhone13,1" :@476,
+    // 12
+    @"iPhone13,2" :@460,
+    // 12 Pro
+    @"iPhone13,3" :@460,
+    // 12 Pro Max
+    @"iPhone13,4" :@458,
+    // 13 mini
+    @"iPhone14,4" :@476,
+    // 13
+    @"iPhone14,5" :@460,
+    // 13 Pro
+    @"iPhone14,2" :@460,
+    // 13 Pro Max
+    @"iPhone14,3" :@458,
+    // SE 3rd Gen
+    @"iPhone14,6" :@326,
+    // 14
+    @"iPhone14,7" :@460,
+    // 14 Plus
+    @"iPhone14,8" :@458,
+    // 14 Pro
+    @"iPhone15,2" :@460,
+    // 14 Pro Max
+    @"iPhone15,3" :@460,
     // 1
-    @"iPad1,1"   :@132,
+    @"iPad1,1"    :@132,
     // 2
-    @"iPad2,1"   :@132,
-    @"iPad2,2"   :@132,
-    @"iPad2,3"   :@132,
-    @"iPad2,4"   :@132,
+    @"iPad2,1"    :@132,
+    @"iPad2,2"    :@132,
+    @"iPad2,3"    :@132,
+    @"iPad2,4"    :@132,
     // Mini
-    @"iPad2,5"   :@163,
-    @"iPad2,6"   :@163,
-    @"iPad2,7"   :@163,
+    @"iPad2,5"    :@163,
+    @"iPad2,6"    :@163,
+    @"iPad2,7"    :@163,
     // 3
-    @"iPad3,1"   :@264,
-    @"iPad3,2"   :@264,
-    @"iPad3,3"   :@264,
+    @"iPad3,1"    :@264,
+    @"iPad3,2"    :@264,
+    @"iPad3,3"    :@264,
     // 4
-    @"iPad3,4"   :@264,
-    @"iPad3,5"   :@264,
-    @"iPad3,6"   :@264,
+    @"iPad3,4"    :@264,
+    @"iPad3,5"    :@264,
+    @"iPad3,6"    :@264,
     // Air
-    @"iPad4,1"   :@264,
-    @"iPad4,2"   :@264,
-    @"iPad4,3"   :@264,
+    @"iPad4,1"    :@264,
+    @"iPad4,2"    :@264,
+    @"iPad4,3"    :@264,
     // Mini 2
-    @"iPad4,4"   :@326,
-    @"iPad4,5"   :@326,
-    @"iPad4,6"   :@326,
+    @"iPad4,4"    :@326,
+    @"iPad4,5"    :@326,
+    @"iPad4,6"    :@326,
     // Mini 3
-    @"iPad4,7"   :@326,
-    @"iPad4,8"   :@326,
-    @"iPad4,9"   :@326,
+    @"iPad4,7"    :@326,
+    @"iPad4,8"    :@326,
+    @"iPad4,9"    :@326,
     // Mini 4
-    @"iPad5,1"   :@326,
-    @"iPad5,2"   :@326,
+    @"iPad5,1"    :@326,
+    @"iPad5,2"    :@326,
     // Air 2
-    @"iPad5,3"   :@264,
-    @"iPad5,4"   :@264,
+    @"iPad5,3"    :@264,
+    @"iPad5,4"    :@264,
     // Pro 12.9-inch
-    @"iPad6,7"   :@264,
-    @"iPad6,8"   :@264,
+    @"iPad6,7"    :@264,
+    @"iPad6,8"    :@264,
     // Pro 9.7-inch
-    @"iPad6,3"   :@264,
-    @"iPad6,4"   :@264,
+    @"iPad6,3"    :@264,
+    @"iPad6,4"    :@264,
     // iPad 5th Gen, 2017
-    @"iPad6,11"  :@264,
-    @"iPad6,12"  :@264,
+    @"iPad6,11"   :@264,
+    @"iPad6,12"   :@264,
     // Pro 12.9-inch, 2017
-    @"iPad7,1"   :@264,
-    @"iPad7,2"   :@264,
+    @"iPad7,1"    :@264,
+    @"iPad7,2"    :@264,
     // Pro 10.5-inch, 2017
-    @"iPad7,3"   :@264,
-    @"iPad7,4"   :@264,
+    @"iPad7,3"    :@264,
+    @"iPad7,4"    :@264,
     // iPad 6th Gen, 2018
-    @"iPad7,5"   :@264,
-    @"iPad7,6"   :@264,
+    @"iPad7,5"    :@264,
+    @"iPad7,6"    :@264,
     // iPad Pro 3rd Gen 11-inch, 2018
-    @"iPad8,1"   :@264,
-    @"iPad8,3"   :@264,
+    @"iPad8,1"    :@264,
+    @"iPad8,3"    :@264,
     // iPad Pro 3rd Gen 11-inch 1TB, 2018
-    @"iPad8,2"   :@264,
-    @"iPad8,4"   :@264,
+    @"iPad8,2"    :@264,
+    @"iPad8,4"    :@264,
     // iPad Pro 3rd Gen 12.9-inch, 2018
-    @"iPad8,5"   :@264,
-    @"iPad8,7"   :@264,
+    @"iPad8,5"    :@264,
+    @"iPad8,7"    :@264,
     // iPad Pro 3rd Gen 12.9-inch 1TB, 2018
-    @"iPad8,6"   :@264,
-    @"iPad8,8"   :@264,
+    @"iPad8,6"    :@264,
+    @"iPad8,8"    :@264,
     // iPad Pro 4rd Gen 11-inch, 2020
-    @"iPad8,9"   :@264,
-    @"iPad8,10"  :@264,
+    @"iPad8,9"    :@264,
+    @"iPad8,10"   :@264,
     // iPad Pro 4rd Gen 12.9-inch, 2020
-    @"iPad8,11"  :@264,
-    @"iPad8,12"  :@264,
+    @"iPad8,11"   :@264,
+    @"iPad8,12"   :@264,
     // Mini 5
-    @"iPad11,1"  :@326,
-    @"iPad11,2"  :@326,
+    @"iPad11,1"   :@326,
+    @"iPad11,2"   :@326,
     // Air 3
-    @"iPad11,3"  :@264,
-    @"iPad11,4"  :@264,
+    @"iPad11,3"   :@264,
+    @"iPad11,4"   :@264,
+    // iPad 8th Gen, 2020
+    @"iPad11,6"   :@264,
+    @"iPad11,7"   :@264,
+    // Air 4
+    @"iPad13,1"   :@264,
+    @"iPad13,2"   :@264,
+    // iPad Pro 3rd Gen 11-inch, 2021
+    @"iPad13,4"   :@264,
+    @"iPad13,5"   :@264,
+    @"iPad13,6"   :@264,
+    @"iPad13,7"   :@264,
+    // iPad Pro 5th Gen 12.9-inch, 2021
+    @"iPad13,8"   :@264,
+    @"iPad13,9"   :@264,
+    @"iPad13,10"  :@264,
+    @"iPad13,11"  :@264,
+    // Air 5, 2022
+    @"iPad13,16"  :@264,
+    @"iPad13,17"  :@264,
+    // iPad Pro 3rd Gen 11-inch, 2021
+    @"iPad13,4"   :@264,
+    @"iPad13,5"   :@264,
+    @"iPad13,6"   :@264,
+    @"iPad13,7"   :@264,
+    // iPad Pro 5th Gen 12.9-inch, 2021
+    @"iPad13,8"   :@264,
+    @"iPad13,9"   :@264,
+    @"iPad13,10"  :@264,
+    @"iPad13,11"  :@264,
+    // Air 5, 2022
+    @"iPad13,16"  :@264,
+    @"iPad13,17"  :@264,
+    // mini 6
+    @"iPad14,1"   :@326,
+    @"iPad14,2"   :@326,
+    // iPad 9th Gen, 2021
+    @"iPad12,1"   :@264,
+    @"iPad12,2"   :@264,
+    // iPad 10th Gen, 2022
+    @"iPad13,18"  :@264,
+    @"iPad13,19"  :@264,
+    // iPad Pro 4th Gen 11-inch, 2022
+    @"iPad14,3"   :@264,
+    @"iPad14,4"   :@264,
+    // iPad Pro 6th Gen 12.9-inch, 2022
+    @"iPad14,5"   :@264,
+    @"iPad14,6"   :@264,
     // 1st Gen
-    @"iPod1,1"   :@163,
+    @"iPod1,1"    :@163,
     // 2nd Gen
-    @"iPod2,1"   :@163,
+    @"iPod2,1"    :@163,
     // 3rd Gen
-    @"iPod3,1"   :@163,
+    @"iPod3,1"    :@163,
     // 4th Gen
-    @"iPod4,1"   :@326,
+    @"iPod4,1"    :@326,
     // 5th Gen
-    @"iPod5,1"   :@326,
+    @"iPod5,1"    :@326,
     // 6th Gen
-    @"iPod7,1"   :@326,
+    @"iPod7,1"    :@326,
     // 7th Gen
-    @"iPod9,1"   :@326
+    @"iPod9,1"    :@326
 };
 
 dpi = [[deviceNamesByCode objectForKey:code] integerValue];
@@ -278,16 +352,18 @@ NB: the `svgtInit` function returns a `SVGT_ILLEGAL_ARGUMENT_ERROR` error code i
 
 Before to start the creation of SVG documents, drawing surfaces and begin drawing operations, some configuration parameters can be passed to the library. In the detail, it is possible to:
 
-- specify the curve quality: it forces the renderer to flatten the curves (i.e. generate polygon approximation) with more or less precision.
-  `svgtConfigSet(SVGT_CONFIG_CURVES_QUALITY, <quality>)` where `quality` parameter ranges between 0 and 100: 0 represents the worst quality and 100 the best one.
+- specify the curves quality: it forces the renderer to flatten the curves (i.e. generate polygon approximation) with more or less precision.
+  `svgtConfigSet(SVGT_CONFIG_CURVES_QUALITY, <quality>)` where `quality` parameter ranges between 1 and 100: 1 represents the worst quality and 100 the best one.
 - specify the system/user-agent language; this setting will affect the conditional rendering of `<switch>` elements and elements with `systemLanguage` attribute specified.
-  `svgtLanguageSet(<language>, <script>, <region>, <variant>)` where `language`, `script`, `region`, `variant` strings follow the RFC5646 specification.
-- specify font resources; this setting allows the library to acknowledge about an external font resource with its parameters (`font-family`, `font-weight`, `font-stretch`, `font-style`), that will be used to load font glyphs of a matching font during the rendering of SVG documents.
-    `svgtFontResourceSet(<buffer>, <bufferSize>, <fontFamily>, <fontWeight>, <fontStretch>, <fontStyle>)`
+  `svgtLanguageSet(<languages>)` where `languages` is list of languages separated by semicolon (e.g. "en-US;en-GB;it;es").
+- specify external resources; this setting allows the library to acknowledge about an external resource (font or image) along with possible hints; when needed, such resources will be used for the rendering of SVG documents.
+  `svgtResourceSet(<id>, <buffer>, <bufferSize>, <type>, <hints>)`
 
 ```c
 /*
     Configure parameters and thresholds for the AmanithSVG library.
+    This function does not set the last-error code (see svgtGetLastError).
+
     This function can be called at any time, but it will have effect only if:
 
     - the library has not been already initialized by a previous call to
@@ -301,12 +377,15 @@ Before to start the creation of SVG documents, drawing surfaces and begin drawin
 
     This function returns:
 
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if the library has been already initialized
-      and one or more functions different than svgtMaxCurrentThreads,
-      svgtSurfaceMaxDimension, svgtFontResourceSet, have been called
-
     - SVGT_ILLEGAL_ARGUMENT_ERROR if the specified value is not valid for the
       given configuration parameter
+
+    - SVGT_NO_ERROR if the library has been already initialized
+      and one or more functions different than svgtMaxCurrentThreads,
+      svgtSurfaceMaxDimension, svgtFontResourceSet, have been called.
+      In this case the function does nothing: by calling svgtConfigGet, you
+      will get back the same value that the configuration parameter had
+      before the call to svgtConfigSet.
 
     - SVGT_NO_ERROR in all other cases (i.e. in case of success).
 */
@@ -314,9 +393,12 @@ SVGTErrorCode svgtConfigSet(SVGTConfig config,
                             SVGTfloat value);
 ```
 
+Certain `SVGTConfig` values refer to read-only parameters (e.g. `SVGT_CONFIG_MAX_SURFACE_DIMENSION`). Calling `svgtConfigSet` on these parameters has no effect (`SVGT_NO_ERROR` is returned).
+
 ```c
 /*
     Get the current value relative to the specified configuration parameter.
+    This function does not set the last-error code (see svgtGetLastError).
 
     If the given parameter is invalid (i.e. it does not correspond to any
     value of the SVGTConfig enum type), a negative number is returned.
@@ -324,17 +406,19 @@ SVGTErrorCode svgtConfigSet(SVGTConfig config,
 SVGTfloat svgtConfigGet(SVGTConfig config);
 ```
 
+Through `svgtConfigGet` it is also possible to get the value of some read-only parameters:
+
+- `SVGT_CONFIG_MAX_CURRENT_THREADS` the maximum number of different threads that can "work" (e.g. create surfaces, draw documents, etc) concurrently
+- `SVGT_CONFIG_MAX_SURFACE_DIMENSION` the maximum dimension allowed for drawing surfaces, in pixels
+
+
 ```c
 /*
     Set the system / user-agent language.
-    Each part must follow the RFC5646 specification, in particular:
+    This function does not set the last-error code (see svgtGetLastError).
 
-    - rfc5646Language must be a non-NULL 2 or 3 alpha characters (shortest
-      ISO 639 code)
-    - rfc5646Script could be NULL or a 4 alpha characters (ISO 15924 code)
-    - rfc5646Region could be NULL or a 2 alpha or 3 digit characters
-      (ISO 3166-1 code or UN M.49 code)
-    - rfc5646Variant could be NULL or a registered variant
+    The given argument must be a non-NULL, non-empty list of languages
+    separated by semicolon (e.g. en-US;en-GB;it;es)
 
     This function can be called at any time, but it will have effect only if:
 
@@ -342,77 +426,135 @@ SVGTfloat svgtConfigGet(SVGTConfig config);
       svgtInit, or
     - the library has been already initialized (i.e. svgtInit has been already
       called) but no other functions, except for svgtMaxCurrentThreads,
-      svgtSurfaceMaxDimension, svgtFontResourceSet, have been called.
+      svgtSurfaceMaxDimension, svgtConfigGet, svgtConfigSet, svgtResourceSet
+      have been called.
 
     This function returns:
 
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if the library has been already initialized
-      and one or more functions different than svgtMaxCurrentThreads,
-      svgtSurfaceMaxDimension, svgtFontResourceSet, have been called
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if the given string is NULL or empty
 
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if the given RFC5646 language part is NULL
+    - SVGT_NO_ERROR if the library has been already initialized
+      and one or more functions different than svgtMaxCurrentThreads,
+      svgtSurfaceMaxDimension, svgtResourceSet, have been called.
+      In this case the function does nothing.
 
     - SVGT_NO_ERROR in all other cases (i.e. in case of success).
 
-    NB: the library starts with a default "EN" (English) language, no script,
-    no region, no variant.
+    NB: the library starts with a default "en" (generic English).
 */
-SVGTErrorCode svgtLanguageSet(const char* rfc5646Language,
-                              const char* rfc5646Script,
-                              const char* rfc5646Region,
-                              const char* rfc5646Variant);
+SVGTErrorCode svgtLanguageSet(const char* languages);
 ```
 
 ```c
 /*
     Get the maximum number of different threads that can "work" (e.g. create
     surfaces, create documents and draw them) concurrently.
+    This function does not set the last-error code (see svgtGetLastError).
 
     In multi-thread applications, each thread can only draw documents it has
     created, on surfaces it has created. In other words, a thread cannot
     draw a document created by another thread or on surfaces belonging to
     other threads.
 
-    In order to get a valid value, the library must have been already
-    initialized (see svgtInit).
+    The function can be called at any time and always returns a valid value.
+
+    NB: this is a shortcut to svgtConfigGet(SVGT_CONFIG_MAX_CURRENT_THREADS)
+    and may be removed in the future.
 */
 SVGTuint svgtMaxCurrentThreads(void);
 ```
 
+**WARNING** this function is a shortcut to `svgtConfigGet(SVGT_CONFIG_MAX_CURRENT_THREADS)` and may be removed in the future.
+
 ```c
 /*
-    Instruct the library about an external font resource.
-    All font resources must be specified in advance after the call to svgtInit
-    and before to create/spawn threads.
+    Instruct the library about an external resource.
+    All resources must be specified in advance after the call to svgtInit
+    and before to create/spawn threads (i.e. no other functions, except
+    for svgtMaxCurrentThreads, svgtSurfaceMaxDimension, svgtConfigGet,
+    svgtConfigSet, svgtLanguageSet have been called).
 
-    'buffer' must point to a read-only area containing an OpenType/TrueType
-    font file. Such read-only buffer must be a valid and immutable memory area
+    This function does not set the last-error code (see svgtGetLastError).
+
+    'id' must be a not-empty null-terminated string.
+
+    'buffer' must point to a read-only area containing the resource file.
+    Such read-only buffer must be a valid and immutable memory area
     throughout the whole life of the application that uses the library.
     In multi-thread applications the 'buffer' memory must be accessible
     (readable) by all threads.
-    
+
+    'type' specifies the type of resource.
+
+    'hints' must be a valid bitwise OR of values from the SVGTResourceHint
+    enumeration.
+
+    If a previous resource has been specified with the given 'id', the new
+    provided 'buffer' pointer is used.
+
     This function returns:
+
+    - SVGT_NOT_INITIALIZED_ERROR if the library has not yet been initialized
+      (see svgtInit)
+
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'id' is NULL or an empty string
 
     - SVGT_ILLEGAL_ARGUMENT_ERROR if 'buffer' is NULL or if 'bufferSize' is zero
 
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'fontWeight' is not a valid value from the
-      SVGTFontWeight enumeration
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'type' is not a valid value from the
+      SVGTResourceType enumeration
 
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'fontStretch' is not a valid value from the
-      SVGTFontStretch enumeration
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'hints' is not a bitwise OR of values from
+      the SVGTResourceHint enumeration
 
-    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'fontStyle' is not a valid value from the
-      SVGTFontStyle enumeration
-    
+    - SVGT_ILLEGAL_ARGUMENT_ERROR if 'type' is SVGT_RESOURCE_TYPE_IMAGE and
+      'hints' is different than zero
+
+    - SVGT_INVALID_RESOURCE_ERROR if 'type' is SVGT_RESOURCE_TYPE_FONT and the
+      given buffer does not contain a valid font file
+
+    - SVGT_INVALID_RESOURCE_ERROR if 'type' is SVGT_RESOURCE_TYPE_IMAGE and
+      the given buffer does not contain a valid bitmap file
+
     - SVGT_NO_ERROR if the operation was completed successfully
+
+    NB: vector fonts like OTF, TTF and WOFF are supported, bitmap fonts are not
+    supported; as for images, only JPEG and PNG are supported (16 bits PNG are
+    not supported).
 */
-SVGTErrorCode svgtFontResourceSet(const SVGTubyte* buffer,
-                                  SVGTuint bufferSize,
-                                  const char* fontFamily,
-                                  SVGTFontWeight fontWeight,
-                                  SVGTFontStretch fontStretch,
-                                  SVGTFontStyle fontStyle);
+SVGTErrorCode svgtResourceSet(const char* id,
+                              const SVGTubyte* buffer,
+                              SVGTuint bufferSize,
+                              SVGTResourceType type,
+                              SVGTbitfield hints);
 ```
+
+The types of supported resource are defined by the enumeration type `SVGTResourceType`.
+
+| Resource type | Notes |
+| ------- | -------------- |
+| `SVGT_RESOURCE_TYPE_FONT` | Resource is a font (vector fonts like OTF, TTF and WOFF are supported, bitmap fonts are not supported) |
+| `SVGT_RESOURCE_TYPE_IMAGE` | Resource is a bitmap/image (only JPEG and PNG are supported; 16 bits PNG are not supported) |
+{:.rwd-table .rwd-table-resource-types}
+
+SVG generic font families are a fallback mechanism, a means of preserving some of the SVG author's intent when none of the specified fonts are available. `svgtResourceSet` functions allows to tag some of the provided font resources as corresponding to one (or more) generic family name. The `hints` parameter is a bitwise `or` of values from the `SVGTResourceHint` enumeration:
+
+| Resource hint | Notes |
+| `SVGT_RESOURCE_HINT_DEFAULT_SERIF_FONT` | Font resource must be selected when the `font-family` attribute matches the `serif` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_SANS_SERIF_FONT` | Font resource must be selected when the `font-family` attribute matches the `sans-serif` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_MONOSPACE_FONT` | Font resource must be selected when the `font-family` attribute matches the `monospace` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_CURSIVE_FONT` | Font resource must be selected when the `font-family` attribute matches the `cursive` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_FANTASY_FONT` | Font resource must be selected when the `font-family` attribute matches the `fantasy` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_SYSTEM_UI_FONT` | Font resource must be selected when the `font-family` attribute matches the `system-ui` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_UI_SERIF_FONT` | Font resource must be selected when the `font-family` attribute matches the `ui-serif` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_UI_SANS_SERIF_FONT` | Font resource must be selected when the `font-family` attribute matches the `ui-sans-serif` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_UI_MONOSPACE_FONT` | Font resource must be selected when the `font-family` attribute matches the `ui-monospace` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_UI_ROUNDED_FONT` | Font resource must be selected when the `font-family` attribute matches the `ui-rounded` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_EMOJI_FONT` | Font resource must be selected when the `font-family` attribute matches the `emoji` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_MATH_FONT` | Font resource must be selected when the `font-family` attribute matches the `math` generic family |
+| `SVGT_RESOURCE_HINT_DEFAULT_FANGSONG_FONT` | Font resource must be selected when the `font-family` attribute matches the `fangsong` generic family |
+{:.rwd-table .rwd-table-resource-hints}
+
 
 ## Finalization
 
@@ -421,6 +563,8 @@ Once finished to use AmanithSVG functionalities, it is advisable to call the `sv
 ```c
 /*
     Destroy the library, freeing all allocated resources.
+    This function does not set the last-error code (see svgtGetLastError).
+
     In multi-thread applications, this function must be called once, when all
     created/spawned threads have finished using the library functions.
 */

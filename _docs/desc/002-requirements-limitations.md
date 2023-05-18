@@ -8,7 +8,7 @@ categories: [desc]
 
 # Requirements and limitations
 
-Starting from version 1.3.3, AmanithSVG is thread-safe: all the exposed functions can be called from multiple threads at the same time.
+AmanithSVG is thread-safe: all the exposed functions can be called from multiple threads at the same time.
 Implementation makes use of the following libraries to implement thread-safety:
 
 - native Win32 calls on Windows platform

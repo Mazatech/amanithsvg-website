@@ -24,8 +24,8 @@ The whole process consists of some steps that must be followed in this order:
 
  - for each atlas, get its information (e.g. its dimensions in pixels) using the `svgtPackingBinInfo` function, then:
   - create a drawing surface with the same atlas dimensions, using the `svgtSurfaceCreate` function
-	- get the list of SVG documents/elements packed in the current atlas, using the `svgtPackingBinRects` function
-	- draw the SVG documents/elements packed in the current atlas, using the `svgtPackingDraw` function
+    - get the list of SVG documents/elements packed in the current atlas, using the `svgtPackingBinRects` function
+    - draw the SVG documents/elements packed in the current atlas, using the `svgtPackingDraw` function
 
 Here is a complete example code, that will be discussed in detail within next sections:
 

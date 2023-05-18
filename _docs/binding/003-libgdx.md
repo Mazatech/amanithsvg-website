@@ -1,14 +1,14 @@
 ---
 layout: default
-title: "LibGDX"
+title: "libGDX"
 date: 2018-01-01 08:00:00 +0100
 chapter: 3
 categories: [binding]
 ---
 
-# LibGDX binding
+# libGDX binding
 
-[libGDX](http://libgdx.badlogicgames.com) is a light, free, open source cross platform game development framework. The goal of the project is to assist the developer in creating games/applications and deploy to desktop and mobile platforms without getting in the way and letting you design however you like.
+[libGDX](http://libgdx.com) is a light, free, open source cross platform game development framework. The goal of the project is to assist the developer in creating games/applications and deploy to desktop and mobile platforms without getting in the way and letting you design however you like.
 
 The whole libGDX graphics stack is based upon bitmaps (i.e. textures) and their sub-regions (i.e. sprites), so AmanithSVG is a complementary extension that could be well integrated within the current libGDX API.
 
@@ -16,54 +16,120 @@ In particular, the libGDX binding of AmanithSVG API consists of the extension of
 
 Here's a list of classes exposed by the libGDX binding:
 
+ - [SVGResourceGDX](#svgresourcegdx)
+ - [SVGAssetsConfigGDX](#svgassetsconfiggdx)
+ - [SVGAssetsGDX](#svgassetsgdx)
  - [SVGTexture](#svgtexture)
  - [SVGTextureAtlasGenerator](#svgtextureatlasgenerator)
  - [SVGTextureAtlas](#svgtextureatlas)
  - [SVGTextureAtlasPage](#svgtextureatlaspage)
  - [SVGTextureAtlasRegion](#svgtextureatlasregion)
 
+**When working with libGDX engine, it is mandatory to use `SVGAssetsGDX` class and not the basic `SVGAssets` one**.
+
+For a complete libGDX example, please have a look at [the Cards Game](http://github.com/Mazatech/amanithsvg-sdk/tree/master/examples/libgdx/gameCards).
 
 ---
 
-## SVGTexture
+## SVGResourceGDX
 
-`SVGTexture` class extends the libGDX [Texture class](http://libgdx.badlogicgames.com/ci/nightlies/docs/api/com/badlogic/gdx/graphics/Texture.html). Therefore `SVGTexture` is a Texture whose content (i.e. pixels) is created by the rendering of an SVG. Compared to the base class, `SVGTexture` does not expose additional mathods, but just a bunch of new constructors, specifically designed to provide SVG content:
+[This class](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGAssetsConfigGDX.java) extends [SVGResource]({{site.url}}/docs/binding/002-java.html#svgresource) by providing the mandatory `getStream` method to get an in-memory representation of the underlying binary TTF / OTF / WOFF / JPEG / PNG file. The constructor takes a [FileHandle](https://javadoc.io/static/com.badlogicgames.gdx/gdx/1.11.0/com/badlogic/gdx/files/FileHandle.html) and sets the given unique string identifier, the type (font or image) and hints. The access to the underlying binary data is implemented by using the `FileHandle.read` method.
+
+---
+
+## SVGAssetsConfigGDX
+
+[This class](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGAssetsConfigGDX.java) extends [SVGAssetsConfig]({{site.url}}/docs/binding/002-java.html#svgassetsconfig) by implementing an internal list of `SVGResourceGDX` resources. Most importantly this class implements the mandatory `resourcesCount` and `getResource` methods from `SVGAssetsConfig` class, in order to get the resources.
+
 
 ```java
 /*
-    Generate a texture from the given "internal" SVG filename.
-
-    With the term "internal", it's intended those read-only files located on
-    the internal storage.
-    For more details about libGDX file handling, please refer to the official
-    documentation (http://github.com/libgdx/libgdx/wiki/File-handling)
-
-    Size of the texture is derived from the information available within the SVG file:
-
-    - if the outermost <svg> element has 'width' and 'height' attributes, such
-      values are used to size the texture
-    - if the outermost <svg> element does not have 'width' and 'height' attributes,
-      the size of texture is determined by the width and height values of the 
-      'viewBox' attribute
+    Constructor, device screen properties must be supplied
+    (with/height in pixels and dpi).
 */
-SVGTexture(String internalPath);
+SVGAssetsConfigGDX(int screenWidth,
+                   int screenHeight,
+                   float screenDpi);
 
 /*
-    Generate a texture from the given "internal" SVG filename.
-    Size of texture is specified by the given 'width' and 'height'.
-    Before the SVG rendering, pixels are initialized with a transparent black.
+    Add a font resource to the configuration, by providing its internal path.
+    Return true if the resource has been added to the internal list, else
+    false (i.e. the resource was already present within the internal list).
 */
-SVGTexture(String internalPath, int width, int height);
+boolean addFont(String internalPath,
+                // a unique not-empty string identifier, provided by the
+                // application (typically the file name, without the path)
+                String strId,
+                EnumSet<SVGTResourceHint> hints);
 
 /*
-    Generate a texture from the given "internal" SVG filename.
-    Size of texture is specified by the given 'width' and 'height'.
-    Before the SVG rendering, pixels are initialized with the given 'clearColor'.
+    Add a font resource to the configuration, by providing its file handle.
+    Return true if the resource has been added to the internal list, else
+    false (i.e. the resource was already present within the internal list).
 */
-SVGTexture(String internalPath, int width, int height, SVGColor clearColor);
+boolean addFont(FileHandle fileHandle,
+                // a unique not-empty string identifier, provided by the
+                // application (typically the file name, without the path)
+                String strId,
+                EnumSet<SVGTResourceHint> hints);
 
 /*
-    Generate a texture from the given "internal" SVG filename.
+    Add an image resource to the configuration, by providing its internal path.
+    Return true if the resource has been added to the internal list, else
+    false (i.e. the resource was already present within the internal list).
+*/
+boolean addImage(String internalPath,
+                // a unique not-empty string identifier, provided by the
+                // application (typically the file name, without the path)
+                String strId);
+
+/*
+    Add an image resource to the configuration, by providing its file handle.
+    Return true if the resource has been added to the internal list, else
+    false (i.e. the resource was already present within the internal list).
+*/
+boolean addImage(FileHandle fileHandle,
+                 // a unique not-empty string identifier, provided by the
+                 // application (typically the file name, without the path)
+                 String strId);
+
+```
+
+All font resources must be specified before the instantiation of `SVGAssetsGDX` class. Here's an example:
+
+```java
+/* create configuration for AmanithSVG */
+SVGAssetsConfigGDX cfg = new SVGAssetsConfigGDX(Gdx.graphics.getBackBufferWidth(),
+                                                Gdx.graphics.getBackBufferHeight(),
+                                                Gdx.graphics.getPpiX());
+
+/* provide fonts to AmanithSVG, in order to render <text> elements */
+cfg.addFont("verdana.ttf", "Verdana", EnumSet.of(SVGTResourceHint.DefaultSerif,
+                                                 SVGTResourceHint.DefaultUISerif));
+cfg.addFont("arialb.ttf", "ArialBold");
+
+/* initialize AmanithSVG for libGDX */
+SVGAssetsGDX svg = new SVGAssetsGDX(cfg);
+
+< do something with svg >
+
+/* release AmanithSVG */
+svg.dispose();
+```
+
+---
+
+## SVGAssetsGDX
+
+[This class](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGAssetsGDX.java) extends [SVGAssets]({{site.url}}/docs/binding/002-java.html#svgassets) class by implementing a set of specific functions to create `SVGTexture` and `SVGTextureAtlas` instances.
+The class is also in charge of loading the AmanithSVG native library for all libGDX supported platforms.
+
+```java
+/* Constructor, the given configuraration must provide resources too. */
+SVGAssetsGDX(SVGAssetsConfigGDX config);
+
+/*
+    Generate a texture from the given SVG file handle.
     Size of texture is specified by the given 'width' and 'height'.
     Before the SVG rendering, pixels are initialized with the given 'clearColor'.
 
@@ -76,173 +142,252 @@ SVGTexture(String internalPath, int width, int height, SVGColor clearColor);
     is applied, and the texture minification/magnification filtering is set to
     TextureFilter.Nearest.
 */
-SVGTexture(String internalPath, 
-           int width, int height,
-           SVGColor clearColor,
-           boolean dilateEdgesFix);
+SVGTexture createTexture(FileHandle svgFile,
+                         int width,
+                         int height,
+                         SVGColor clearColor,
+                         boolean dilateEdgesFix);
+
+/*
+    Create a texture out of an SVG document (already instantiated externally).
+    Size of texture is specified by the given 'width' and 'height'.
+    Before the SVG rendering, pixels are initialized with the given 'clearColor'.
+
+    If the 'dilateEdgesFix' flag is set to true, the rendering process will also
+    perform a 1-pixel dilate post-filter; this dilate filter is useful when the
+    texture has some transparent parts (i.e. pixels with alpha component = 0): such
+    flag will induce TextureFilter.Linear minification/magnification filtering.
+
+    If the 'dilateEdgesFix' flag is set to false, no additional dilate post-filter
+    is applied, and the texture minification/magnification filtering is set to
+    TextureFilter.Nearest.
+*/
+SVGTexture createTexture(SVGDocument doc,
+                         int width,
+                         int height,
+                         SVGColor clearColor,
+                         boolean dilateEdgesFix);
+
+/*
+    Instantiate a texture atlas generator.
+
+    The specified `scale` factor will be applied to all collected SVG
+    documents/elements, in order to realize resolution-independent atlas.
+    Every collected SVG document/element will be packed into rectangular
+    textures, whose dimensions won't exceed the specified 'maxTexturesDimension',
+    in pixels.
+
+    If true, 'pow2Textures' will force textures to have power-of-two dimensions.
+
+    Each packed element will be separated from the others by the specified
+    'border', in pixels.
+
+    If the 'dilateEdgesFix' flag is set to true, the rendering process will also
+    perform a 1-pixel dilate post-filter; this dilate filter is useful when the
+    texture has some transparent parts (i.e. pixels with alpha component = 0): such
+    flag will induce TextureFilter.Linear minification/magnification filtering.
+
+    If the 'dilateEdgesFix' flag is set to false, no additional dilate post-filter
+    is applied, and the texture minification/magnification filtering is set to
+    TextureFilter.Nearest.
+
+    Before the SVG rendering, pixels are initialized with the given 'clearColor'.
+*/
+SVGTextureAtlasGenerator createAtlasGenerator(float scale,
+                                              int maxTexturesDimension,
+                                              int border,
+                                              boolean pow2Textures,
+                                              boolean dilateEdgesFix,
+                                              SVGColor clearColor);
 ```
 
-There are four additional constructors, with the same meaning of those already described but with the difference that as a first parameter they take a [FileHandle](https://libgdx.badlogicgames.com/ci/nightlies/docs/api/com/badlogic/gdx/files/FileHandle.html):
+In addition this class implements a method to create a `SVGDocument` instance from files:
 
 ```java
-SVGTexture(FileHandle file);
+/* Create and load an SVG document, specifying a file handle. */
+SVGDocument createDocument(FileHandle file);
 
-SVGTexture(FileHandle file, int width, int height);
+/*
+    Create and load an SVG document, specifying an internal filename.
+    It is a simple shortcut to the previous method:
 
-SVGTexture(FileHandle file, int width, int height,
-           SVGColor clearColor);
-
-SVGTexture(FileHandle file, int width, int height,
-           SVGColor clearColor, boolean dilateEdgesFix);
+    createDocument(Gdx.files.internal(internalFileName))
+*/
+SVGDocument createDocumentFromFile(String internalFileName);
 ```
 
-Some usage examples:
+Here is an example of `SVGAssetsGDX` initialization:
 
 ```java
-SVGTexture tex = new SVGTexture(Gdx.files.internal("animals.svg"));
+/* create configuration for AmanithSVG */
+SVGAssetsConfigGDX cfg = new SVGAssetsConfigGDX(Gdx.graphics.getBackBufferWidth(),
+                                                Gdx.graphics.getBackBufferHeight(),
+                                                Gdx.graphics.getPpiX());
+/* initialize AmanithSVG for libGDX */
+SVGAssetsGDX svg = new SVGAssetsGDX(cfg);
 
-SVGTexture tex = new SVGTexture("background.svg",
-                                Gdx.graphics.getBackBufferWidth(),
-                                Gdx.graphics.getBackBufferHeight());
+< do something with svg >
+
+/* release AmanithSVG */
+svg.dispose();
 ```
 
-All listed constructors create an [SVGDocument]({{site.url}}/docs/binding/002-java.html#svgdocument) from the given SVG file, and keep it in memory until the texture is disposed.
-Such internal `SVGDocument` instance will be used to re-create the texture when the EGL/GL context is lost.
-It's also possible to create a texture from a given (external) `SVGDocument`:
+---
+
+## SVGTexture
+
+[SVGTexture](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGTexture.java) class extends the libGDX [Texture class](https://javadoc.io/static/com.badlogicgames.gdx/gdx/1.11.0/com/badlogic/gdx/graphics/Texture.html). Therefore `SVGTexture` is a Texture whose content (i.e. pixels) is created by the rendering of an SVG. Compared to the base class, `SVGTexture` does not expose additional methods, but just a bunch of new constructors, specifically designed to provide SVG content.
+
+The class can be instantiated by `SVGAssetsGDX`'s `createTexture` methods, here is an example:
 
 ```java
-SVGTexture(SVGDocument doc, int width, int height,
-           SVGColor clearColor, boolean dilateEdgesFix);
-```
+/* create configuration for AmanithSVG */
+SVGAssetsConfigGDX cfg = new SVGAssetsConfigGDX(Gdx.graphics.getBackBufferWidth(),
+                                                Gdx.graphics.getBackBufferHeight(),
+                                                Gdx.graphics.getPpiX());
+/* initialize AmanithSVG for libGDX */
+SVGAssetsGDX svg = new SVGAssetsGDX(cfg);
 
-Here's a possible usage example:
+/* create a 512 x 512 texture from animals.svg file */
+SVGTexture tex = svg.createTexture("animals.svg", 512, 512);
 
-```java
-/* SVG background */
-SVGDocument[] backgrounds = { null, null, null, null };
+< do something with the texture, for example batch.draw >
 
-/* load/create backgrounds documents (init time, the create() function) */
-backgrounds[0] = SVGAssets.createDocument(Gdx.files.internal("gameBkg1.svg"));
-backgrounds[1] = SVGAssets.createDocument(Gdx.files.internal("gameBkg2.svg"));
-backgrounds[2] = SVGAssets.createDocument(Gdx.files.internal("gameBkg3.svg"));
-backgrounds[3] = SVGAssets.createDocument(Gdx.files.internal("gameBkg4.svg"));
-
-/* when a new game level starts, select a background according to 
-   the current game state */
-int selected = selectBackground(gameState);
-/* generate the background texture */
-SVGTexture tex = new SVGTexture(backgrounds[selected],
-                                Gdx.graphics.getBackBufferWidth(),
-                                Gdx.graphics.getBackBufferHeight(),
-                                SVGColor.Clear, false);
-
-/* display background (runtime, the render() function) */
-batch.draw(tex, ...);
-
-/* at dispose time (the dispose() function), lets free resources */
+/* release AmanithSVG and resources */
 tex.dispose();
-for (int i = 0; i < 4; ++i) {
-    backgrounds[i].dispose();
-}
+svg.dispose();
 ```
 
-Finally, as a last option, it is possible to create a texture from a given (external) [SVGSurface]({{site.url}}/docs/binding/002-java.html#svgsurface):
+As an additional option, the class can also be instantiated directly by providing an [SVGSurface]({{site.url}}/docs/binding/002-java.html#svgsurface).
 
 ```java
-SVGTexture(SVGSurface surface);
+/*
+    Create a texture out of a drawing surface
 
-SVGTexture(SVGSurface surface, boolean dilateEdgesFix);
+    If the 'dilateEdgesFix' flag is set to true, the rendering process will also
+    perform a 1-pixel dilate post-filter; this dilate filter is useful when the
+    texture has some transparent parts (i.e. pixels with alpha component = 0): such
+    flag will induce TextureFilter.Linear minification/magnification filtering.
+
+    If the 'dilateEdgesFix' flag is set to false, no additional dilate post-filter
+    is applied, and the texture minification/magnification filtering is set to
+    TextureFilter.Nearest.
+*/
+SVGTexture(SVGSurface surface,
+           boolean dilateEdgesFix);
 ```
 
 This kind of approach is useful when you want to manipulate the surface using the Java binding, and then create a texture on the fly out of the `SVGSurface`.
 For example, suppose that we want to draw four different SVG documents within the same drawing surface (of course over 4 different non-overlapping sub-regions), the code would look as follow:
 
 ```java
+/* create configuration for AmanithSVG */
+SVGAssetsConfigGDX cfg = new SVGAssetsConfigGDX(Gdx.graphics.getBackBufferWidth(),
+                                                Gdx.graphics.getBackBufferHeight(),
+                                                Gdx.graphics.getPpiX());
+/* initialize AmanithSVG for libGDX */
+SVGAssetsGDX svg = new SVGAssetsGDX(cfg);
+
 /* load SVG files */
-SVGDocument svg1 = SVGAssets.createDocument(Gdx.files.internal("car_coolant.svg"));
-SVGDocument svg2 = SVGAssets.createDocument(Gdx.files.internal("car_maintenance.svg"));
-SVGDocument svg3 = SVGAssets.createDocument(Gdx.files.internal("car_brake.svg"));
-SVGDocument svg4 = SVGAssets.createDocument(Gdx.files.internal("car_oil.svg"));
+SVGDocument doc1 = svg.createDocumentFromFile("car_coolant.svg");
+SVGDocument doc2 = svg.createDocumentFromFile("car_maintenance.svg");
+SVGDocument doc3 = svg.createDocumentFromFile("car_brake.svg");
+SVGDocument doc4 = svg.createDocumentFromFile("car_oil.svg");
 
 /* create a drawing surface */
-SVGSurface srf = SVGAssets.createSurface(512, 512);
+SVGSurface srf = svg.createSurface(512, 512);
 
 /* select an upper-left sub-region and draw the first SVG document */
 srf.setViewport(new SVGViewport(0, 0, 256, 256));
-srf.draw(svg1, SVGColor.White, SVGTRenderingQuality.Better);
+srf.draw(doc1, SVGColor.White, SVGTRenderingQuality.Better);
 
 /* select an upper-right sub-region and draw the second SVG document */
 srf.setViewport(new SVGViewport(256, 0, 256, 256));
-srf.draw(svg2, null, SVGTRenderingQuality.Better);
+srf.draw(doc2, null, SVGTRenderingQuality.Better);
 
 /* select the whole lower-left sub-region and draw the third SVG document */
 srf.setViewport(new SVGViewport(0, 256, 256, 256));
-srf.draw(svg3, null, SVGTRenderingQuality.Better);
+srf.draw(doc3, null, SVGTRenderingQuality.Better);
 
 /* select the whole lower-right sub-region and draw the fourth SVG document */
 srf.setViewport(new SVGViewport(256, 256, 256, 256));
-srf.draw(svg4, null, SVGTRenderingQuality.Better);
+srf.draw(doc4, null, SVGTRenderingQuality.Better);
 
 /* create a texture out of the drawing surface */
 SVGTexture tex = new SVGTexture(srf, false);
+
 < do something with the texture, for example batch.draw >
 
-/* destroy surface and documents */
-svg1.dispose();
-svg2.dispose();
-svg3.dispose();
-svg4.dispose();
+/* destroy documents and surface */
+doc1.dispose();
+doc2.dispose();
+doc3.dispose();
+doc4.dispose();
 srf.dispose();
 tex.dispose();
+/* release AmanithSVG */
+svg.dispose();
 ```
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Usage of surface viewport* |
-{:.tbl_images .srf_viewport} 
-
+{:.tbl_images .srf_viewport}
 
 ---
 
 ## SVGTextureAtlasGenerator
 
-Besides rendering single SVG documents over drawing surfaces, AmanithSVG can pack the rendering of one or more SVG documents within one or more drawing surfaces, automatically. For each given SVG, you can choose to pack the whole document or instead to pack each first-level element separately. The generation of texture atlas has been exposed through the `SVGTextureAtlasGenerator` class:
+Besides rendering single SVG documents over drawing surfaces, AmanithSVG can pack the rendering of one or more SVG documents within one or more drawing surfaces, automatically. For each given SVG, you can choose to pack the whole document or instead to pack each first-level element separately. The generation of texture atlas has been exposed through the [SVGTextureAtlasGenerator](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGTextureAtlasGenerator.java) class, that can be instantiated through `SVGAssetsGDX`'s `createAtlasGenerator` methods:
 
 ```java
-/* constructor */
-SVGTextureAtlasGenerator(float scale,
-                         int maxTexturesDimension,
-                         int border,
-                         boolean pow2Textures,
-                         boolean dilateEdgesFix,
-                         SVGColor clearColor);
+SVGTextureAtlasGenerator createAtlasGenerator(float scale,
+                                              int maxTexturesDimension,
+                                              int border,
+                                              boolean pow2Textures,
+                                              boolean dilateEdgesFix,
+                                              SVGColor clearColor);
 ```
 
-The specified `scale` factor will be applied to all collected SVG documents/elements, in order to realize resolution-independent atlas. Every collected SVG document/element will be packed into rectangular bins, whose dimensions won't exceed the specified `maxTexturesDimension`, in pixels. If true, `pow2Textures` will force bins to have power-of-two dimensions. Each packed element will be separated from the others by the specified `border`, in pixels.
+The specified `scale` factor will be applied to all collected SVG documents/elements, in order to realize resolution-independent atlas. Every collected SVG document/element will be packed into rectangular bins, whose dimensions won't exceed the specified `maxTexturesDimension`, in pixels. If true, `pow2Textures` will force bins to have power-of-two dimensions. Each packed element will be separated from the others by the specified `border`, in pixels. If the `dilateEdgesFix` flag is set to true, the rendering process will also perform a 1-pixel dilate post-filter; this dilate filter is useful when the texture has some transparent parts (i.e. pixels with alpha component = 0): such flag will induce `TextureFilter.Linear` minification/magnification filtering.
+If the `dilateEdgesFix` flag is set to false, no additional dilate post-filter is applied, and the texture minification/magnification filtering is set to `TextureFilter.Nearest`.
 
 SVG files can be added to the packing process using the `add` method:
 
 ```java
-/* add an SVG document to the current packing process */
-boolean add(FileHandle file, boolean explodeGroups, float scale);
+/* Add an SVG document to the current packing process. */
+boolean add(FileHandle file,
+            boolean explodeGroups,
+            float scale);
 ```
 
 If true, `explodeGroups` tells the packer to not pack the whole SVG document, but instead to pack each first-level element separately; the additional `scale` is used to adjust the document content to the other documents involved in the current packing process.
 When all documents have been added, the generation of texture atlas can be performed by calling the `generateAtlas` method:
 
 ```java
-/* generate the texture atlas; NB: this method MUST be called from
-   the OpenGL thread, because it creates textures */
+/*
+    Generate the texture atlas; NB: this method MUST be called from
+    the OpenGL thread, because it creates textures.
+*/
 SVGTextureAtlas generateAtlas();
 ```
 
 Here's an example:
 
 ```java
-SVGTextureAtlasGenerator atlasGen = new SVGTextureAtlasGenerator(1.0f, 512, 1, false,
-                                                                 true, SVGColor.Clear);
+/* create configuration for AmanithSVG */
+SVGAssetsConfigGDX cfg = new SVGAssetsConfigGDX(Gdx.graphics.getBackBufferWidth(),
+                                                Gdx.graphics.getBackBufferHeight(),
+                                                Gdx.graphics.getPpiX());
+/* initialize AmanithSVG for libGDX */
+SVGAssetsGDX svg = new SVGAssetsGDX(cfg);
+
+/* create a texture atlas generator, textures will have a maximum dimension of 512 pixels */
+SVGTextureAtlasGenerator atlasGen = svg.createAtlasGenerator(1.0f, 512, 1, false,
+                                                             true, SVGColor.Clear);
 /* explode all first-level groups (i.e. all orc parts, separately) */
-atlasGen.add(Gdx.files.internal("orc.svg"), true, 1.0f);
+atlasGen.add("orc.svg", true, 1.0f);
+
 /* generate the texture atlas */
 SVGTextureAtlas atlas = atlasGen.generateAtlas();
 /* get access to the generated textures */
@@ -253,9 +398,11 @@ SVGTextureAtlasPage[] textures = atlas.getPages();
 /* release resources */
 atlas.dispose();
 atlasGen.dispose();
+/* release AmanithSVG */
+svg.dispose();
 ```
 
-If we run the example code using this [orc.svg file](http://github.com/Mazatech/amanithsvg-bindings/blob/master/Unity/Assets/SVGAssets/SVGFiles/orc.svg.txt), it will produce a single `452 x 108` texture, with the following regions:
+If we run the example code using this [orc.svg file](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/orc.svg.txt), it will produce a single `452 x 108` texture, with the following regions:
 
 |          | elemName | originalX | originalY | x   | y   | width | height | zOrder |
 | -------- | -------- | --------- | --------- | --- | --- | ----- | ------ | ------ |
@@ -271,35 +418,33 @@ If we run the example code using this [orc.svg file](http://github.com/Mazatech/
 | regions[9] | sx_leg_up | 70 | 146 | 350 | 54 | 38 | 54 | 1 |
 {:.rwd-table2 .rwd-table-orcAtlas}
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *orc.svg* |
-{:.tbl_images .orcSvg} 
+{:.tbl_images .orcSvg}
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *orc atlas* |
-{:.tbl_images .orcSvgAtlas} 
-
+{:.tbl_images .orcSvgAtlas}
 
 ---
 
 ## SVGTextureAtlas
 
-`SVGTextureAtlas` class represents the result of a packing process performed by an `SVGTextureAtlasGenerator` instance.
-The only useful method is the `getPages`, which returns an array of texture:
+[SVGTextureAtlas](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGTextureAtlas.java) class represents the result of a packing process performed by an `SVGTextureAtlasGenerator` instance.
+The only useful method is the `getPages`, which returns an array of textures:
 
 ```java
 /* get the generated textures */
 SVGTextureAtlasPage[] getPages();
 ```
 
-
 ---
 
 ## SVGTextureAtlasPage
 
-`SVGTextureAtlasPage` extends the libGDX [Texture class](http://libgdx.badlogicgames.com/ci/nightlies/docs/api/com/badlogic/gdx/graphics/Texture.html).
+[SVGTextureAtlasPage](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGTextureAtlasPage.java) extends the libGDX [Texture class](https://javadoc.io/static/com.badlogicgames.gdx/gdx/1.11.0/com/badlogic/gdx/graphics/Texture.html).
 Because the texture can contain several packed elements from SVG files, it could be useful to access these regions:
 
 ```java
@@ -307,12 +452,11 @@ Because the texture can contain several packed elements from SVG files, it could
 SVGTextureAtlasRegion[] getRegions();
 ```
 
-
 ---
 
 ## SVGTextureAtlasRegion
 
-`SVGTextureAtlasRegion` extends the libGDX [TextureRegion class](http://libgdx.badlogicgames.com/ci/nightlies/docs/api/com/badlogic/gdx/graphics/g2d/TextureRegion.html).
+[SVGTextureAtlasRegion](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/libgdx/gameCards/core/src/com/mazatech/gdx/SVGTextureAtlasRegion.java) extends the libGDX [TextureRegion class](https://javadoc.io/static/com.badlogicgames.gdx/gdx/1.11.0/com/badlogic/gdx/graphics/g2d/TextureRegion.html).
 In addition to the base class methods, it exposes some useful information about the packed element:
 
 ```java
@@ -330,9 +474,10 @@ int getY();
 SVGTHandle getDocHandle();
 /* Z-order (i.e. the rendering order of the element, as induced by the SVG tree) */
 int getZOrder();
+/* the used destination viewport width (induced by packing scale factor) */
+float getDstViewportWidth();
+/* the used destination viewport height (induced by packing scale factor) */
+float getDstViewportHeight();
 ```
-
-For a complete libGDX example, please have a look at [this](http://github.com/Mazatech/amanithsvg-bindings/tree/master/libGDX/gameCards).
-
 
 ---

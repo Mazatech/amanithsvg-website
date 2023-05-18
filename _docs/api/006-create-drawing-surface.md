@@ -24,21 +24,27 @@ SVG documents can be drawn on surfaces (a "rectangular" memory region made of pi
     Return SVGT_INVALID_HANDLE in case of errors, else a valid drawing surface
     handle.
 */
-SVGTHandle svgtSurfaceCreate(SVGTuint width, SVGTuint height);
+SVGTHandle svgtSurfaceCreate(SVGTuint width,
+                             SVGTuint height);
 ```
 
 ```c
 /*
     Get the maximum dimension allowed for drawing surfaces.
+    This function does not set the last-error code (see svgtGetLastError).
 
     This is the maximum valid value that can be specified as 'width' and
     'height' for the svgtSurfaceCreate and svgtSurfaceResize functions.
 
-    In order to get a valid value, the library must have been already
-    initialized (see svgtInit).
+    The function can be called at any time and always returns a valid value.
+
+    NB: this is a shortcut to svgtConfigGet(SVGT_CONFIG_MAX_SURFACE_DIMENSION)
+    and may be removed in the future.
 */
 SVGTuint svgtSurfaceMaxDimension(void);
 ```
+
+**WARNING** this function is a shortcut to `svgtConfigGet(SVGT_CONFIG_MAX_SURFACE_DIMENSION)` and may be removed in the future.
 
 After a drawing surface has been created, it is possible to retrieve its dimensions (in pixels) and a pointer to its pixels using the following functions:
 

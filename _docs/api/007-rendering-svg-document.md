@@ -233,7 +233,7 @@ SVGTErrorCode svgtDocViewportSet(SVGTHandle svgDoc,
 
 The document viewport could be though as the source (or logical) viewport, the surface viewport instead could be though as the destination (or physical) viewport. The combined use of `svgtDocViewportSet` and `svgtSurfaceViewportSet` induces a transformation matrix, that will be used (by the `svgtDocDraw` function) to draw the whole SVG document. The induced matrix will ensure that the document viewport will be mapped onto the surface viewport: all SVG content will be drawn accordingly.
 
-If the two viewports do not have the same aspect ratio (i.e. width-to-height ratio), we need to specify how the `svgtDocDraw` function is to display the SVG document. We do so using the following function:
+If the two viewports do not have the same aspect ratio (i.e. width-to-height ratio), we need to specify how the `svgtDocDraw` function is to display the SVG document. We do so by using the following function:
 
 ```c
 /*
