@@ -1236,7 +1236,7 @@ Note for AmanithSVG Lite: although indicated as supported, attributes are intend
 | [Filter primitive attributes](#filter-primitive-attributes) | | | | - |
 | class | <span class="supported"></span> | | <span class="unsupported"></span> | - |
 | style | <span class="supported"></span> | | <span class="supported"></span> | - |
-| in | <span class="supported"></span> | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only | - |
+| in | <span class="supported"></span> | | <span class="partial"></span> | SourceGraphic, SourceAlpha, \<filter-primitive-reference\> only |
 | surfaceScale | <span class="supported"></span> | | <span class="supported"></span> | - |
 | diffuseConstant | <span class="supported"></span> | | <span class="supported"></span> | - |
 | kernelUnitLength | <span class="supported"></span> | | <span class="unsupported"></span> | - |
