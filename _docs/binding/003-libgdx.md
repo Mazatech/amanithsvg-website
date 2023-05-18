@@ -382,7 +382,7 @@ SVGAssetsConfigGDX cfg = new SVGAssetsConfigGDX(Gdx.graphics.getBackBufferWidth(
 /* initialize AmanithSVG for libGDX */
 SVGAssetsGDX svg = new SVGAssetsGDX(cfg);
 
-/* create a texture atlas generator, textures will have a maximum dimension of 512 pixels */
+/* create a texture atlas generator, textures will have a max dimension of 512 pixels */
 SVGTextureAtlasGenerator atlasGen = svg.createAtlasGenerator(1.0f, 512, 1, false,
                                                              true, SVGColor.Clear);
 /* explode all first-level groups (i.e. all orc parts, separately) */
