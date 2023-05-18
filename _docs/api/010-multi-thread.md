@@ -32,6 +32,10 @@ typedef struct {
     SVGTbitfield hints;
 } Resource;
 
+// rely on standard C library for memory allocation
+#define mem_calloc calloc
+#define mem_free free
+
 // global mutex
 Mutex mutex;
 // global list of SVG files to be rendered by threads
@@ -43,7 +47,7 @@ static char* loadTextFile(FileName f) {
 /*
     - open file (fopen)
     - get file size (fseek + ftell)
-    - allocate buffer (calloc), having the care to
+    - allocate buffer (mem_calloc), having the care to
       add an extra byte for the trailing '\0'
     - read file (fread)
     - close file (fclose)
@@ -111,6 +115,8 @@ static void threadRender(FileName f) {
     svgtSurfaceDestroy(surface);
     // destroy SVG document
     svgtDocDestroy(doc);
+    // release memory allocated by loadTextFile function
+    mem_free(xml);
 }
 
 // thread function
@@ -120,7 +126,7 @@ static void threadFunc(void) {
     // 32k chars log buffer
     int logBufferSize = 32768;
     // allocate buffer
-    char* logBuffer = thread_mem_alloc(logBufferSize * sizeof(char));
+    char* logBuffer = mem_alloc(logBufferSize * sizeof(char));
 
     // set the AmanithSVG log buffer for this thread
     svgtLogBufferSet(logBuffer, logBufferSize, SVGT_LOG_LEVEL_ALL);
@@ -147,7 +153,7 @@ static void threadFunc(void) {
     svgtLogBufferSet(NULL, 0, SVGT_LOG_LEVEL_ALL);
 
     // release buffer memory
-    thread_mem_free(logBuffer);
+    mem_free(logBuffer);
 }
 
 // main entry point
@@ -195,11 +201,14 @@ int main(int argc,
     // initialize AmanithSVG library
     svgtInit(getScreenWidth(), getScreenHeight(), getDpi());
 
-    // set user-agent language
+    // set user-agent language (the following languages
+    // list is used for example purposes only)
     svgtLanguageSet("en-US;en-GB;it;es")
 
-    // set curves quality
-    svgtConfigSet(SVGT_CONFIG_CURVES_QUALITY, renderingQuality);
+    // set curves quality (curves quality parameter ranges between 1
+    // and 100; 1 represents the worst quality and 100 the best one,
+    // the value 75 used here is for example purposes only)
+    svgtConfigSet(SVGT_CONFIG_CURVES_QUALITY, 75.0f);
 
     // load resources (fonts and images)
     for (i = 0; i < resourcesCount; ++i) {
