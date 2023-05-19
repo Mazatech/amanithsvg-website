@@ -138,15 +138,17 @@ static void threadFunc(void) {
         if (current < svgs.count) {
             // ... extract the next one
             FileName f = svgs[current++];
+            // unlock the global mutex
+            mutex.unlock();
             // draw it
             threadRender(f);
         }
         else {
+            // unlock the global mutex
+            mutex.unlock();
             // there are no more SVG to render, this thread can exit
             done = true;
         }
-        // unlock the global mutex
-        mutex.unlock();
     }
 
     // stop AmanithSVG logging
