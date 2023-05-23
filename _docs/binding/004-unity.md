@@ -6,9 +6,24 @@ chapter: 4
 categories: [binding]
 ---
 
+# AmanithSVG native plugins for Unity, requirements and limitations
+
+AmanithSVG native plugins for Unity differ from other AmanithSVG standalone builds because they implement some specific methods to speed up the upload of pixels to textures as much as possible. These specific methods make direct use of native graphics APIs, which are different for each supported platform. In the detail, AmanithSVG native plugins for Unity support:
+
+- Windows platform (x86, x86_64), Direct3D 11
+- MacOS X platform (Apple Silicon, x64), Metal
+- Linux platform (x86, x86_64), OpenGL
+- iOS X platform (Apple Silicon, x64), Metal
+- Android platform (ARMv7, ARM64, x86, x86_64), OpenGL ES
+
+**Vulkan graphics API is not supported by AmanithSVG native plugins for Unity**.
+
+To make sure that AmanithSVG for Unity can continue to be used even in the presence of unsupported native graphics APIs, several fallbacks have been implemented using standard (but slower) Unity calls ([GetRawTextureData](https://docs.unity3d.com/ScriptReference/Texture2D.GetRawTextureData.html), [GetUnsafeBufferPointerWithoutChecks](https://docs.unity3d.com/ScriptReference/Unity.Collections.LowLevel.Unsafe.NativeArrayUnsafeUtility.GetUnsafeBufferPointerWithoutChecks.html), [LoadRawTextureData](https://docs.unity3d.com/ScriptReference/Texture2D.LoadRawTextureData.html)).
+The use of fast texture upload via native graphics APIs, or the fallbacks mechanism via Unity legacy functions, is controlled by the `Fast upload` flag of [SVGTextureBehaviour](#svgtexturebehaviour), [SVGBackgroundBehaviour](#svgbackgroundbehaviour), [SVGAtlas](#svgatlas) classes.
+
 # Unity binding
 
-[Unity](https://unity3d.com/) is a cross-platform game engine that can be used to create both three-dimensional and two-dimensional games as well as simulations for its many platforms. Unity engine offers a primary scripting API in C#, for both the Unity editor in the form of plugins, and games themselves, as well as drag and drop functionality.
+[Unity](https://unity3d.com) is a cross-platform game engine that can be used to create both three-dimensional and two-dimensional games as well as simulations for its many platforms. Unity engine offers a primary scripting API in C#, for both the Unity editor in the form of plugins, and games themselves, as well as drag and drop functionality.
 
 So the AmanithSVG binding for Unity consists in a set of C# classes and editor plugins in order to expose AmanithSVG functionalities in a simple way; the binding extends the higher layer C# binding already discussed [here]({{site.url}}/docs/binding/001-csharp.html). In particular four new classes have been introduced:
 
@@ -17,8 +32,7 @@ So the AmanithSVG binding for Unity consists in a set of C# classes and editor p
  - [SVGAssetsConfigUnity](#svgassetsconfigunity)
  - [SVGAssetsUnity](#svgassetsunity)
 
-Then, using these new classes, the Unity binding exposes additional classes that integrate AmanithSVG features with Unity specific mechanisms (e.g. monobehaviour, sprites, texture atlas and so on).
-Here's the list of implemented Unity-specific classes:
+Then, using these new classes, the Unity binding exposes additional classes that integrate AmanithSVG features with Unity specific mechanisms (e.g. monobehaviour, sprites, texture atlas and so on). Here's the list of implemented Unity-specific classes:
 
  - [SVGTextureBehaviour](#svgtexturebehaviour)
  - [SVGBackgroundBehaviour](#svgbackgroundbehaviour)
@@ -183,7 +197,7 @@ It takes in input the SVG file (as a [TextAsset](https://docs.unity3d.com/Script
 | *Editor mask for the SVGTextureBehaviour component* |
 {:.tbl_images .unitytut_SVGTextureBehaviour}
 
-If the `Fast upload` checkbox is selected, AmanithSVG native library will update the Unity texture using the following methods:
+If the `Fast upload` checkbox is selected, AmanithSVG native plugins for Unity will update the Unity texture using the following methods:
 
  - [UpdateSubresource](https://docs.microsoft.com/en-us/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-updatesubresource) (Direct3D 11)
 
@@ -195,7 +209,7 @@ You can see the usage of `SVGTextureBehaviour` script by opening the [plane scen
 
 | &nbsp; |
 | :---: |
-|  *The "plane" scene* |
+| *The "plane" scene* |
 {:.tbl_images .unitytut_unity_plane_scene}
 
 ---
