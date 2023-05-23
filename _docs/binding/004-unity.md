@@ -13,7 +13,7 @@ AmanithSVG native plugins for Unity differ from other AmanithSVG standalone buil
 - Windows platform (x86, x86_64), Direct3D 11
 - MacOS X platform (Apple Silicon, x64), Metal
 - Linux platform (x86, x86_64), OpenGL
-- iOS X platform (Apple Silicon, x64), Metal
+- iOS platform (Apple Silicon, x64), Metal
 - Android platform (ARMv7, ARM64, x86, x86_64), OpenGL ES
 
 **Vulkan graphics API is not supported by AmanithSVG native plugins for Unity**.
