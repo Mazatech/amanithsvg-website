@@ -23,6 +23,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | C#, Java, libGDX, Unity bindings | <span class="supported"></span> | <span class="supported"></span> |
 {:.rwd-table2 .rwd-table-lite-full-features}
 
+---
 
 | AmanithSVG Lite |
 | --------------- |
@@ -30,6 +31,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | Free for all, without limitations |
 {:.rwd-table2 .rwd-table-lite-terms}
 
+---
 
 | AmanithSVG Full |
 | --------------- |
@@ -59,14 +61,14 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 
 ## What type of commercial use is excluded?
 AmanithSVG pricing above does not apply to:
-    - any product that is reasonably identifiable as a Developer Tool, or
-    - any product that is reasonably identifiable as a Server Application, or
-    - any product that is directly or indirectly distributed with, or pre-installed in, electronic device(s) or system(s) such as, but not limited to: firmware(s) or driver(s) that equip computer(s), computer component(s), graphics board(s), systems on chip(s), mobile phone(s), smartwatch(es), tablet(s), set-top-box(es), or any other electronic hardware or device, or
-    - any product that offers or promotes services that may be damaging to, disparaging of, or otherwise detrimental to Licensor or its licensees, Affiliates and partners, or
-    - any product that simply resembles, in whole or in part, the original AmanithSVG functionalities by wrapping or exposing such functionalities through another software application interface, or
-    - any product that competes with AmanithSVG in any commercial or non-commercial market
-    - Location Based Entertainment (out of home entertainment), Simulators, Installations, and Gaming Systems (Casino)
-    - applications or platforms that deliver multiple games or permit users to exploit for commercial gain
+ * any product that is reasonably identifiable as a Developer Tool, or
+ * any product that is reasonably identifiable as a Server Application, or
+ * any product that is directly or indirectly distributed with, or pre-installed in, electronic device(s) or system(s) such as, but not limited to: firmware(s) or driver(s) that equip computer(s), computer component(s), graphics board(s), systems on chip(s), mobile phone(s), smartwatch(es), tablet(s), set-top-box(es), or any other electronic hardware or device, or
+ * any product that offers or promotes services that may be damaging to, disparaging of, or otherwise detrimental to Licensor or its licensees, Affiliates and partners, or
+ * any product that simply resembles, in whole or in part, the original AmanithSVG functionalities by wrapping or exposing such functionalities through another software application interface, or
+ * any product that competes with AmanithSVG in any commercial or non-commercial market
+ * Location Based Entertainment (out of home entertainment), Simulators, Installations, and Gaming Systems (Casino)
+ * applications or platforms that deliver multiple games or permit users to exploit for commercial gain
 
 To license for these, or any other applications not listed, please contact info@mazatech.com
 
@@ -78,3 +80,5 @@ There are no recurring fees nor royalties.
 
 ## Is it possible to get access to AmanithSVG source code?
 Source code is available for an additional fee, starting from 100k Euro (AmanithVG code excluded).
+
+---
