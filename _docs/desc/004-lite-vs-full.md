@@ -42,9 +42,9 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 {:.rwd-table2 .rwd-table-full-terms}
 
 
-| AmanithSVG Full tier | Project's budget* | Desktop** | Mobile*** | Desktop + Mobile | Splash screen |
+| Tier                 | Project's Budget | Desktop | Mobile | Desktop + Mobile | Mandatory Splash-Screen |
 | ---------------------| :---------------: | --------: | --------: | ---------------: | :-----------: |
-| INDIE\*\*\*\*        | Under 100k        | €0        | €0        | €0               | Yes           |
+| INDIE        | Under 100k        | €0        | €0        | €0               | Yes           |
 | STARTER              | Under 100k        | €150      | €300      | €350             | No            |
 | BASIC                | 100k - 500k       | €600      | €1.200    | €1.500           | No            |
 | STANDARD             | 500k - 2.5M       | €2.000    | €4.000    | €5.000           | No            |
@@ -52,10 +52,10 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 {:.rwd-table2 .rwd-table-full-tiers}
 
 | :--- |
-| *\* Budget is intended in Euro, and it is the total expected development cost at time of the project's commercial release or publication. This includes all payments for wages, contractors, running costs, licensing and hardware/software purchases.* |
-| *\*\* All the desktop platforms: Windows (x86, x86_64), MacOS X (x86_64, Apple Silicon), Linux (x86, x86_64).* |
-| *\*\*\* iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64).* |
-| *\*\*\*\* Available for independent developers only, not companies.* |
+| * Project's Budget is intended in Euro, and it is the total expected development cost at time of the project's commercial release or publication. This includes all payments for wages, contractors, running costs, licensing and hardware/software purchases. * |
+| * Desktop includes: Windows (x86, x86_64), MacOS X (x86_64, Apple Silicon), Linux (x86, x86_64). * |
+| * Mobile includes: iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64). * |
+| * INDIE Tier is available for independent developers only, not for companies. * |
 {:.rwd-table}
 
 # Licensing FAQ
