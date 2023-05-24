@@ -42,19 +42,20 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 {:.rwd-table2 .rwd-table-full-terms}
 
 
-| AmanithSVG Full tier | Project's budget* | Desktop** | Mobile*** | Desktop + Mobile | Source code**** |
-| ---------------------| :---------------: | --------: | --------: | ---------------: | :-------------: |
-| STARTER              | Under 100k        | €150      | €300      | €350             | No              |
-| BASIC                | 100k - 500k       | €600      | €1.200    | €1.500           | No              |
-| STANDARD             | 500k - 2.5M       | €2.000    | €4.000    | €5.000           | No              |
-| PREMIUM              | Over 2.5M         | €6.000    | €12.000   | €15.0000         | No              |
+| AmanithSVG Full tier | Project's budget* | Desktop** | Mobile*** | Desktop + Mobile | Splash screen |
+| ---------------------| :---------------: | --------: | --------: | ---------------: | :-----------: |
+| INDIE****            | Under 100k        | €0        | €0        | €0               | Yes           |
+| STARTER              | Under 100k        | €150      | €300      | €350             | No            |
+| BASIC                | 100k - 500k       | €600      | €1.200    | €1.500           | No            |
+| STANDARD             | 500k - 2.5M       | €2.000    | €4.000    | €5.000           | No            |
+| PREMIUM              | Over 2.5M         | €6.000    | €12.000   | €15.0000         | No            |
 {:.rwd-table2 .rwd-table-full-tiers}
 
 | :--- |
 | *\* Budget is intended in Euro, and it is the total expected development cost at time of the project's commercial release or publication. This includes all payments for wages, contractors, running costs, licensing and hardware/software purchases.* |
 | *\*\* All the desktop platforms: Windows (x86, x86_64), MacOS X (x86_64, Apple Silicon), Linux (x86, x86_64).* |
 | *\*\*\* iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64).* |
-| *\*\*\*\* Source code license fee starting from 100k Euro (AmanithVG code excluded).* |
+| *\*\*\*\* Available for independent developers only, not companies.* |
 {:.rwd-table}
 
 # Licensing FAQ
@@ -79,6 +80,6 @@ The license is valid for the life of the Project.
 There are no recurring fees nor royalties.
 
 ## Is it possible to get access to AmanithSVG source code?
-Source code is available for an additional fee, starting from 100k Euro (AmanithVG code excluded).
+Source code is available on PREMIUM tier for an additional fee, if you are interested please contact [info@mazatech.com](mailto:info@mazatech.com?subject=AmanithSVG%20Source%20Code%20Licensing)
 
 ---
