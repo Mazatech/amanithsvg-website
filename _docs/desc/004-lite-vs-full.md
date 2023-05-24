@@ -42,20 +42,20 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 {:.rwd-table2 .rwd-table-full-terms}
 
 
-| Tier                 | Project's Budget | Desktop | Mobile | Desktop + Mobile | Mandatory Splash-Screen |
-| ---------------------| :---------------: | --------: | --------: | ---------------: | :-----------: |
-| INDIE        | Under 100k        | €0        | €0        | €0               | Yes           |
-| STARTER              | Under 100k        | €150      | €300      | €350             | No            |
-| BASIC                | 100k - 500k       | €600      | €1.200    | €1.500           | No            |
-| STANDARD             | 500k - 2.5M       | €2.000    | €4.000    | €5.000           | No            |
-| PREMIUM              | Over 2.5M         | €6.000    | €12.000   | €15.0000         | No            |
+| Tier                 | Project's Budget | Desktop | Mobile    | Desktop + Mobile | Mandatory Splash-Screen |
+| ---------------------| :--------------: | ------: | --------: | ---------------: | :---------------------: |
+| INDIE                | Under 100k       | €0      | €0        | €0               | Yes                     |
+| STARTER              | Under 100k       | €150    | €300      | €350             | No                      |
+| BASIC                | 100k - 500k      | €600    | €1.200    | €1.500           | No                      |
+| STANDARD             | 500k - 2.5M      | €2.000  | €4.000    | €5.000           | No                      |
+| PREMIUM              | Over 2.5M        | €6.000  | €12.000   | €15.0000         | No                      |
 {:.rwd-table2 .rwd-table-full-tiers}
 
 | :--- |
-| * Project's Budget is intended in Euro, and it is the total expected development cost at time of the project's commercial release or publication. This includes all payments for wages, contractors, running costs, licensing and hardware/software purchases. * |
-| * Desktop includes: Windows (x86, x86_64), MacOS X (x86_64, Apple Silicon), Linux (x86, x86_64). * |
-| * Mobile includes: iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64). * |
-| * INDIE Tier is available for independent developers only, not for companies. * |
+| - Project's Budget is intended in Euro, and it is the total expected development cost at time of the project's commercial release or publication. This includes all payments for wages, contractors, running costs, licensing and hardware/software purchases. |
+| - Desktop includes: Windows (x86, x86_64), MacOS X (x86_64, Apple Silicon), Linux (x86, x86_64). |
+| - Mobile includes: iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64). |
+| - INDIE Tier is available for independent developers only, not for companies. |
 {:.rwd-table}
 
 # Licensing FAQ
