@@ -42,12 +42,12 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 {:.rwd-table2 .rwd-table-full-terms}
 
 
-| AmanithSVG Full tier | Project's development budget* | Desktop** | Mobile*** | Desktop + Mobile | Source code**** |
-| ---------------------| :---------------------------: | --------: | --------: | ---------------: | :-------------: |
-| STARTER              | Under 100k                    | €150      | €300      | €350             | No              |
-| BASIC                | 100k - 500k                   | €600      | €1.200    | €1.500           | No              |
-| STANDARD             | 500k - 2.5M                   | €2.000    | €4.000    | €5.000           | No              |
-| PREMIUM              | Over 2.5M                     | €6.000    | €12.000   | €15.0000         | No              |
+| AmanithSVG Full tier | Project's budget* | Desktop** | Mobile*** | Desktop + Mobile | Source code**** |
+| ---------------------| :---------------: | --------: | --------: | ---------------: | :-------------: |
+| STARTER              | Under 100k        | €150      | €300      | €350             | No              |
+| BASIC                | 100k - 500k       | €600      | €1.200    | €1.500           | No              |
+| STANDARD             | 500k - 2.5M       | €2.000    | €4.000    | €5.000           | No              |
+| PREMIUM              | Over 2.5M         | €6.000    | €12.000   | €15.0000         | No              |
 {:.rwd-table2 .rwd-table-full-tiers}
 
 | :--- |
