@@ -27,18 +27,18 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 
 | AmanithSVG Lite |
 | --------------- |
-| Available on Unity Asset Store, libGDX/Maven [repository](https://oss.sonatype.org/content/repositories/releases/com/mazatech/amanithsvg/amanithsvg-gdx/2.0.1/), and [Github](https://github.com/Mazatech/amanithsvg-sdk) |
-| Free for all, without limitations |
+| - Available on Unity Asset Store, libGDX/Maven [repository](https://oss.sonatype.org/content/repositories/releases/com/mazatech/amanithsvg/amanithsvg-gdx/2.0.1/), and [Github](https://github.com/Mazatech/amanithsvg-sdk) |
+| - Free for all, without limitations |
 {:.rwd-table2 .rwd-table-lite-terms}
 
 ---
 
 | AmanithSVG Full |
 | --------------- |
-| Available on our website only |
-| Free for internal use (no reditribution, no server) |
-| Free for indie, with mandatory splash-screeen |
-| Per project license, according to the project's development budget, for companies |
+| - Available on our website only |
+| - Free for internal use (no reditribution, no server) |
+| - Free for indie, with mandatory splash-screeen |
+| - Per project license, according to the project's development budget, for companies |
 {:.rwd-table2 .rwd-table-full-terms}
 
 
