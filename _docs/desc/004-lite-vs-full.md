@@ -70,7 +70,7 @@ AmanithSVG pricing above does not apply to:
  * Location Based Entertainment (out of home entertainment), Simulators, Installations, and Gaming Systems (Casino)
  * applications or platforms that deliver multiple games or permit users to exploit for commercial gain
 
-To license for these, or any other applications not listed, please contact info@mazatech.com
+To license for these, or any other applications not listed, please contact [info@mazatech.com](mailto:info@mazatech.com?subject=AmanithSVG%20Full%20Licensing)
 
 ## How long is the license valid for?
 The license is valid for the life of the Project.
