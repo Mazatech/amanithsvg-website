@@ -811,6 +811,6 @@ Now you can have fun experimenting with it!
 ## Credits
 
  - Sunny countryside backgrounds (gameBkg1.svg, gameBkg2.svg, gameBkg3.svg, gameBkg4.svg) have been downloaded from: [http://xoo.me/it/template/details/6960-4-sunny-countryside-vector-scenes](http://web.archive.org/web/20150404185343/http://xoo.me/it/template/details/6960-4-sunny-countryside-vector-scenes)
- - Thanks to [Juan Pablo del Peral](juan@huertatipografica.com.ar) for the Acme font, that is covered by the [SIL Open Font License, Version 1.1](http://scripts.sil.org/OFL)
+ - Thanks to Juan Pablo del Peral (juan@huertatipografica.com.ar) for the Acme font, that is covered by the [SIL Open Font License, Version 1.1](http://scripts.sil.org/OFL)
 
 ---
