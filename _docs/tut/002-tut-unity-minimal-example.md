@@ -82,4 +82,8 @@ AmanithSVG binding for Unity also includes another script called `SVGTextureAtla
     | *Four SVG files rendered on a single texture* |
     {:.tbl_images .unity_tut1_four_svg}
 
+## Credits
+
+Thanks to "Ror362" for its great girl svg. Original source: [https://www.deviantart.com/ror362/art/Yayoi-iM-S-397886689](https://www.deviantart.com/ror362/art/Yayoi-iM-S-397886689)
+
 ---
