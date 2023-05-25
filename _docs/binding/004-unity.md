@@ -113,7 +113,7 @@ An `SVGSurfaceUnity` can be created by using the `SVGAssetsUnity.CreateSurface` 
 
 ## SVGAssetsUnity
 
-[SVGAssetsUnity](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/SVGAssets/SVGAssetsUnity.cs) is a static class through which `SVGDocument`, `SVGSurface`, `SVGSurfaceUnity` and `SVGPacker` instances can be created. It extends `SVGAssets` class by implementing additional methods specific for Unity:
+[SVGAssetsUnity](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/SVGAssets/SVGAssetsUnity.cs) is a static class through which `SVGDocument`, `SVGSurfaceUnity` and `SVGPacker` instances can be created. It extends `SVGAssets` class by implementing additional methods specific for Unity:
 
 ```c#
 /* Get screen resolution width, in pixels. */
@@ -131,8 +131,8 @@ float ScreenDpi;
     Supplied dimensions should be positive numbers greater than zero, else
     a null instance will be returned.
 */
-SVGSurface CreateSurface(uint width,
-                         uint height);
+SVGSurfaceUnity CreateSurface(uint width,
+                              uint height);
 
 /*
     Create and load an SVG document, specifying the whole XML string.
