@@ -359,7 +359,7 @@ Now you can have fun experimenting with it!
 
 ## Credits
 
-Thanks to Chris Hildenbrand for its awesome orc svg. Original source: [http://2dgameartforprogrammers.blogspot.com](https://2dgameartforprogrammers.blogspot.com)
-Thanks to Casper Tang Veje ("adcoon") for its beautiful background svg. Original source: [https://www.deviantart.com/adcoon](https://www.deviantart.com/adcoon)
+ - Thanks to Chris Hildenbrand for its awesome orc svg. Original source: [http://2dgameartforprogrammers.blogspot.com](https://2dgameartforprogrammers.blogspot.com)
+ - Thanks to Casper Tang Veje ("adcoon") for its beautiful background svg. Original source: [https://www.deviantart.com/adcoon](https://www.deviantart.com/adcoon)
 
 ---
