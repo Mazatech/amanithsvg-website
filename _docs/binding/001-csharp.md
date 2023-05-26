@@ -158,7 +158,7 @@ float Width;
     the outermost <svg> element.
     Use this (readonly) property to get the suggested viewport height, in pixels.
 
-    It returns -1 (i.e. an invalid height) in the following cases:
+    It returns a negative number (i.e. an invalid height) in the following cases:
     - outermost element is not an <svg> element
     - outermost <svg> element doesn't have a 'height' attribute specified
     - outermost <svg> element has a negative 'height' attribute specified
