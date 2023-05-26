@@ -19,7 +19,7 @@ The example explained in this chapter is implemented in the [plane scene](https:
     | *Set a unitary scene scale* |
     {:.tbl_images .unity_tut_init}
 
- - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](http://github.com/Mazatech/amanithsvg-sdk/tree/master/examples/unity/Assets/SVGAssets) (Editor, Plugins and Scripts folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project.
+ - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](http://github.com/Mazatech/amanithsvg-sdk/tree/master/examples/unity/Assets/SVGAssets) (`Editor`, `Plugins`, `Resources`, `SVGFiles` and `Scripts` folders) inside the new project's `Assets/SVGAssets` folder; so that resources (e.g. config file, fonts, SVG files), native AmanithSVG plugins and its C# interface will be available for the project.
 
     | &nbsp; |
     | :---: |
@@ -40,8 +40,6 @@ The example explained in this chapter is implemented in the [plane scene](https:
     | *The plane gameobject* |
     {:.tbl_images .unity_tut1_plane_create}
 
- - Copy an SVG file (e.g. [girl.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/girl.svg.txt) within the `Assets` directory. If needed, such file will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](http://docs.unity3d.com/ScriptReference/TextAsset.html).
-
  - Select the plane object and attach the "SVG Texture Behaviour" script (menu `Component` → `Add`, then `Scripts subsection`). This script is really simple, it shows a possible usage of AmanithSVG library. In the detail the script:
 
     - Creates a drawing surface with the same dimensions
@@ -58,7 +56,7 @@ The example explained in this chapter is implemented in the [plane scene](https:
 
     - Returns the created texture
 
- - Drag&drop the girl SVG file from the Project window to the `SVG File` property field of the script. Let other properties unchanged to their default values (`512 x 512` pixels texture dimensions, white background clear color).
+ - Find the `girl.svg` file (located in `Assets/SVGAssets/SVGFiles`) and drag&drop it from the Project window to the `SVG File` property field of the script. Let other properties unchanged to their default values (`512 x 512` pixels texture dimensions, white background clear color).
 
  - Click play and see the result.
 

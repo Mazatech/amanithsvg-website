@@ -28,9 +28,7 @@ Now we can proceed in the following way:
     | *Set a unitary scene scale* |
     {:.tbl_images .unity_tut_init}
 
- - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](https://github.com/Mazatech/amanithsvg-bindings/tree/master/Unity/Assets/SVGAssets) (`Editor`, `Plugins` and `Scripts` folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project. Copy the `Anim` folder too (it contains two simple "idle" and "walking" animation assets), inside the project's Assets folder.
-
- - Copy the [orc.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/orc.svg.txt) and [background.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/background.svg.txt) files in the project's `Assets` folder. If needed, such files will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](https://docs.unity3d.com/ScriptReference/TextAsset.html).
+ - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](http://github.com/Mazatech/amanithsvg-sdk/tree/master/examples/unity/Assets/SVGAssets) (`Anim`, `Editor`, `Plugins`, `Resources`, `SVGFiles` and `Scripts` folders) inside the new project's `Assets/SVGAssets` folder; so that resources (e.g. config file, animations, fonts, SVG files), native AmanithSVG plugins and its C# interface will be available for the project.
 
     | &nbsp; |
     | :---: |
@@ -41,7 +39,7 @@ Now we can proceed in the following way:
 
  - Create the sprite that we will use as background (menu `GameObject` → `2D Object` → `Sprite`). We rename the created object as `Background`, we position it at `(0, 0, 0)` and we set the `Order in Layer` value of the `SpriteRenderer` component to `-1`, so the background sprite will always be behind all other sprites. Now we can attach a `SVGBackgroundBehaviour` script to it (menu `Component` → `Add`, then `Scripts` subsection), then set its fields:
 
-    - drag&drop the background.svg file to the `SVG file` property
+    - find the `background.svg` file (located in `Assets/SVGAssets/SVGFiles`) and drag&drop it from the Project window to the `SVG file` property
 
     - ensure that `Sliced` checkbox is unchecked
 
@@ -58,7 +56,7 @@ Now we can proceed in the following way:
 
  - Create an `SVGAtlas` atlas generator (menu `Assets` → `SVGAssets` → `Create SVG sprites atlas`), that will be used to create and pack all the sprites relative to the orc body parts. We rename the created asset in `orcAtlas` just to avoid confusion. Then we can proceed with its settings:
 
-    - drag&drop the orc.svg file to the region labeled with `Drag & drop SVG assets here` and check the `Separate groups` option
+    - find the `orc.svg` file (located in `Assets/SVGAssets/SVGFiles`) and drag&drop it from the Project window to the region labeled with `Drag & drop SVG assets here`, then check the `Separate groups` option
 
     - set reference width and height to `960 x 540` (the dimensions of the background): at design time, we want to see if the orc character size is "compatible" with the background
 
@@ -340,13 +338,13 @@ private const float WALKING_SPEED = 0.04f;
 
 As you can see, all the code (orc and camera movement) is based on world coordinates. The source code of the final script can be found [here](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Scripts/OrcScene/OrcBehaviour.cs).
 
-In order to complete the example, we must animate the orc; we can use the "idle" and "walking" animations that we have already prepared in the `Assets/Anim/OrcScene` folder:
+In order to complete the example, we must animate the orc; we can use the "idle" and "walking" animations that we have already prepared in the `Assets/SVGAssets/Anim/OrcScene` folder:
 
  - select the `orc_body` gameobject
  
  - add an `Animator` component (menu `Component` → `Miscellaneous` → `Animator`)
 
- - drag&drop the `orc_body` controller from the `Assets/Anim/OrcScene` to the Animator's `Controller` field
+ - drag&drop the `orc_body` controller from the `Assets/SVGAssets/Anim/OrcScene` to the Animator's `Controller` field
 
 | &nbsp; |
 | :---: |

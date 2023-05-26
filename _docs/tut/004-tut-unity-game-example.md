@@ -25,9 +25,7 @@ First, lets create the project structure:
     | *Set a unitary scene scale* |
     {:.tbl_images .unity_tut_init}
 
- - Because the project is a new one, it is required to copy AmanithSVG binding for Unity (`Editor`, `Plugins` and `Scripts` folders) inside the new project's `Assets` folder; so the native AmanithSVG libraries and its C# interface will be available for the project.
-
- - Copy the [animals.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/animals.svg.txt), [gameBkg1.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg2.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg3.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg1.svg.txt), [gameBkg4.svg](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/SVGFiles/gameBkg4.svg.txt) files in the project's `Assets` folder. If needed, such files will be renamed automatically by [SVGRenamerImporter]({{site.url}}/docs/binding/004-unity.html#svgrenamerimporter) script, adding an additional `.txt` extension (if not already included), so that Unity can recognize it as a [TextAsset](https://docs.unity3d.com/ScriptReference/TextAsset.html).
+ - Because the project is a new one, it is required to copy [AmanithSVG binding for Unity](http://github.com/Mazatech/amanithsvg-sdk/tree/master/examples/unity/Assets/SVGAssets) (`Anim`, `Editor`, `Plugins`, `Resources`, `SVGFiles` and `Scripts` folders) inside the new project's `Assets/SVGAssets` folder; so that resources (e.g. config file, animations, fonts, SVG files), native AmanithSVG plugins and its C# interface will be available for the project.
 
  - The new scene should have been already populated with an orthographic camera; make sure that camera is positioned at `(0, 0, -10)`
 
@@ -46,7 +44,7 @@ Like we did in the [previous tutorial]({{site.url}}/docs/tut/003-tut-unity-anima
 
  - we create the sprite that we will use as background (menu `GameObject` → `2D Object` → `Sprite`). We rename the created object as `Background`, we position it at `(0, 0, 0)` and we set the `Order in Layer` value of the `SpriteRenderer` component to `-1`, so the background sprite will always be behind all other sprites. Now we attach a `SVGBackgroundBehaviour` script to it (menu `Component` → `Add`, then `Scripts` subsection), then set its fields:
 
-    - drag&drop one of the four backgrounds (e.g. `gameBkg1.svg`) file to the `SVG file` property
+    - drag&drop one of the four backgrounds (e.g. `Assets/SVGAssets/SVGFiles/gameBkg1.svg`) file to the `SVG file` property
 
     - check the `Sliced` checkbox, because we don't want to generate a potentially scrollable background (see the relative [documentation]({{site.url}}/docs/binding/004-unity.html#svgbackgroundbehaviour))
 
