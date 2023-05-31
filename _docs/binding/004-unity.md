@@ -542,3 +542,11 @@ AmanithSVG native plugins for Android must be placed in `Assets/SVGAssets/Plugin
 Please double check that the folder `Assets/SVGAssets/Plugins/iOS` of your project contains both the static library `libAmanithSVG.a` and [loader.m](https://github.com/Mazatech/amanithsvg-sdk/blob/master/examples/unity/Assets/SVGAssets/Plugins/iOS/loader.m)
 
 ---
+
+## "\<xyz\> elements are not supported in AmanithSVG Lite version" messages
+
+Because some features are not present in AmanithSVG Lite, you could see some warning messages about SVG unsupported elements in the Unity console window. In particular the following SVG elements are not supported in AmanithSVG Lite: [\<linearGradient\>](https://www.w3.org/TR/SVG11/pservers.html#LinearGradients), [\<radialGradient\>](https://www.w3.org/TR/SVG11/pservers.html#RadialGradients), [\<pattern\>](https://www.w3.org/TR/SVG11/pservers.html#Patterns), [\<image\>](https://www.w3.org/TR/SVG11/struct.html#ImageElement), [\<mask\>](https://www.w3.org/TR/SVG11/masking.html#Masking), [\<filter\>](https://www.w3.org/TR/SVG11/filters.html). Such elements are supported in AmanithSVG Full only, that is available for licensing on Mazatech's website. In order to use the Full version, it is not needed to change C# scripts, just substitute the native plugin.
+
+For more information, please visit [the dedicated page]({{site.url}}/docs/desc/004-lite-vs-full.html).
+
+---
