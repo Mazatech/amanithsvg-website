@@ -27,7 +27,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 
 | AmanithSVG Lite |
 | --------------- |
-| - Available on Unity Asset Store, libGDX/Maven [repository](https://oss.sonatype.org/content/repositories/releases/com/mazatech/amanithsvg/amanithsvg-gdx/2.0.1/), and [Github](https://github.com/Mazatech/amanithsvg-sdk) |
+| - Available on [Unity Asset Store](https://assetstore.unity.com/packages/tools/sprite-management/svgassets-19822), libGDX/Maven [repository](https://oss.sonatype.org/content/repositories/releases/com/mazatech/amanithsvg/amanithsvg-gdx/2.0.1/), and [Github](https://github.com/Mazatech/amanithsvg-sdk) |
 | - Free for all, without limitations |
 {:.rwd-table2 .rwd-table-lite-terms}
 
@@ -36,19 +36,19 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | AmanithSVG Full |
 | --------------- |
 | - Available on our website only |
-| - Free for internal use (no reditribution, no server) |
+| - Free for internal use (no reditribution, no server, evaluation purposes) |
 | - Free for indie, with mandatory splash-screeen |
 | - Per project license, according to the project's development budget, for companies |
 {:.rwd-table2 .rwd-table-full-terms}
 
 
-| Tier                 | Project's Budget | Desktop | Mobile    | Desktop + Mobile | Mandatory Splash-Screen |
-| ---------------------| :--------------: | ------: | --------: | ---------------: | :---------------------: |
-| INDIE                | Under 100k       | €0      | €0        | €0               | Yes                     |
-| STARTER              | Under 100k       | €150    | €300      | €350             | No                      |
-| BASIC                | 100k - 500k      | €600    | €1.200    | €1.500           | No                      |
-| STANDARD             | 500k - 2.5M      | €2.000  | €4.000    | €5.000           | No                      |
-| PREMIUM              | Over 2.5M        | €6.000  | €12.000   | €15.0000         | No                      |
+| Tier                 | Project's Budget/Revenue | Desktop | Mobile    | Desktop + Mobile | Splash-Screen           |
+| ---------------------| :----------------------: | ------: | --------: | ---------------: | :---------------------: |
+| INDIE                | Any                      | 0€      | 0€        | 0€               | Mandatory               |
+| STARTER              | Under 100k               | 150€    | 300€      | 350€             | -                       |
+| BASIC                | 100k - 500k              | 600€    | 1.200€    | 1.500€           | -                       |
+| STANDARD             | 500k - 2.5M              | 2.000€  | 4.000€    | 5.000€           | -                       |
+| PREMIUM              | Over 2.5M                | 6.000€  | 12.000€   | 15.000€          | -                       |
 {:.rwd-table2 .rwd-table-full-tiers}
 
 | :--- |
@@ -68,13 +68,15 @@ AmanithSVG pricing above does not apply to:
  * any product that offers or promotes services that may be damaging to, disparaging of, or otherwise detrimental to Licensor or its licensees, Affiliates and partners, or
  * any product that simply resembles, in whole or in part, the original AmanithSVG functionalities by wrapping or exposing such functionalities through another software application interface, or
  * any product that competes with AmanithSVG in any commercial or non-commercial market
- * Location Based Entertainment (out of home entertainment), Simulators, Installations, and Gaming Systems (Casino)
- * applications or platforms that deliver multiple games or permit users to exploit for commercial gain
+ * location based entertainment (out of home entertainment), simulators, installations, and gaming systems (casino)
 
 To license for these, or any other applications not listed, please contact [info@mazatech.com](mailto:info@mazatech.com?subject=AmanithSVG%20Full%20Licensing)
 
 ## How long is the license valid for?
 The license is valid for the life of the Project.
+
+## How do I evaluate AmanithSVG Full before buying it?
+You can access the builds by signing as INDIE.
 
 ## Are there any royalties or other recurring fees?
 There are no recurring fees nor royalties.
