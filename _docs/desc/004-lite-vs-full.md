@@ -38,7 +38,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | - Available on our website only |
 | - Free for internal use (no reditribution, no server, evaluation purposes) |
 | - Free for indie, with mandatory splash-screeen |
-| - Per project license, according to the project's development budget, for companies |
+| - Per project license, according to the project's development budget/revenue, for companies |
 {:.rwd-table2 .rwd-table-full-terms}
 
 
