@@ -8,8 +8,8 @@
    The font-size percentage is of 16px. (0.75 * 16px = 12px) */
 body {
   font-size: 75%;
-  color: #222;
-  background: lightgrey;
+  color: black;
+  background: white;
   /*font-family: "Times New Roman", Times, serif;*/
   font-family: 'Noto Serif', serif;
 }
@@ -17,7 +17,7 @@ body {
 /* Headings
 -------------------------------------------------------------- */
 
-h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #111; }
+h1,h2,h3,h4,h5,h6 { font-weight: normal }
 
 h1 { font-size: 2.3em; line-height: 1; margin-bottom: 0.5em; text-align: center }
 h2 { font-size: 1.54em; margin-bottom: 0.75em; }
@@ -104,9 +104,10 @@ caption     { background: #eee; }
 page {
     background: white;
     display: block;
-    margin: 0 auto;
-    margin-bottom: 1cm;
+    margin: 0;
+    /*margin-bottom: 1cm;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    */
     font-size: 1.35em;
 }
 
