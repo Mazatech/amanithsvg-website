@@ -5,7 +5,8 @@ body {
   font-size: 75%;
   color: #222;
   background: lightgrey;
-  font-family: "Times New Roman", Times, serif;
+  /*font-family: "Times New Roman", Times, serif;*/
+  font-family: 'Noto Serif', serif;
 }
 
 /* Headings
