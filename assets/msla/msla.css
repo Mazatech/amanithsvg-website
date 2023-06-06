@@ -1,4 +1,9 @@
 
+@font-face {
+    font-family: 'Noto Serif';
+    src: url(https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSerif/googlefonts/ttf/NotoSerif-Regular.ttf);
+}
+
 /* Default font settings.
    The font-size percentage is of 16px. (0.75 * 16px = 12px) */
 body {
