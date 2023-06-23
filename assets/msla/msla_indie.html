@@ -111,17 +111,17 @@
             <div class="page-area">
                 <h1>Mazatech Software License Agreement</h1>
                 <p>
-                    This Software License Agreement (the "Agreement") is entered into by and between Mazatech S.r.l. (the "Licensor"), a company organized and existing under the laws of Italy, having its registered office at Via Livatino, 2 - 47020 Longiano (FC), Italy, and <%= msla_licensee_name %> (the "Licensee"), a natural person subject to the laws of <%= msla_licensee_state_country %> with its principal place of business at <%= msla_licensee_business_address %>.
+                    This Software License Agreement (the "Agreement") is entered into by and between Mazatech S.r.l. (the "Licensor"), a company organized and existing under the laws of Italy, having its registered office at Via Livatino, 2 - 47020 Longiano (FC), Italy, and <%= msl_licensee_name %> (the "Licensee"), a natural person subject to the laws of <%= msl_licensee_country %> with its principal place of business at <%= msl_licensee_business_address %>.
                     Licensor and Licensee are sometimes referred to herein individually as a "Party" or collectively as the "Parties".
                     This Agreement shall be deemed effective when the Software is downloaded for the first time by the Licensee (the "Effective Date").
                 </p>
                 <h3>BACKGROUND</h3>
                 <ul type="disc">
                     <li>
-                        Whereas Licensor is the only owner of the software named <%= msla_licensor_software_registration_name %> (the "Software"), whose specifications are defined in the Documentation;
+                        Whereas Licensor is the only owner of the software named <%= msl_software_registration_name %> (the "Software"), whose specifications are defined in the Documentation;
                     </li>
                     <li>
-                        Whereas Licensor has registered the Software at "SOCIETÀ ITALIANA DEGLI AUTORI ED EDITORI (SIAE) - REGISTRO PUBBLICO SPECIALE PER I PROGRAMMI PER ELABORATORE" on the date <%= msla_licensor_software_siae_date %>, with progressive number <%= msla_licensor_software_siae_progressive_number %> and registration number <%= msla_licensor_software_siae_registration_number %>;
+                        Whereas Licensor has registered the Software at "SOCIETÀ ITALIANA DEGLI AUTORI ED EDITORI (SIAE) - REGISTRO PUBBLICO SPECIALE PER I PROGRAMMI PER ELABORATORE" on the date <%= msl_software_siae_date %>, with progressive number <%= msl_software_siae_progressive_number %> and registration number <%= msl_software_siae_registration_number %>;
                     </li>
                     <li>
                         The Licensee is not required to accept this License since he has not signed it. However, without accepting this License, the Licensee is not granted permission to use or distribute the Software or any works derived from it. It's important to note that these actions are legally prohibited unless the Licensee accept this License. Therefore, by using or distributing the Software (or any works based on it), the Licensee is indicating his acceptance of this License and all its terms and conditions regarding copying, distributing, or using the Software or any works derived from it.
@@ -162,7 +162,7 @@
                 <br><br>
                 "Developer Tool" means any application programming interface, software development kit, software libraries, code samples, routines, data structures, object classes, variables, protocols, and other resources that can be used for the purpose of developing, or being incorporated or integrated into, other software.
                 <br><br>
-                "Documentation" means publications and documentation relating to the Software including specifications, references, user manuals, installation and technical guides, provided by Licensor to Licensee on <%= msla_licensor_software_website %> website and in all documents distributed with the Software.
+                "Documentation" means publications and documentation relating to the Software including specifications, references, user manuals, installation and technical guides, provided by Licensor to Licensee on <%= msl_software_website %> website and in all documents distributed with the Software.
                 <br><br>
                 "End User" means the ultimate purchaser or user who has granted the license to directly use the Licensee's Product(s) but not to resale, re-marketing or further distribution.
                 <br><br>
@@ -473,7 +473,7 @@
                     47020 - Longiano (FC), Italy
                 <br><br>
                 If to Licensee:<br>
-                    <%= msla_licensee_email %> email address specified during the registration process.
+                    <%= msl_licensee_email %> email address specified during the registration process.
             </div>
             <div class="page-footer">- 10 -</div>
         </page>
@@ -523,25 +523,25 @@
             <div class="page-area">
                 <h2>SCHEDULE 1</h2>
                 Licensee Product(s)<br>
-                <% if (msla_licensed_platform_mobile) { %>
-                <%= msla_licensee_product_title %> for mobile (this license covers: iOS, Android)<br>
+                <% if ((msl_software_platform == "mobile") || (msl_software_platform == "desktop_mobile")) { %>
+                <%= msl_licensee_project_title %> for mobile (this license covers: iOS, Android)<br>
                 <% } %>
-                <% if (msla_licensed_platform_desktop) { %>
-                <%= msla_licensee_product_title %> for desktop (this license covers: Windows, MacOS, Linux)<br>
+                <% if ((msl_software_platform == "desktop") || (msl_software_platform == "desktop_mobile")) { %>
+                <%= msl_licensee_project_title %> for desktop (this license covers: Windows, MacOS, Linux)<br>
                 <% } %>
-                <%= msla_licensee_product_description %><br>
-                <%= msla_licensee_product_website %>
+                <%= msl_licensee_project_description %><br>
+                <%= msl_licensee_project_website %>
                 <h2>SCHEDULE 2</h2>
                 Splash Screen<br>
                 The custom splash screen that will be automatically shown during the Licensee's Product(s) startup, shall be chosen accordingly to the background relative luminance:
                 <ul type="disc">
                     <li>
                         0.0 < relative luminance <= 0.5
-                        <%= msla_powby_software_dark %>
+                        <%= msl_powby_software_dark %>
                     </li>
                     <li>
                         0.5 < relative luminance <= 1.0
-                        <%= msla_powby_software_light %>
+                        <%= msl_powby_software_light %>
                     </li>
                 </ul>
             </div>
