@@ -11,6 +11,8 @@ categories: [desc]
 ## AmanithSVG SDK
 As a first step, in order to use AmanithSVG, you need to download the SDK by following [these steps]({{site.url}}/docs/getst/000-get-amanithsvg-sdk.html).
 
+---
+
 ## Lite vs Full
 
 AmanithSVG exists in two different versions: Lite and Full. **Both support the same platforms/architectures and the same API**. The difference between the two lies in the license, and in some limitations of the Lite version compared to the Full. Specifically, the Lite version does not support the following SVG elements: [\<linearGradient\>](https://www.w3.org/TR/SVG11/pservers.html#LinearGradients), [\<radialGradient\>](https://www.w3.org/TR/SVG11/pservers.html#RadialGradients), [\<pattern\>](https://www.w3.org/TR/SVG11/pservers.html#Patterns), [\<image\>](https://www.w3.org/TR/SVG11/struct.html#ImageElement), [\<mask\>](https://www.w3.org/TR/SVG11/masking.html#Masking), [\<filter\>](https://www.w3.org/TR/SVG11/filters.html).
@@ -47,6 +49,8 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | - Mobile includes: iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64). |
 | - INDIE Tier is available for independent developers only, not for companies. |
 {:.rwd-table}
+
+---
 
 ## Licensing FAQ
 
