@@ -1,50 +1,40 @@
 ---
 layout: default
-title: "Lite vs Full"
+title: "Licensing"
 date: 2018-01-01 08:00:00 +0100
 chapter: 4
 categories: [desc]
 ---
 
-# Lite vs Full
+# Licensing
+
+## AmanithSVG SDK
+As a first step, in order to use AmanithSVG, you need to download the SDK by following [these steps]({{site.url}}/docs/getst/000-get-amanithsvg-sdk.html).
+
+## Lite vs Full
 
 AmanithSVG exists in two different versions: Lite and Full. **Both support the same platforms/architectures and the same API**. The difference between the two lies in the license, and in some limitations of the Lite version compared to the Full. Specifically, the Lite version does not support the following SVG elements: [\<linearGradient\>](https://www.w3.org/TR/SVG11/pservers.html#LinearGradients), [\<radialGradient\>](https://www.w3.org/TR/SVG11/pservers.html#RadialGradients), [\<pattern\>](https://www.w3.org/TR/SVG11/pservers.html#Patterns), [\<image\>](https://www.w3.org/TR/SVG11/struct.html#ImageElement), [\<mask\>](https://www.w3.org/TR/SVG11/masking.html#Masking), [\<filter\>](https://www.w3.org/TR/SVG11/filters.html).
 
-| Feature | AmanithSVG Lite | AmanithSVG Full |
-| -------------- | :----------: | :-------------: |
-| `<linearGradient>` SVG element | <span class="unsupported"></span> | <span class="supported"></span> |
-| `<radialGradient>` SVG element | <span class="unsupported"></span> | <span class="supported"></span> |
-| `<pattern>` SVG element | <span class="unsupported"></span> | <span class="supported"></span> |
-| `<image>` SVG element | <span class="unsupported"></span> | <span class="supported"></span> |
-| `<mask>` SVG element | <span class="unsupported"></span> | <span class="supported"></span> |
-| `<filter>` SVG element | <span class="unsupported"></span> | <span class="supported"></span> |
-| Windows, MacOS X, Linux, iOS, Android platforms | <span class="supported"></span> | <span class="supported"></span> |
-| Complete native API | <span class="supported"></span> | <span class="supported"></span> |
-| C#, Java, libGDX, Unity bindings | <span class="supported"></span> | <span class="supported"></span> |
-{:.rwd-table2 .rwd-table-lite-full-features}
+---
+
+## AmanithSVG Lite
+
+  * Available on [Unity Asset Store](https://assetstore.unity.com/packages/tools/sprite-management/svgassets-19822) as part of SVGAssets package, libGDX/Maven [repository](https://oss.sonatype.org/content/repositories/releases/com/mazatech/amanithsvg/amanithsvg-gdx/2.0.1/), and [Github](https://github.com/Mazatech/amanithsvg-sdk)
+  * Free for all, without limitations
 
 ---
 
-| AmanithSVG Lite |
-| --------------- |
-| - Available on [Unity Asset Store](https://assetstore.unity.com/packages/tools/sprite-management/svgassets-19822), libGDX/Maven [repository](https://oss.sonatype.org/content/repositories/releases/com/mazatech/amanithsvg/amanithsvg-gdx/2.0.1/), and [Github](https://github.com/Mazatech/amanithsvg-sdk) |
-| - Free for all, without limitations |
-{:.rwd-table2 .rwd-table-lite-terms}
+## AmanithSVG Full
 
----
-
-| AmanithSVG Full |
-| --------------- |
-| - Available on our website only |
-| - Free for internal use (no reditribution, no server, evaluation purposes) |
-| - Free for indie, with mandatory splash-screeen |
-| - Per project license, according to the project's development budget/revenue, for companies |
-{:.rwd-table2 .rwd-table-full-terms}
+  * Available on our website only
+  * Free for internal use (no reditribution, no server, evaluation purposes)
+  * Free for indie, with mandatory splash-screeen
+  * Per project license, according to the project's development budget/revenue, for companies
 
 
 | Tier                 | Project's Budget/Revenue | Desktop | Mobile    | Desktop + Mobile | Splash-Screen           |
 | ---------------------| :----------------------: | ------: | --------: | ---------------: | :---------------------: |
-| INDIE                | Any                      | 0€      | 0€        | 0€               | Mandatory               |
+| INDIE                | Any                      | Free    | Free      | Free             | Mandatory               |
 | STARTER              | Under 100k               | 150€    | 300€      | 350€             | -                       |
 | BASIC                | 100k - 500k              | 600€    | 1.200€    | 1.500€           | -                       |
 | STANDARD             | 500k - 2.5M              | 2.000€  | 4.000€    | 5.000€           | -                       |
@@ -58,9 +48,9 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | - INDIE Tier is available for independent developers only, not for companies. |
 {:.rwd-table}
 
-# Licensing FAQ
+## Licensing FAQ
 
-## What type of commercial use is excluded?
+### What type of commercial use is excluded?
 AmanithSVG pricing above does not apply to:
  * any product that is reasonably identifiable as a Developer Tool, or
  * any product that is reasonably identifiable as a Server Application, or
@@ -72,16 +62,16 @@ AmanithSVG pricing above does not apply to:
 
 To license for these, or any other applications not listed, please contact [info@mazatech.com](mailto:info@mazatech.com?subject=AmanithSVG%20Full%20Licensing)
 
-## How long is the license valid for?
+### How long is the license valid for?
 The license is valid for the life of the Project.
 
-## How do I evaluate AmanithSVG Full before buying it?
+### How do I evaluate AmanithSVG Full before buying it?
 You can access the builds by signing as INDIE.
 
-## Are there any royalties or other recurring fees?
+### Are there any royalties or other recurring fees?
 There are no recurring fees nor royalties.
 
-## Is it possible to get access to AmanithSVG source code?
+### Is it possible to get access to AmanithSVG source code?
 Source code is available on PREMIUM tier for an additional fee, if you are interested please contact [info@mazatech.com](mailto:info@mazatech.com?subject=AmanithSVG%20Source%20Code%20Licensing)
 
 ---
