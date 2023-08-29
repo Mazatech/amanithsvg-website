@@ -30,7 +30,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 
   * Available on our website only
   * Free for internal use (no reditribution, no server, evaluation purposes)
-  * Free for indie, with mandatory splash-screeen
+  * Free for indie, with mandatory splash-screeen: [for dark backgrounds]({{site.url}}/assets/msla/powby_amanithsvg_dark.svg), [for light backgrounds]({{site.url}}/assets/msla/powby_amanithsvg_light.svg)
   * Per project license, according to the project's development budget/revenue, for companies
 
 
@@ -48,6 +48,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | - Desktop includes: Windows (x86, x86_64), MacOS X (x86_64, Apple Silicon), Linux (x86, x86_64). |
 | - Mobile includes: iOS (x86_64, Apple Silicon) and Android (ARMv7, ARM64, x86, x86_64). |
 | - INDIE Tier is available for independent developers only, not for companies. |
+| - The mandatory Splash-Screen for INDIE Tier must be visible during Project startup for at least one second and may not contain any other product logos. |
 {:.rwd-table}
 
 <center>
