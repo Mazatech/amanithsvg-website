@@ -8,7 +8,8 @@ layout: landing
 
 ## based on the fast & light AmanithVG SRE engine
 
-<a id="redbutton" href="/docs/getst/000-get-amanithsvg-sdk.html">Getting Started</a>
+<a class="redbutton" href="/docs/getst/000-get-amanithsvg-sdk.html">Getting Started</a>
+<a class="redbutton" href="licensing_form.html" target="_blank">Licensing</a>
 
 ### AmanithSVG is a high performance native software library that implements fast rendering of static SVG files on top of OpenVG API, developed by [Mazatech](https://www.mazatech.com)
 
