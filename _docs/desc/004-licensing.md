@@ -57,7 +57,7 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 ## Licensing FAQ
 
 ### What type of commercial use is excluded?
-AmanithSVG pricing above does not apply to:
+AmanithSVG licensing as described above does not apply to:
  * any product that is reasonably identifiable as a Developer Tool, or
  * any product that is reasonably identifiable as a Server Application, or
  * any product that is directly or indirectly distributed with, or pre-installed in, electronic device(s) or system(s) such as, but not limited to: firmware(s) or driver(s) that equip computer(s), computer component(s), graphics board(s), systems on chip(s), mobile phone(s), smartwatch(es), tablet(s), set-top-box(es), or any other electronic hardware or device, or
@@ -69,7 +69,7 @@ AmanithSVG pricing above does not apply to:
 To license for these, or any other applications not listed, please contact [info@mazatech.com](mailto:info@mazatech.com?subject=AmanithSVG%20Full%20Licensing)
 
 ### How long is the license valid for?
-The license is valid for the life of the Project.
+The license is valid for the life of the Project, provided that all requirements (in terms of Project's Budget/Revenue) continue to be met.
 
 ### How do I evaluate AmanithSVG Full before buying it?
 You can access the builds by signing as INDIE.
