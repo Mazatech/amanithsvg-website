@@ -50,7 +50,9 @@ AmanithSVG exists in two different versions: Lite and Full. **Both support the s
 | - INDIE Tier is available for independent developers only, not for companies. |
 {:.rwd-table}
 
-<a class="redbutton" href="{{site.url}}/licensing_form.html" target="_blank">Get License</a>
+<center>
+    <a class="redbutton" href="{{site.url}}/licensing_form.html" target="_blank">Get License</a>
+</center>
 
 ---
 

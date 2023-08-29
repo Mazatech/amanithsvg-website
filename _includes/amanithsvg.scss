@@ -713,12 +713,12 @@ dt {
 }
 
 .redbutton {
-  display: block;
+  display: inline-block;
   border-radius: 6px;
   background-color: #c82820;
   background: linear-gradient(#d83830, #c02018);
   color: #fff;
-  font-size: 1.7em;
+  font-size: 1.9em;
   font-weight: 500;
   text-shadow: 0 -1px 2px rgba(72, 16, 10, 1.0);
   box-shadow: 0  2px  4px rgba(72, 16, 10, 1.0),
@@ -726,7 +726,7 @@ dt {
               0 10px 14px rgba(72, 16, 10, 0.2); 
   letter-spacing: 1px;
   padding: 4px 10px;
-  margin: 5px auto;
+  margin: 5px;
   min-width: 200px;
   width: 15%;
   overflow: hidden;
